@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     public bool Stunned = false;
     public float StunCooldownTime;
     public bool wet = false;
+    public int DOTDamage;
+    public bool onFire = false;
+    public bool poisoned = false;
 
     private Rigidbody2D rb;
     public int curHealth;
@@ -79,11 +82,38 @@ public class Enemy : MonoBehaviour
         Stunned = false;
     }
 
-    IEnumerator WetCooldown()
+    public IEnumerator WetCooldown()
     {
         GetComponent<SpriteRenderer>().color = Color.blue;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(15f);
         GetComponent<SpriteRenderer>().color = startColor;
         wet = false;
+    }
+
+    public IEnumerator DamageOverTime()
+    {
+        if (onFire)
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        else if (poisoned)
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        curHealth -= DOTDamage;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().color = startColor;
+        yield return new WaitForSeconds(0.4f);
+        StartCoroutine("DamageOverTime");
+
+    }
+    
+    public IEnumerator DOTCooldown()
+    {
+        StartCoroutine("DamageOverTime");
+        yield return new WaitForSeconds(4);
+        StopCoroutine("DamageOverTime");
+        onFire = false;
+        poisoned = false;
     }
 }

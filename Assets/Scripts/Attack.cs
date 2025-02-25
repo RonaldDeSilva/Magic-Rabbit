@@ -14,6 +14,7 @@ public class Attack : MonoBehaviour
     public bool WildGrowth;
     public bool StoneForm;
     public bool Zephyr;
+    public bool Combust;
 
     private Rigidbody2D rb;
     private GameObject Player;
@@ -83,6 +84,7 @@ public class Attack : MonoBehaviour
     {
         if (Splash)
         {
+            //Splash moves whichever way the player is facing until it hits the ground
             if (playerTurnedRight)
             {
                 rb.linearVelocityX = speed;
@@ -128,6 +130,18 @@ public class Attack : MonoBehaviour
                 }
             }
         }
+        else if (Combust)
+        {
+            //Combust moves whichever way the player is facing until it hits the ground
+            if (playerTurnedRight)
+            {
+                rb.linearVelocityX = speed;
+            }
+            else if (!playerTurnedRight)
+            {
+                rb.linearVelocityX = -speed;
+            }
+        }
     }
     #endregion
 
@@ -146,9 +160,23 @@ public class Attack : MonoBehaviour
                 }
                 else
                 {
+                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
+                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
+                    collision.gameObject.GetComponent<Enemy>().onFire = false;
                     collision.gameObject.GetComponent<Enemy>().wet = true;
                     collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
                 }
+                Destroy(this.gameObject);
+            }
+            else if (Combust)
+            {
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("WetCooldown");
+                collision.gameObject.GetComponent<Enemy>().wet = false;
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
+                collision.gameObject.GetComponent<Enemy>().DOTDamage = Damage;
+                collision.gameObject.GetComponent<Enemy>().onFire = true;
+                collision.gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
                 Destroy(this.gameObject);
             }
             else
@@ -156,6 +184,10 @@ public class Attack : MonoBehaviour
                 collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
                 collision.gameObject.GetComponent<Enemy>().CheckHealth();
             }
+        }
+        else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable"))
+        {
+            Destroy(this.gameObject);
         }
     }
 

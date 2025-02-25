@@ -91,7 +91,7 @@ public class Movement : MonoBehaviour
     #region Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
             jumped = false;
             if (StoneForm && collision.gameObject.CompareTag("GroundBreakable"))
@@ -109,7 +109,7 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
             canJump = true;
         }
@@ -117,7 +117,7 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
             canJump = false;
         }
@@ -180,6 +180,17 @@ public class Movement : MonoBehaviour
             {
                 Instantiate(Attacks[4], new Vector3(transform.position.x - 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
                 //thing.transform.rotation = new Quaternion(0, 0, 90, this.transform.rotation.w);
+            }
+        }
+        else if (CurCard.GetComponent<CardEffects>().CardNum == 6)
+        {
+            if (turnedRight)
+            {
+                Instantiate(Attacks[5], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
+            }
+            else if (!turnedRight)
+            {
+                Instantiate(Attacks[5], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
             }
         }
 
