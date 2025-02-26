@@ -4,6 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
+    #region Card Numbers and what they mean
+
+    //1 = Splash - projectile that makes enemy wet and vulnerable to electricity and freeze
+    //2 = Dove - Rising projectile that can be used as a platform
+    //3 = WildGrowth - AOE around player which damages enemies and increases players movement speed and jump height
+    //4 = StoneForm - causes player to plummet and create an AOE which stuns enemies, also can break through breakable blocks
+    //5 = Zephyr - Lightening cloud that moves up and back and forth while striking the ground causing wet enemies to be stunned
+    //6 = Combust - fireball which causes DOT on enemy, as well as exploding poison clouds
+    //7 = PoisonCloud - ball of poison which turns into AOE poison cloud on impact, causes explosion when interacting with combust or burning enemies
+
+    #endregion
+
+
     #region Attributes
 
     public float speed;
@@ -174,12 +187,10 @@ public class Movement : MonoBehaviour
             if (turnedRight)
             {
                 Instantiate(Attacks[4], new Vector3(transform.position.x + 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
-                //thing.transform.rotation = new Quaternion(0, 0, 90, this.transform.rotation.w);
             }
             else if (!turnedRight)
             {
                 Instantiate(Attacks[4], new Vector3(transform.position.x - 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
-                //thing.transform.rotation = new Quaternion(0, 0, 90, this.transform.rotation.w);
             }
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 6)
@@ -191,6 +202,17 @@ public class Movement : MonoBehaviour
             else if (!turnedRight)
             {
                 Instantiate(Attacks[5], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
+            }
+        }
+        else if (CurCard.GetComponent<CardEffects>().CardNum == 7)
+        {
+            if (turnedRight)
+            {
+                Instantiate(Attacks[6], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
+            }
+            else if (!turnedRight)
+            {
+                Instantiate(Attacks[6], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
             }
         }
 

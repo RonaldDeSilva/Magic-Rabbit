@@ -15,6 +15,7 @@ public class Attack : MonoBehaviour
     public bool StoneForm;
     public bool Zephyr;
     public bool Combust;
+    public bool PoisonCloud;
 
     private Rigidbody2D rb;
     private GameObject Player;
@@ -70,6 +71,13 @@ public class Attack : MonoBehaviour
             StoneAOE.SetActive(false);
             Phase1 = true;
             StartCoroutine("ZephyrCoroutine");
+        }
+        else if (PoisonCloud)
+        {
+            //Poison cloud has a cloud attached which is set active when hitting the ground or an enemy
+            StoneAOE = transform.GetChild(0).gameObject;
+            StoneAOE.SetActive(false);
+            Phase1 = true;
         }
 
         if (!StoneForm)
@@ -142,10 +150,29 @@ public class Attack : MonoBehaviour
                 rb.linearVelocityX = -speed;
             }
         }
+        else if (PoisonCloud)
+        {
+            if (Phase1)
+            {
+                if (playerTurnedRight)
+                {
+                    rb.linearVelocityX = speed;
+                }
+                else if (!playerTurnedRight)
+                {
+                    rb.linearVelocityX = -speed;
+                }
+            }
+            else if (Phase2)
+            {
+                rb.linearVelocityX = 0;
+            }
+        }
+
     }
     #endregion
 
-    #region Collisions and Coroutines
+    #region Collision
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -157,6 +184,7 @@ public class Attack : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<Enemy>().StopCoroutine("WetCooldown");
                     collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
+                    //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
                 }
                 else
                 {
@@ -165,6 +193,7 @@ public class Attack : MonoBehaviour
                     collision.gameObject.GetComponent<Enemy>().onFire = false;
                     collision.gameObject.GetComponent<Enemy>().wet = true;
                     collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
+                    //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
                 }
                 Destroy(this.gameObject);
             }
@@ -179,16 +208,29 @@ public class Attack : MonoBehaviour
                 collision.gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
                 Destroy(this.gameObject);
             }
+            else if (PoisonCloud)
+            {
+                Phase1 = false;
+                Phase2 = true;
+                GetComponent<CircleCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+                StoneAOE.SetActive(true);
+                StartCoroutine("PoisonCoroutine");
+            }
             else
             {
                 collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
                 collision.gameObject.GetComponent<Enemy>().CheckHealth();
             }
         }
-        else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable"))
+        else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
-            Destroy(this.gameObject);
+            if (!collision.gameObject.CompareTag("GroundMoveable") && !Splash)
+            {
+                Destroy(this.gameObject);
+            }
         }
+        Debug.Log(collision.gameObject.tag);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -202,6 +244,10 @@ public class Attack : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
+    #region Coroutines
 
     //Wild Growth uses Overlap Collider to find enemies and then damages them for every half second they remain in the AOE
     IEnumerator WildGrowthDamage()
@@ -307,6 +353,59 @@ public class Attack : MonoBehaviour
             Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         Destroy(this.gameObject);
+    }
+
+    IEnumerator PoisonCoroutine()
+    {
+        var list = new Collider2D[10];
+        var filter = new ContactFilter2D().NoFilter();
+        int hitColliders = Physics2D.OverlapCollider(StoneAOE.GetComponent<CircleCollider2D>(), filter, list);
+        var explode = false;
+        for (int i = hitColliders - 1; i >= 0; i--)
+        {
+            if (list[i].gameObject.CompareTag("Enemy"))
+            {
+                if (!list[i].gameObject.GetComponent<Enemy>().poisoned && !list[i].gameObject.GetComponent<Enemy>().onFire)
+                {
+                    list[i].gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
+                    list[i].gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
+                    list[i].gameObject.GetComponent<Enemy>().DOTDamage = Damage;
+                    list[i].gameObject.GetComponent<Enemy>().poisoned = true;
+                    list[i].gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
+                }
+                else if (list[i].gameObject.GetComponent<Enemy>().onFire)
+                {
+                    explode = true;
+                    break;
+                }
+            }
+            else if (list[i].gameObject.CompareTag("Combust"))
+            {
+                explode = true;
+                Destroy(list[i].gameObject);
+                break;
+            }
+        }
+        if (explode)
+        {
+            for (int i = hitColliders - 1; i >= 0; i--)
+            {
+                if (list[i].gameObject.CompareTag("Enemy"))
+                {
+                    list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage * 5;
+                    list[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                    list[i].gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
+                    list[i].gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
+                    list[i].gameObject.GetComponent<Enemy>().DOTDamage = Damage * 2;
+                    list[i].gameObject.GetComponent<Enemy>().onFire = true;
+                    list[i].gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
+                    list[i].gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, speed * 600));
+                }
+            }
+            Destroy(this.gameObject);
+        }
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine("PoisonCoroutine");
     }
 
     #endregion

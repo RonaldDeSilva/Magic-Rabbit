@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - GroundBreakable
   - GroundMoveable
+  - Combust
   layers:
   - Default
   - TransparentFX

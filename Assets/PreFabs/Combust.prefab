@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9033246777332186033}
   m_Layer: 0
   m_Name: Combust
-  m_TagString: Untagged
+  m_TagString: Combust
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,3 +174,4 @@ MonoBehaviour:
   StoneForm: 0
   Zephyr: 0
   Combust: 1
+  PoisonCloud: 0
