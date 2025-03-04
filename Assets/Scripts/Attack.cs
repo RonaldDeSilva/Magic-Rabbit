@@ -8,6 +8,7 @@ public class Attack : MonoBehaviour
     public int Damage;
     public float seconds;
     public float speed;
+    public float stunDuration;
 
     public bool Splash;
     public bool Dove;
@@ -16,6 +17,8 @@ public class Attack : MonoBehaviour
     public bool Zephyr;
     public bool Combust;
     public bool PoisonCloud;
+    public bool ConeOfCold;
+    public bool Might;
 
     private Rigidbody2D rb;
     private GameObject Player;
@@ -78,6 +81,14 @@ public class Attack : MonoBehaviour
             StoneAOE = transform.GetChild(0).gameObject;
             StoneAOE.SetActive(false);
             Phase1 = true;
+        }
+        else if (ConeOfCold && !playerTurnedRight)
+        {
+            GetComponent<SpriteRenderer>().flipY = true;
+        }
+        else if (Might)
+        {
+            StartCoroutine("MightCoroutine");
         }
 
         if (!StoneForm)
@@ -168,6 +179,28 @@ public class Attack : MonoBehaviour
                 rb.linearVelocityX = 0;
             }
         }
+        else if (ConeOfCold)
+        {
+            if (playerTurnedRight)
+            {
+                this.transform.position = new Vector3(Player.transform.position.x + 1.5f, Player.transform.position.y, transform.position.z);
+            }
+            else if(!playerTurnedRight)
+            {
+                this.transform.position = new Vector3(Player.transform.position.x - 1.5f, Player.transform.position.y, transform.position.z);
+            }
+        }
+        else if (Might)
+        {
+            if (playerTurnedRight)
+            {
+                this.transform.position = new Vector3(Player.transform.position.x + 1.5f, Player.transform.position.y, transform.position.z);
+            }
+            else if (!playerTurnedRight)
+            {
+                this.transform.position = new Vector3(Player.transform.position.x - 1.5f, Player.transform.position.y, transform.position.z);
+            }
+        }
 
     }
     #endregion
@@ -206,6 +239,12 @@ public class Attack : MonoBehaviour
                 collision.gameObject.GetComponent<Enemy>().DOTDamage = Damage;
                 collision.gameObject.GetComponent<Enemy>().onFire = true;
                 collision.gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
+                if (collision.gameObject.GetComponent<Enemy>().frozen)
+                {
+                    collision.gameObject.GetComponent<Enemy>().Stunned = false;
+                    collision.gameObject.GetComponent<Enemy>().frozen = false;
+                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("StunCooldown");
+                }
                 Destroy(this.gameObject);
             }
             else if (PoisonCloud)
@@ -239,8 +278,31 @@ public class Attack : MonoBehaviour
         {
             if (!WildGrowth)
             {
-                collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
-                collision.gameObject.GetComponent<Enemy>().CheckHealth();
+                if (ConeOfCold && collision.gameObject.GetComponent<Enemy>().wet)
+                {
+                    collision.gameObject.GetComponent<Enemy>().curHealth -= Damage * 4;
+                    collision.gameObject.GetComponent<Enemy>().CheckHealth();
+                    collision.gameObject.GetComponent<Enemy>().Stunned = true;
+                    collision.gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration * 2;
+                    collision.gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
+                }
+                else if (ConeOfCold)
+                {
+                    collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                    collision.gameObject.GetComponent<Enemy>().CheckHealth();
+                    collision.gameObject.GetComponent<Enemy>().Stunned = true;
+                    collision.gameObject.GetComponent<Enemy>().frozen = true;
+                    collision.gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
+                    collision.gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
+                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
+                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
+                    collision.gameObject.GetComponent<Enemy>().onFire = false;
+                }
+                else if (!Might && !ConeOfCold)
+                {
+                    collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                    collision.gameObject.GetComponent<Enemy>().CheckHealth();
+                }
             }
         }
     }
@@ -319,7 +381,7 @@ public class Attack : MonoBehaviour
                 if (list[i].gameObject.GetComponent<Enemy>().wet)
                 {
                     list[i].gameObject.GetComponent<Enemy>().Stunned = true;
-                    list[i].gameObject.GetComponent<Enemy>().StunCooldownTime = 3f;
+                    list[i].gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
                     list[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
                 }
             }
@@ -335,24 +397,6 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(4f);
         playerTurnedRight = !playerTurnedRight;
         StartCoroutine("ZephyrMovement");
-    }
-    #endregion
-    private IEnumerator Delete()
-    {
-        yield return new WaitForSeconds(seconds);
-        if (WildGrowth)
-        {
-            MovementScript.speed = PlayerStartingSpeed;
-            MovementScript.jumpHeight = PlayerStartingJumpHeight;
-        }
-        else if (StoneForm)
-        {
-            MovementScript.StoneForm = false;
-            Player.GetComponent<SpriteRenderer>().color = MovementScript.StartingColor;
-            Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
-            Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-        Destroy(this.gameObject);
     }
 
     IEnumerator PoisonCoroutine()
@@ -400,6 +444,12 @@ public class Attack : MonoBehaviour
                     list[i].gameObject.GetComponent<Enemy>().onFire = true;
                     list[i].gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
                     list[i].gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, speed * 600));
+                    if (list[i].gameObject.GetComponent<Enemy>().frozen)
+                    {
+                        list[i].gameObject.GetComponent<Enemy>().Stunned = false;
+                        list[i].gameObject.GetComponent<Enemy>().frozen = false;
+                        list[i].gameObject.GetComponent<Enemy>().StopCoroutine("StunCooldown");
+                    }
                 }
             }
             Destroy(this.gameObject);
@@ -407,6 +457,55 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         StartCoroutine("PoisonCoroutine");
     }
+
+    IEnumerator MightCoroutine()
+    {
+        var list = new Collider2D[5];
+        var filter = new ContactFilter2D().NoFilter();
+        int hitColliders = Physics2D.OverlapCollider(GetComponent<BoxCollider2D>(), filter, list);
+        for (int i = hitColliders - 1; i >= 0; i--)
+        {
+            if (list[i].gameObject.CompareTag("Enemy"))
+            {
+                list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                list[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                list[i].gameObject.GetComponent<Enemy>().Stunned = true;
+                list[i].gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
+                list[i].gameObject.GetComponent<Enemy>().StopCoroutine("StunCooldown");
+                list[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
+                if (playerTurnedRight)
+                {
+                    list[i].gameObject.transform.position = new Vector3(list[i].gameObject.transform.position.x + 0.1f, list[i].gameObject.transform.position.y + 0.1f, list[i].gameObject.transform.position.z);
+                } 
+                else if (!playerTurnedRight)
+                {
+                    list[i].gameObject.transform.position = new Vector3(list[i].gameObject.transform.position.x - 0.1f, list[i].gameObject.transform.position.y + 0.1f, list[i].gameObject.transform.position.z);
+                }
+            }
+        }
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine("MightCoroutine");
+    }
+    #endregion
+    private IEnumerator Delete()
+    {
+        yield return new WaitForSeconds(seconds);
+        if (WildGrowth)
+        {
+            MovementScript.speed = PlayerStartingSpeed;
+            MovementScript.jumpHeight = PlayerStartingJumpHeight;
+        }
+        else if (StoneForm)
+        {
+            MovementScript.StoneForm = false;
+            Player.GetComponent<SpriteRenderer>().color = MovementScript.StartingColor;
+            Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
+            Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        Destroy(this.gameObject);
+    }
+
+    
 
     #endregion
 }

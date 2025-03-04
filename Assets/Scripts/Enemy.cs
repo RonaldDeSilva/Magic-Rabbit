@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public int DOTDamage;
     public bool onFire = false;
     public bool poisoned = false;
+    public bool frozen = false;
 
     private Rigidbody2D rb;
     public int curHealth;
@@ -80,6 +81,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(StunCooldownTime);
         GetComponent<SpriteRenderer>().color = startColor;
         Stunned = false;
+        frozen = false;
     }
 
     public IEnumerator WetCooldown()

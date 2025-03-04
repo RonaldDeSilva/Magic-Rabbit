@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 5
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &173675364
 GameObject:
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 1
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &355375542
 GameObject:
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 1
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &414130186
 GameObject:
@@ -815,6 +815,8 @@ MonoBehaviour:
   - {fileID: 7005245863275089272, guid: d3dda7c1d1c9d464fb6eb7777d925328, type: 3}
   - {fileID: 548090005339090119, guid: 065f9460711ace544947fe8946a2e31d, type: 3}
   - {fileID: 7689195579837560890, guid: ee897535e21ec5a408971909de8a9d12, type: 3}
+  - {fileID: 2427344551112515548, guid: 5b2c622ea10af604e8f2c7e961c9427e, type: 3}
+  - {fileID: 1222666258674644995, guid: 84376ad2433f9e64d9af3b37e29fa246, type: 3}
   canJump: 0
   turnedRight: 1
   StoneForm: 0
@@ -967,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 5
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &754917494
 GameObject:
@@ -1349,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 5
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &853280580
 GameObject:
@@ -1713,6 +1715,7 @@ MonoBehaviour:
   DOTDamage: 0
   onFire: 0
   poisoned: 0
+  frozen: 0
   curHealth: 0
 --- !u!61 &996277875
 BoxCollider2D:
@@ -1959,7 +1962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 5
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &1236359580
 GameObject:
@@ -2005,7 +2008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 1
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &1264844111
 GameObject:
@@ -2322,7 +2325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 5
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &1424863274
 GameObject:
@@ -2455,7 +2458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 1
+  CardNum: 9
   Cooldown: 1
 --- !u!1 &1577917861
 GameObject:
@@ -3272,7 +3275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c76ad5e3584cf24086fe5b3af87caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardNum: 1
+  CardNum: 9
   Cooldown: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
