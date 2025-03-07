@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     public float seconds;
     public float speed;
     public float stunDuration;
+    public float distance;
 
     public bool Splash;
     public bool Dove;
@@ -19,6 +20,8 @@ public class Attack : MonoBehaviour
     public bool PoisonCloud;
     public bool ConeOfCold;
     public bool Might;
+    public bool CardTrick;
+    public bool Blink;
 
     private Rigidbody2D rb;
     private GameObject Player;
@@ -31,6 +34,7 @@ public class Attack : MonoBehaviour
     private float PlayerStartingGravity;
     private bool Phase1 = false;
     private bool Phase2 = false;
+    public LayerMask groundLayerMask;
 
     #endregion
 
@@ -89,6 +93,58 @@ public class Attack : MonoBehaviour
         else if (Might)
         {
             StartCoroutine("MightCoroutine");
+        }
+        else if (CardTrick)
+        {
+            Player.GetComponent<Movement>().invulnerable = true;
+            Player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.1f);
+        }
+        else if (Blink)
+        {
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            {
+                var direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                var ray = Physics2D.Raycast(new Vector2(Player.transform.position.x, Player.transform.position.y), direction, distance, groundLayerMask);
+                if (ray.transform != null)
+                {
+                    Player.transform.position = ray.point;
+                }
+                else
+                {
+                    Player.transform.position = new Vector2(Player.transform.position.x + (direction.x * distance), Player.transform.position.y + (direction.y * distance));
+                }
+            }
+            else
+            {
+                
+                if (playerTurnedRight)
+                {
+                    var direction = new Vector2(1, 0);
+                    var ray = Physics2D.Raycast(new Vector2(Player.transform.position.x, Player.transform.position.y), direction, distance, groundLayerMask);
+                    if (ray.transform != null)
+                    {
+                        Player.transform.position = ray.point;
+                    }
+                    else
+                    {
+                        Player.transform.position = new Vector2(Player.transform.position.x + (1 * distance), Player.transform.position.y);
+                    }
+                }
+                else
+                {
+                    var direction = new Vector2(-1, 0);
+                    var ray = Physics2D.Raycast(new Vector2(Player.transform.position.x, Player.transform.position.y), direction, distance, groundLayerMask);
+                    if (ray.transform != null)
+                    {
+                        Player.transform.position = ray.point;
+                    }
+                    else
+                    {
+                        Player.transform.position = new Vector2(Player.transform.position.x + (-1 * distance), Player.transform.position.y);
+                    }
+                }
+            }
+            Destroy(this.gameObject);
         }
 
         if (!StoneForm)
@@ -269,7 +325,6 @@ public class Attack : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        Debug.Log(collision.gameObject.tag);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -501,6 +556,11 @@ public class Attack : MonoBehaviour
             Player.GetComponent<SpriteRenderer>().color = MovementScript.StartingColor;
             Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
             Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        else if (CardTrick)
+        {
+            Player.GetComponent<Movement>().invulnerable = false;
+            Player.GetComponent<SpriteRenderer>().color = Player.GetComponent<Movement>().StartingColor;
         }
         Destroy(this.gameObject);
     }

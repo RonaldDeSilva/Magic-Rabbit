@@ -23,7 +23,11 @@ public class Movement : MonoBehaviour
 
     //8 = Cone Of Cold - Freezing cone that freezes and damages enemies, doing more damage and freezing longer when they are wet---------------------------------------
 
-    //9 = Might - A flurry of blows which stuns the enemy shortly and slightly pushes them away and up---------------------------------------
+    //9 = Might - A flurry of blows which stuns the enemy shortly and slightly pushes them away and up---------------------------------------------------------------
+
+    //10 = Card Trick - Makes character invulnerable for 1.5 seconds------------------------------------------------------------------------------------------------
+
+    //11 = Blink - teleport------------------------------------------------------------------------------------------------
 
     #endregion
 
@@ -39,7 +43,13 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public Color StartingColor;
     private GameObject Hand;
+    private Transform Position1;
+    private Transform Position2;
+    private Transform Position3;
+    private Transform Position4;
+    private Transform Position5;
     private GameObject Deck;
+    private GameObject Discard;
     public GameObject[] Attacks;
 
     private bool jumped = false;
@@ -47,6 +57,7 @@ public class Movement : MonoBehaviour
     private bool UsingCard = false;
     public bool turnedRight = true;
     public bool StoneForm = false;
+    public bool invulnerable = false;
 
     #endregion
 
@@ -55,7 +66,13 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Hand = transform.GetChild(0).gameObject;
+        Position1 = Hand.transform.GetChild(0);
+        Position2 = Hand.transform.GetChild(1);
+        Position3 = Hand.transform.GetChild(2);
+        Position4 = Hand.transform.GetChild(3);
+        Position5 = Hand.transform.GetChild(4);
         Deck = transform.GetChild(1).gameObject;
+        Discard = transform.GetChild(2).gameObject;
         curHealth = maxHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
         DealCards();
@@ -104,11 +121,6 @@ public class Movement : MonoBehaviour
         }
 
         #endregion
-
-        if (Hand.transform.childCount == 0)
-        {
-            DealCards();
-        }
     }
     #endregion
 
@@ -126,8 +138,11 @@ public class Movement : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            curHealth -= collision.gameObject.GetComponent<Enemy>().bumpDamage;
-            CheckHealth();
+            if (!invulnerable)
+            {
+                curHealth -= collision.gameObject.GetComponent<Enemy>().bumpDamage;
+                CheckHealth();
+            }
         }
     }
 
@@ -151,17 +166,73 @@ public class Movement : MonoBehaviour
     #region Card Stuff
     private void DealCards()
     {
-        while(Hand.transform.childCount < 5)
+        while(Position5.childCount == 0)
         {
             var children = Deck.transform.childCount;
-            var num = Random.Range(0, children - 1);
-            Deck.transform.GetChild(num).parent = Hand.transform;
+            if (children != 0)
+            {
+                var num = Random.Range(0, children - 1);
+                if (Position1.childCount == 0)
+                {
+                    Deck.transform.GetChild(num).parent = Position1.transform;
+                    Position1.transform.GetChild(0).localPosition = Vector3.zero;
+                }
+                else if (Position2.childCount == 0)
+                {
+                    Deck.transform.GetChild(num).parent = Position2.transform;
+                    Position2.transform.GetChild(0).localPosition = Vector3.zero;
+                }
+                else if (Position3.childCount == 0)
+                {
+                    Deck.transform.GetChild(num).parent = Position3.transform;
+                    Position3.transform.GetChild(0).localPosition = Vector3.zero;
+                }
+                else if (Position4.childCount == 0)
+                {
+                    Deck.transform.GetChild(num).parent = Position4.transform;
+                    Position4.transform.GetChild(0).localPosition = Vector3.zero;
+                }
+                else if (Position5.childCount == 0)
+                {
+                    Deck.transform.GetChild(num).parent = Position5.transform;
+                    Position5.transform.GetChild(0).localPosition = Vector3.zero;
+                }
+            }
+            else
+            {
+                for (int i = Discard.transform.childCount - 1; i > 0; i--)
+                {
+                    Discard.transform.GetChild(i).parent = Deck.transform;
+                }
+            }
+            
         }
     }
 
     private void UseCard()
     {
-        var CurCard = Hand.transform.GetChild(0).gameObject;
+        var CurCard = this.gameObject;
+        if (Position1.childCount == 1)
+        {
+            CurCard = Position1.transform.GetChild(0).gameObject;
+        }
+        else if (Position2.childCount == 1)
+        {
+            CurCard = Position2.transform.GetChild(0).gameObject;
+        }
+        else if (Position3.childCount == 1)
+        {
+            CurCard = Position3.transform.GetChild(0).gameObject;
+        }
+        else if (Position4.childCount == 1)
+        {
+            CurCard = Position4.transform.GetChild(0).gameObject;
+        }
+        else if (Position5.childCount == 1)
+        {
+            CurCard = Position5.transform.GetChild(0).gameObject;
+        }
+        
         
         if (CurCard.GetComponent<CardEffects>().CardNum == 1) //Splash
         {
@@ -248,10 +319,24 @@ public class Movement : MonoBehaviour
                 Instantiate(Attacks[8], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
             }
         }
+        else if (CurCard.GetComponent<CardEffects>().CardNum == 10) //Card Trick
+        {
+            Instantiate(Attacks[9], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
+        }
+        else if (CurCard.GetComponent<CardEffects>().CardNum == 11) //Blink
+        {
+            Instantiate(Attacks[10], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
+        }
 
-        CurCard.transform.parent = Deck.transform;
+        CurCard.transform.parent = Discard.transform;
+        CurCard.transform.localPosition = Vector3.zero;
         CooldownTime = CurCard.GetComponent<CardEffects>().Cooldown;
         StartCoroutine("Cooldown");
+
+        if (Position5.childCount == 0)
+        {
+            DealCards();
+        }
     }
 
     IEnumerator Cooldown()
