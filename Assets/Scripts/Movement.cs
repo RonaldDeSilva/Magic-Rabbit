@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
     private int curHealth;
     private float CooldownTime = 1f;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Color StartingColor;
     private GameObject Hand;
     private Transform Position1;
@@ -327,6 +327,10 @@ public class Movement : MonoBehaviour
         else if (CurCard.GetComponent<CardEffects>().CardNum == 11) //Blink
         {
             Instantiate(Attacks[10], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
+        }
+        else if (CurCard.GetComponent<CardEffects>().CardNum == 12) //Dash
+        {
+            Instantiate(Attacks[11], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation, transform);
         }
 
         CurCard.transform.parent = Discard.transform;

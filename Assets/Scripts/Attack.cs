@@ -46,6 +46,7 @@ public class Attack : MonoBehaviour
         MovementScript = Player.GetComponent<Movement>();
         playerTurnedRight = MovementScript.turnedRight;
         rb = GetComponent<Rigidbody2D>();
+        PlayerStartingGravity = Player.GetComponent<Rigidbody2D>().gravityScale;
         if (WildGrowth)
         {
             //Wild Growth is an aoe around the player which increases their speed and jump height and also damages enemies periodically
@@ -63,7 +64,6 @@ public class Attack : MonoBehaviour
             StoneAOE.SetActive(false);
             Player.GetComponent<SpriteRenderer>().color = Color.gray;
             FallStartingHeight = Player.transform.position.y;
-            PlayerStartingGravity = Player.GetComponent<Rigidbody2D>().gravityScale;
             Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity * 3;
             if (MovementScript.canJump)
             {
@@ -97,7 +97,7 @@ public class Attack : MonoBehaviour
         }
         else if (CardTrick)
         {
-            Player.GetComponent<Movement>().invulnerable = true;
+            MovementScript.invulnerable = true;
             Player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.1f);
         }
         else if (Blink)
@@ -150,6 +150,10 @@ public class Attack : MonoBehaviour
         else if (Dash)
         {
             MovementScript.dashing = true;
+            Player.GetComponent<CapsuleCollider2D>().isTrigger = true;
+            MovementScript.rb.linearVelocity = Vector2.zero;
+            Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 0.01f, Player.transform.position.z);
+            Player.GetComponent<Rigidbody2D>().gravityScale = 0.0000001f;
         }
 
         if (!StoneForm)
@@ -262,6 +266,25 @@ public class Attack : MonoBehaviour
                 this.transform.position = new Vector3(Player.transform.position.x - 1.5f, Player.transform.position.y, transform.position.z);
             }
         }
+        else if (Dash)
+        {
+            if (MovementScript.dashing)
+            {
+                if (playerTurnedRight)
+                {
+                    MovementScript.rb.linearVelocity = new Vector2(speed, 0);
+                }
+                else if (!playerTurnedRight)
+                {
+                    MovementScript.rb.linearVelocity = new Vector2(-speed, 0);
+                }
+            }
+            else
+            {
+                Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                Destroy(this.gameObject);
+            }
+        }
 
     }
     #endregion
@@ -363,6 +386,15 @@ public class Attack : MonoBehaviour
                     collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
                     collision.gameObject.GetComponent<Enemy>().CheckHealth();
                 }
+            }
+        }
+        else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
+        {
+            if (Dash)
+            {
+                MovementScript.dashing = false;
+                Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                Destroy(this.gameObject);
             }
         }
     }
@@ -570,6 +602,8 @@ public class Attack : MonoBehaviour
         else if (Dash)
         {
             MovementScript.dashing = false;
+            Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
+            Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
         }
         Destroy(this.gameObject);
     }
