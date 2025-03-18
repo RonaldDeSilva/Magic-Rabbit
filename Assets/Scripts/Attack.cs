@@ -22,6 +22,7 @@ public class Attack : MonoBehaviour
     public bool Might;
     public bool CardTrick;
     public bool Blink;
+    public bool Dash;
 
     private Rigidbody2D rb;
     private GameObject Player;
@@ -145,6 +146,10 @@ public class Attack : MonoBehaviour
                 }
             }
             Destroy(this.gameObject);
+        }
+        else if (Dash)
+        {
+            MovementScript.dashing = true;
         }
 
         if (!StoneForm)
@@ -561,6 +566,10 @@ public class Attack : MonoBehaviour
         {
             Player.GetComponent<Movement>().invulnerable = false;
             Player.GetComponent<SpriteRenderer>().color = Player.GetComponent<Movement>().StartingColor;
+        }
+        else if (Dash)
+        {
+            MovementScript.dashing = false;
         }
         Destroy(this.gameObject);
     }

@@ -58,6 +58,7 @@ public class Movement : MonoBehaviour
     public bool turnedRight = true;
     public bool StoneForm = false;
     public bool invulnerable = false;
+    public bool dashing = false;
 
     #endregion
 
@@ -65,14 +66,14 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Hand = transform.GetChild(0).gameObject;
+        Hand = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).gameObject;
         Position1 = Hand.transform.GetChild(0);
         Position2 = Hand.transform.GetChild(1);
         Position3 = Hand.transform.GetChild(2);
         Position4 = Hand.transform.GetChild(3);
         Position5 = Hand.transform.GetChild(4);
-        Deck = transform.GetChild(1).gameObject;
-        Discard = transform.GetChild(2).gameObject;
+        Deck = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(1).gameObject;
+        Discard = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(2).gameObject;
         curHealth = maxHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
         DealCards();
@@ -84,7 +85,7 @@ public class Movement : MonoBehaviour
     {
         #region Input
 
-        if (!StoneForm)
+        if (!StoneForm & !dashing)
         {
             if (Input.GetAxis("Horizontal") != 0)
             {
