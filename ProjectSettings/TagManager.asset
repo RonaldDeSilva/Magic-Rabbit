@@ -10,6 +10,7 @@ TagManager:
   - GroundBreakable
   - GroundMoveable
   - Combust
+  - Room
   layers:
   - Default
   - TransparentFX

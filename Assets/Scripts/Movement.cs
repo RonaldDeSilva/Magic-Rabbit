@@ -45,11 +45,7 @@ public class Movement : MonoBehaviour
     private GameObject Hand;
     private Transform Position1;
     private Transform Position2;
-    private Transform Position3;
-    private Transform Position4;
-    private Transform Position5;
     private GameObject Deck;
-    private GameObject Discard;
     public GameObject[] Attacks;
 
     private bool jumped = false;
@@ -69,11 +65,7 @@ public class Movement : MonoBehaviour
         Hand = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).gameObject;
         Position1 = Hand.transform.GetChild(0);
         Position2 = Hand.transform.GetChild(1);
-        Position3 = Hand.transform.GetChild(2);
-        Position4 = Hand.transform.GetChild(3);
-        Position5 = Hand.transform.GetChild(4);
         Deck = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(1).gameObject;
-        Discard = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(2).gameObject;
         curHealth = maxHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
         DealCards();
@@ -167,73 +159,21 @@ public class Movement : MonoBehaviour
     #region Card Stuff
     private void DealCards()
     {
-        while(Position5.childCount == 0)
+        while (Deck.transform.childCount != 0)
         {
             var children = Deck.transform.childCount;
-            if (children != 0)
-            {
-                var num = Random.Range(0, children - 1);
-                if (Position1.childCount == 0)
-                {
-                    Deck.transform.GetChild(num).parent = Position1.transform;
-                    Position1.transform.GetChild(0).localPosition = Vector3.zero;
-                }
-                else if (Position2.childCount == 0)
-                {
-                    Deck.transform.GetChild(num).parent = Position2.transform;
-                    Position2.transform.GetChild(0).localPosition = Vector3.zero;
-                }
-                else if (Position3.childCount == 0)
-                {
-                    Deck.transform.GetChild(num).parent = Position3.transform;
-                    Position3.transform.GetChild(0).localPosition = Vector3.zero;
-                }
-                else if (Position4.childCount == 0)
-                {
-                    Deck.transform.GetChild(num).parent = Position4.transform;
-                    Position4.transform.GetChild(0).localPosition = Vector3.zero;
-                }
-                else if (Position5.childCount == 0)
-                {
-                    Deck.transform.GetChild(num).parent = Position5.transform;
-                    Position5.transform.GetChild(0).localPosition = Vector3.zero;
-                }
-            }
-            else
-            {
-                for (int i = Discard.transform.childCount - 1; i > 0; i--)
-                {
-                    Discard.transform.GetChild(i).parent = Deck.transform;
-                }
-            }
-            
+            var num = Random.Range(0, children - 1);
+            Deck.transform.GetChild(num).parent = Hand.transform;
         }
+        Hand.transform.GetChild(2).parent = Position1.transform;
+        Hand.transform.GetChild(3).parent = Position2.transform;
+        Position1.transform.GetChild(0).localPosition = Vector3.zero;
+        Position2.transform.GetChild(0).localPosition = Vector3.zero;
     }
 
     private void UseCard()
     {
-        var CurCard = this.gameObject;
-        if (Position1.childCount == 1)
-        {
-            CurCard = Position1.transform.GetChild(0).gameObject;
-        }
-        else if (Position2.childCount == 1)
-        {
-            CurCard = Position2.transform.GetChild(0).gameObject;
-        }
-        else if (Position3.childCount == 1)
-        {
-            CurCard = Position3.transform.GetChild(0).gameObject;
-        }
-        else if (Position4.childCount == 1)
-        {
-            CurCard = Position4.transform.GetChild(0).gameObject;
-        }
-        else if (Position5.childCount == 1)
-        {
-            CurCard = Position5.transform.GetChild(0).gameObject;
-        }
-        
+        var CurCard = Position1.transform.GetChild(0);
         
         if (CurCard.GetComponent<CardEffects>().CardNum == 1) //Splash
         {
@@ -333,14 +273,26 @@ public class Movement : MonoBehaviour
             Instantiate(Attacks[11], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation, transform);
         }
 
-        CurCard.transform.parent = Discard.transform;
+        CurCard.transform.parent = Deck.transform;
         CurCard.transform.localPosition = Vector3.zero;
         CooldownTime = CurCard.GetComponent<CardEffects>().Cooldown;
         StartCoroutine("Cooldown");
 
-        if (Position5.childCount == 0)
+        if (Hand.transform.childCount == 2 && Position1.transform.childCount == 0 && Position2.transform.childCount == 0)
         {
             DealCards();
+        }
+        else if (Hand.transform.childCount == 2 && Position1.transform.childCount == 0 && Position2.transform.childCount == 1)
+        {
+            Position2.transform.GetChild(0).parent = Position1.transform;
+            Position1.transform.GetChild(0).localPosition = Vector3.zero;
+        }
+        else if (Hand.transform.childCount > 2)
+        {
+            Position2.transform.GetChild(0).parent = Position1.transform;
+            Hand.transform.GetChild(2).parent = Position2.transform;
+            Position1.transform.GetChild(0).localPosition = Vector3.zero;
+            Position2.transform.GetChild(0).localPosition = Vector3.zero;
         }
     }
 
