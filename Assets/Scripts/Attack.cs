@@ -23,6 +23,7 @@ public class Attack : MonoBehaviour
     public bool CardTrick;
     public bool Blink;
     public bool Dash;
+    public bool Magic8Ball;
 
     private Rigidbody2D rb;
     private GameObject Player;
@@ -36,6 +37,7 @@ public class Attack : MonoBehaviour
     private bool Phase1 = false;
     private bool Phase2 = false;
     public LayerMask groundLayerMask;
+
 
     #endregion
 

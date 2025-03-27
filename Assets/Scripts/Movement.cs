@@ -43,8 +43,6 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     public Color StartingColor;
     private GameObject Hand;
-    private Transform Position1;
-    private Transform Position2;
     private GameObject Deck;
     public GameObject[] Attacks;
 
@@ -63,8 +61,6 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Hand = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).gameObject;
-        Position1 = Hand.transform.GetChild(0);
-        Position2 = Hand.transform.GetChild(1);
         Deck = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(1).gameObject;
         curHealth = maxHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
@@ -162,18 +158,16 @@ public class Movement : MonoBehaviour
         while (Deck.transform.childCount != 0)
         {
             var children = Deck.transform.childCount;
-            var num = Random.Range(0, children - 1);
+            var num = Random.Range(0, children);
             Deck.transform.GetChild(num).parent = Hand.transform;
         }
-        Hand.transform.GetChild(2).parent = Position1.transform;
-        Hand.transform.GetChild(3).parent = Position2.transform;
-        Position1.transform.GetChild(0).localPosition = Vector3.zero;
-        Position2.transform.GetChild(0).localPosition = Vector3.zero;
+        Hand.transform.GetChild(0).localPosition = new Vector3(6.74f, -3.73f, 0);
+        Hand.transform.GetChild(1).localPosition = new Vector3(8.11f, -3.73f, 0);
     }
 
     private void UseCard()
     {
-        var CurCard = Position1.transform.GetChild(0);
+        var CurCard = Hand.transform.GetChild(0);
         
         if (CurCard.GetComponent<CardEffects>().CardNum == 1) //Splash
         {
@@ -273,26 +267,199 @@ public class Movement : MonoBehaviour
             Instantiate(Attacks[11], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation, transform);
         }
 
+        #region Magic 8 Ball lol
+
+        else if (CurCard.GetComponent<CardEffects>().CardNum == 13) //Magic 8 Ball
+        {
+            var newCard = new GameObject();
+            if (Hand.transform.childCount > 1 && Deck.transform.childCount > 0)
+            {
+                var totalCards = Deck.transform.childCount + Hand.transform.childCount;
+                var num = Random.Range(1, totalCards);
+                if (num < Hand.transform.childCount)
+                {
+                    newCard = Hand.transform.GetChild(num).gameObject;
+                    if (newCard.GetComponent<CardEffects>().CardNum == 13)
+                    {
+                        while (newCard.GetComponent<CardEffects>().CardNum == 13)
+                        {
+                            num = Random.Range(1, totalCards);
+                            if (num < Hand.transform.childCount)
+                            {
+                                newCard = Hand.transform.GetChild(num).gameObject;
+                            }
+                            else
+                            {
+                                newCard = Deck.transform.GetChild((num - Hand.transform.childCount)).gameObject;
+                            }  
+                        }
+                    }
+                }
+                else
+                {
+                    newCard = Deck.transform.GetChild((num - Hand.transform.childCount)).gameObject;
+                    if (newCard.GetComponent<CardEffects>().CardNum == 13)
+                    {
+                        while (newCard.GetComponent<CardEffects>().CardNum == 13)
+                        {
+                            num = Random.Range(1, totalCards);
+                            if (num < Hand.transform.childCount)
+                            {
+                                newCard = Hand.transform.GetChild(num).gameObject;
+                            }
+                            else
+                            {
+                                newCard = Deck.transform.GetChild((num - Hand.transform.childCount)).gameObject;
+                            }
+                        }
+                    }
+                }
+            }
+            else if (Hand.transform.childCount == 1 && Deck.transform.childCount > 0)
+            {
+                var totalCards = Deck.transform.childCount;
+                var num = Random.Range(0, totalCards);
+                newCard = Deck.transform.GetChild(num).gameObject;
+                if (newCard.GetComponent<CardEffects>().CardNum == 13)
+                {
+                    while (newCard.GetComponent<CardEffects>().CardNum == 13)
+                    {
+                        num = Random.Range(0, totalCards);
+                        newCard = Deck.transform.GetChild(num).gameObject;
+                    }
+                }
+            }
+            else if (Hand.transform.childCount > 1 && Deck.transform.childCount == 0)
+            {
+                var totalCards = Hand.transform.childCount;
+                var num = Random.Range(1, totalCards);
+                newCard = Hand.transform.GetChild(num).gameObject;
+                if (newCard.GetComponent<CardEffects>().CardNum == 13)
+                {
+                    while (newCard.GetComponent<CardEffects>().CardNum == 13)
+                    {
+                        num = Random.Range(1, totalCards);
+                        newCard = Hand.transform.GetChild(num).gameObject;
+                    }
+                }
+            }
+
+            if (newCard.GetComponent<CardEffects>().CardNum == 1) //Splash
+            {
+                if (turnedRight)
+                {
+                    Instantiate(Attacks[0], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
+                }
+                else if (!turnedRight)
+                {
+                    Instantiate(Attacks[0], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
+                }
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 2) //Dove
+            {
+                if (turnedRight)
+                {
+                    Instantiate(Attacks[1], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), this.transform.rotation);
+                }
+                else if (!turnedRight)
+                {
+                    Instantiate(Attacks[1], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), this.transform.rotation);
+                }
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 3) //Wild Growth
+            {
+                Instantiate(Attacks[2], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 4) //Stone Form
+            {
+                Instantiate(Attacks[3], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 5) //Zephyr
+            {
+                if (turnedRight)
+                {
+                    Instantiate(Attacks[4], new Vector3(transform.position.x + 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
+                }
+                else if (!turnedRight)
+                {
+                    Instantiate(Attacks[4], new Vector3(transform.position.x - 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
+                }
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 6) //Combust
+            {
+                if (turnedRight)
+                {
+                    Instantiate(Attacks[5], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
+                }
+                else if (!turnedRight)
+                {
+                    Instantiate(Attacks[5], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
+                }
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 7) // Poison Cloud
+            {
+                if (turnedRight)
+                {
+                    Instantiate(Attacks[6], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
+                }
+                else if (!turnedRight)
+                {
+                    Instantiate(Attacks[6], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
+                }
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 8) //Cone of Cold
+            {
+                if (turnedRight)
+                {
+                    Instantiate(Attacks[7], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
+                }
+                else if (!turnedRight)
+                {
+                    Instantiate(Attacks[7], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
+                }
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 9) //Might
+            {
+                if (turnedRight)
+                {
+                    Instantiate(Attacks[8], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
+                }
+                else if (!turnedRight)
+                {
+                    Instantiate(Attacks[8], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
+                }
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 10) //Card Trick
+            {
+                Instantiate(Attacks[9], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 11) //Blink
+            {
+                Instantiate(Attacks[10], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
+            }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 12) //Dash
+            {
+                Instantiate(Attacks[11], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation, transform);
+            }
+        }
+        #endregion
         CurCard.transform.parent = Deck.transform;
         CurCard.transform.localPosition = Vector3.zero;
         CooldownTime = CurCard.GetComponent<CardEffects>().Cooldown;
         StartCoroutine("Cooldown");
 
-        if (Hand.transform.childCount == 2 && Position1.transform.childCount == 0 && Position2.transform.childCount == 0)
+        if (Hand.transform.childCount == 0)
         {
             DealCards();
         }
-        else if (Hand.transform.childCount == 2 && Position1.transform.childCount == 0 && Position2.transform.childCount == 1)
+        else if (Hand.transform.childCount == 1)
         {
-            Position2.transform.GetChild(0).parent = Position1.transform;
-            Position1.transform.GetChild(0).localPosition = Vector3.zero;
+            Hand.transform.GetChild(0).localPosition = new Vector3(6.74f, -3.73f, 0);
         }
-        else if (Hand.transform.childCount > 2)
+        else if (Hand.transform.childCount >= 2)
         {
-            Position2.transform.GetChild(0).parent = Position1.transform;
-            Hand.transform.GetChild(2).parent = Position2.transform;
-            Position1.transform.GetChild(0).localPosition = Vector3.zero;
-            Position2.transform.GetChild(0).localPosition = Vector3.zero;
+            Hand.transform.GetChild(0).localPosition = new Vector3(6.74f, -3.73f, 0);
+            Hand.transform.GetChild(1).localPosition = new Vector3(8.11f, -3.73f, 0);
         }
     }
 
