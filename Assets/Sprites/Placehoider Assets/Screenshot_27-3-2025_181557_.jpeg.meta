@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 53d029892a50b1c4184e25713a6eac14
+guid: 07dde0d9e40054744bb648cab0090d8c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2217638906192892890
-    second: blocks_0
+      213: -2606202459984599012
+    second: Screenshot_27-3-2025_181557__0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blocks_0
+      name: 1
       rect:
         serializedVersion: 2
-        x: 1335
-        y: 618
-        width: 157
-        height: 130
+        x: 577
+        y: 872
+        width: 372
+        height: 286
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62c69441a2d5931e0800000000000000
-      internalID: -2217638906192892890
+      spriteID: c186edfbba8e4dbd0800000000000000
+      internalID: -2606202459984599012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 820
+        width: 209
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98782e78160ced34684c39e3a80c194a
+      internalID: -1675831536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot_27-3-2025_181557__0
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 665
+        width: 98
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f947837ce6949bc4f8292e08c35ecab4
+      internalID: 1803039202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot_27-3-2025_181557__1
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 139
+        width: 393
+        height: 594
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e738c09654fe544ba88743886bee48
+      internalID: -918588898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot_27-3-2025_181557__2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 990
+        width: 195
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb99bc2b37a6cb47b2f92b41e405eb8
+      internalID: -1654768154
       vertices: []
       indices: 
       edges: []
@@ -125,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bacef97581258954c9beb70bb198e9e9
+    spriteID: 074faaab3f4fc6d459278ef81d0575fc
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +223,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      blocks_0: -2217638906192892890
+      1: -2606202459984599012
+      2: -1675831536
+      Screenshot_27-3-2025_181557__0: 1803039202
+      Screenshot_27-3-2025_181557__1: -918588898
+      Screenshot_27-3-2025_181557__2: -1654768154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

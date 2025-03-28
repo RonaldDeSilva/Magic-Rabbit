@@ -82,10 +82,12 @@ public class Movement : MonoBehaviour
                 if (Input.GetAxis("Horizontal") > 0)
                 {
                     turnedRight = true;
+                    GetComponent<SpriteRenderer>().flipX = false;
                 }
                 else if (Input.GetAxis("Horizontal") < 0)
                 {
                     turnedRight = false;
+                    GetComponent<SpriteRenderer>().flipX = true;
                 }
             }
             else if (Input.GetAxis("Horizontal") == 0)
