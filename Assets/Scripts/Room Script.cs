@@ -6,7 +6,7 @@ public class RoomScript : MonoBehaviour
 
     private void Start()
     {
-        MC = GameObject.FindGameObjectWithTag("MainCamera");
+        MC = GameObject.FindGameObjectWithTag("FakeCamera");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

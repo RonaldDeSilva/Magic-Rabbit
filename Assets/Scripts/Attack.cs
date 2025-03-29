@@ -36,6 +36,7 @@ public class Attack : MonoBehaviour
     private float PlayerStartingGravity;
     private bool Phase1 = false;
     private bool Phase2 = false;
+    private bool flying = false;
     public LayerMask groundLayerMask;
 
 
@@ -157,6 +158,10 @@ public class Attack : MonoBehaviour
             Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 0.01f, Player.transform.position.z);
             Player.GetComponent<Rigidbody2D>().gravityScale = 0.0000001f;
         }
+        else if (Dove)
+        {
+            StartCoroutine("DovePause");
+        }
 
         if (!StoneForm)
         {
@@ -182,7 +187,10 @@ public class Attack : MonoBehaviour
         }
         else if (Dove)
         {
-            rb.linearVelocityY = speed;
+            if (flying)
+            {
+                rb.linearVelocityY = speed;
+            }
         }
         else if (WildGrowth)
         {
@@ -390,12 +398,13 @@ public class Attack : MonoBehaviour
                 }
             }
         }
-        else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
+        else if (!collision.gameObject.CompareTag("Enemy") && collision.isTrigger == false)
         {
             if (Dash)
             {
                 MovementScript.dashing = false;
                 Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
                 Destroy(this.gameObject);
             }
         }
@@ -580,6 +589,11 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         StartCoroutine("MightCoroutine");
     }
+
+    IEnumerator DovePause()
+    {
+        yield return new WaitForSeconds(2.5f);
+    }
     #endregion
     private IEnumerator Delete()
     {
@@ -609,8 +623,6 @@ public class Attack : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
-
-    
 
     #endregion
 }

@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: ac5afc2da0240544d8e95afeaba18fe1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3240618197656740584
+    second: Basic Health Bar-Sheet lI_0
+  - first:
+      213: -5568743745796754078
+    second: Basic Health Bar-Sheet lI_1
+  - first:
+      213: 7074887079750517530
+    second: Basic Health Bar-Sheet lI_2
+  - first:
+      213: 4003386175161814058
+    second: Basic Health Bar-Sheet lI_3
+  - first:
+      213: 9115218168195843111
+    second: Basic Health Bar-Sheet lI_4
+  - first:
+      213: -3090126526110569657
+    second: Basic Health Bar-Sheet lI_5
+  - first:
+      213: -3844530409421873115
+    second: Basic Health Bar-Sheet lI_6
+  - first:
+      213: 2084494718258358005
+    second: Basic Health Bar-Sheet lI_7
+  - first:
+      213: -6047114439150126044
+    second: Basic Health Bar-Sheet lI_8
+  - first:
+      213: -1774711013762106011
+    second: Basic Health Bar-Sheet lI_9
+  - first:
+      213: -8049625333721148787
+    second: Basic Health Bar-Sheet lI_10
+  - first:
+      213: -1059018288359832192
+    second: Basic Health Bar-Sheet lI_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1088
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e22ffbc41df8fc20800000000000000
+      internalID: 3240618197656740584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 990
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2653b925119d7b2b0800000000000000
+      internalID: -5568743745796754078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 892
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a13c78e805c0f2260800000000000000
+      internalID: 7074887079750517530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 794
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2cca35f382ee8730800000000000000
+      internalID: 4003386175161814058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 696
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724008521a2cf7e70800000000000000
+      internalID: 9115218168195843111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 598
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74bea24fb4aad15d0800000000000000
+      internalID: -3090126526110569657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520e83a36fb75aac0800000000000000
+      internalID: -3844530409421873115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 402
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6a7f1f6ec9dec10800000000000000
+      internalID: 2084494718258358005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42c3252e475541ca0800000000000000
+      internalID: -6047114439150126044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 206
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d7cbd5cb5fe57e0800000000000000
+      internalID: -1774711013762106011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 108
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d82d090686cf94090800000000000000
+      internalID: -8049625333721148787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Health Bar-Sheet lI_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10
+        width: 272
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0858ba74a7c9d41f0800000000000000
+      internalID: -1059018288359832192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 415c4467687799d45a64fa2d8364d159
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Basic Health Bar-Sheet lI_0: 3240618197656740584
+      Basic Health Bar-Sheet lI_1: -5568743745796754078
+      Basic Health Bar-Sheet lI_10: -8049625333721148787
+      Basic Health Bar-Sheet lI_11: -1059018288359832192
+      Basic Health Bar-Sheet lI_2: 7074887079750517530
+      Basic Health Bar-Sheet lI_3: 4003386175161814058
+      Basic Health Bar-Sheet lI_4: 9115218168195843111
+      Basic Health Bar-Sheet lI_5: -3090126526110569657
+      Basic Health Bar-Sheet lI_6: -3844530409421873115
+      Basic Health Bar-Sheet lI_7: 2084494718258358005
+      Basic Health Bar-Sheet lI_8: -6047114439150126044
+      Basic Health Bar-Sheet lI_9: -1774711013762106011
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

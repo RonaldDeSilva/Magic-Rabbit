@@ -60,8 +60,8 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Hand = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).gameObject;
-        Deck = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(1).gameObject;
+        Hand = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(0).gameObject;
+        Deck = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(1).gameObject;
         curHealth = maxHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
         DealCards();
