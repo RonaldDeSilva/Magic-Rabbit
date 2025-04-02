@@ -3241,9 +3241,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 1764270441960617130, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 2409268377397062633, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: Cooldown
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193271589272312659, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193271589272312659, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3193271589272312659, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: orthographic size

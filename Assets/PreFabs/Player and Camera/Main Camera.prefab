@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 6
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &5181825471526169725
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1032905810, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: -391916267885321843, guid: 454b0a4cb65f8c240a38b310004bd974, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 7
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &7674444948033309101
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1695054638, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 407979232218747480, guid: f17cf34233b4a164eac5508313a99dc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 12
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &5127860607127735070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -295,7 +295,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7110878671101974141, guid: 22029bc85fca83348b53da5e8ba963a1, type: 3}
+  m_Sprite: {fileID: 4405210010188681721, guid: 8542e3dea35922e4e969aeb227f03225, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 8
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &308366779570559459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -144403098, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 361494805739079339, guid: 8adfebe99bccdc24b85cb1d7f1a0d36c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 4
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &5499180458198658920
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -499,7 +499,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1801893571, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 7791991216234147115, guid: 1b13905e07782af469f12dc929fa25e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 10
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &2308543120164249625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -601,7 +601,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1347079286, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 8417616569932909149, guid: 48b8c1378258a73489bc04864457482b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -622,11 +622,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8793221486186342244}
   - component: {fileID: 3193271589272312659}
-  - component: {fileID: 4165035432433970930}
   - component: {fileID: 4134989997626068418}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: FakeCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -640,7 +639,7 @@ Transform:
   m_GameObject: {fileID: 1764270441960617130}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 3.52, y: -2.86, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -681,15 +680,15 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 56.6
   orthographic: 1
-  orthographic size: 5.394076
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 23464f7669850af4892f1bd0a33afba4, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 0
   m_HDR: 0
@@ -699,14 +698,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4165035432433970930
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764270441960617130}
-  m_Enabled: 1
 --- !u!114 &4134989997626068418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,7 +758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 3
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &2290182907180787151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -812,7 +803,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -279270288, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 2508984362527776616, guid: 3f71d1984b243fe4bae4918423015a18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -869,7 +860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 11
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &7034237261924836815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -914,7 +905,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1916762740, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: -650740806379821223, guid: dc48c54a9abbbe94db31ace06d99e30b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -971,7 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 2
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &2368569694138530486
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1016,7 +1007,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1873956129, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 515121801181262383, guid: da267eb29d9083e45baf3bede5538d59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1073,7 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 9
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &7513901162329961174
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1118,7 +1109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1468734976, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 41283576560727140, guid: 57d26caad834c954785f8b4130581ca7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1219,7 +1210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 5
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &5758582451943248575
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1264,7 +1255,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1739494182, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 3469169465282858650, guid: 78fabd761077d1c408314dcbce8d248b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1321,7 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 13
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &7868927684071079681
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1366,7 +1357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 133982719826790466, guid: 410c37eb97254a6439dcdd4ff847754d, type: 3}
+  m_Sprite: {fileID: -3509393684279784979, guid: 6080e98c1cfa85e4c93e77a357df386a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1423,7 +1414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardNum: 1
-  Cooldown: 0.5
+  Cooldown: 1
 --- !u!212 &6587154262820056158
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1468,7 +1459,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -666711087, guid: 44c8ab40b9b7f7f4aa827b752c6ada45, type: 3}
+  m_Sprite: {fileID: 765321595876858208, guid: 32cd485603e0f77479bfb760d2c44e77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

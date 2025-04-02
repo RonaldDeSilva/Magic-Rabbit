@@ -8,6 +8,8 @@ public class LightingController : MonoBehaviour
     private float PlayerY;
     public float Scale;
     private float StartingX;
+    private float LightStartingX;
+    public float LightEndingX;
     private GameObject PlayerLight;
     private GameObject IntroLighting;
     private GameObject LoopingLighting;
@@ -20,8 +22,22 @@ public class LightingController : MonoBehaviour
         StartingX = PlayerX;
         PlayerY = Player.transform.position.y;
         PlayerLight = transform.GetChild(0).gameObject;
+        LightStartingX = PlayerLight.transform.position.x;
         StartCoroutine("LightFollow");
     }
+
+    public void RoomTransfer()
+    {
+        if (Player.GetComponent<Movement>().turnedRight)
+        {
+            PlayerLight.transform.position = new Vector3(LightStartingX, PlayerLight.transform.position.y, PlayerLight.transform.position.z);
+        }
+        else
+        {
+            PlayerLight.transform.localPosition = new Vector3(LightEndingX, PlayerLight.transform.localPosition.y, PlayerLight.transform.localPosition.z);
+        }
+    }
+
 
     IEnumerator LightFollow()
     {
@@ -34,4 +50,6 @@ public class LightingController : MonoBehaviour
         }
         StartCoroutine("LightFollow");
     }
+
+
 }

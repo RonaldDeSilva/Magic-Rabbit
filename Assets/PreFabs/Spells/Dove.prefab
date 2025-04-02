@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 5
-  seconds: 2
+  seconds: 5
   speed: 4
   stunDuration: 0
   distance: 0
@@ -191,6 +191,8 @@ MonoBehaviour:
   Might: 0
   CardTrick: 0
   Blink: 0
+  Dash: 0
+  Magic8Ball: 0
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0

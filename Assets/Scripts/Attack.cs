@@ -593,6 +593,7 @@ public class Attack : MonoBehaviour
     IEnumerator DovePause()
     {
         yield return new WaitForSeconds(2.5f);
+        flying = true;
     }
     #endregion
     private IEnumerator Delete()

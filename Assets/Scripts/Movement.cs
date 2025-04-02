@@ -69,7 +69,7 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Update
-    void Update()
+    void FixedUpdate()
     {
         #region Input
 
@@ -109,6 +109,11 @@ public class Movement : MonoBehaviour
                 UseCard();
                 UsingCard = true;
             }
+        }
+
+        if (Input.GetButton("StartButton"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         #endregion
