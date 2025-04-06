@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      final boss room stage one_0: -6905379887196766872
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

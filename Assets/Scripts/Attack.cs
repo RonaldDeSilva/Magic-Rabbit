@@ -28,21 +28,23 @@ public class Attack : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject Player;
     private Movement MovementScript;
-    private GameObject StoneAOE;
+    public GameObject StoneAOE;
     private bool playerTurnedRight;
     private float PlayerStartingSpeed;
     private float PlayerStartingJumpHeight;
     public float FallStartingHeight;
     private float PlayerStartingGravity;
-    private bool Phase1 = false;
-    private bool Phase2 = false;
+    public bool Phase1 = false;
+    public bool Phase2 = false;
     private bool flying = false;
     private bool hasStarted = false;
     public LayerMask groundLayerMask;
     public float initialXSpeed;
     public float initialYSpeed;
     public float maxYSpeed;
-
+    private float timer = 0f;
+    public float rotation;
+    private GameObject cloudChild;
 
     #endregion
 
@@ -84,8 +86,7 @@ public class Attack : MonoBehaviour
             //Im using stoneAOE here just so I don't have to create a new variable but this represents the lightening that spawns from the cloud
             StoneAOE = transform.GetChild(0).gameObject;
             StoneAOE.SetActive(false);
-            Phase1 = true;
-            StartCoroutine("ZephyrCoroutine");
+            cloudChild = transform.GetChild(1).gameObject;
         }
         else if (PoisonCloud)
         {
@@ -162,10 +163,12 @@ public class Attack : MonoBehaviour
             Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 0.01f, Player.transform.position.z);
             Player.GetComponent<Rigidbody2D>().gravityScale = 0.0000001f;
         }
-
-        if (rb.bodyType == RigidbodyType2D.Kinematic)
+        if (rb != null)
         {
-            rb.useFullKinematicContacts = true;
+            if (rb.bodyType == RigidbodyType2D.Kinematic)
+            {
+                rb.useFullKinematicContacts = true;
+            }
         }
 
         if (!StoneForm && !Dove)
@@ -229,9 +232,18 @@ public class Attack : MonoBehaviour
             if (Phase1)
             {
                 rb.linearVelocityY = speed;
+                timer += Time.deltaTime;
+                if (timer >= 4f)
+                {
+                    Phase1 = false;
+                    Phase2 = true;
+                    StartCoroutine("ZephyrPhase2");
+                }
             }
             else if (Phase2)
             {
+                distance = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), -Vector2.up, 500, groundLayerMask).point.y;
+                Debug.Log(distance);
                 rb.linearVelocityY = 0;
                 if (playerTurnedRight)
                 {
@@ -286,6 +298,7 @@ public class Attack : MonoBehaviour
         }
         else if (Might)
         {
+            playerTurnedRight = MovementScript.turnedRight;
             if (playerTurnedRight)
             {
                 this.transform.position = new Vector3(Player.transform.position.x + 1.5f, Player.transform.position.y, transform.position.z);
@@ -343,32 +356,6 @@ public class Attack : MonoBehaviour
                 }
                 Destroy(this.gameObject);
             }
-            else if (Combust)
-            {
-                collision.gameObject.GetComponent<Enemy>().StopCoroutine("WetCooldown");
-                collision.gameObject.GetComponent<Enemy>().wet = false;
-                collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
-                collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
-                collision.gameObject.GetComponent<Enemy>().DOTDamage = Damage;
-                collision.gameObject.GetComponent<Enemy>().onFire = true;
-                collision.gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
-                if (collision.gameObject.GetComponent<Enemy>().frozen)
-                {
-                    collision.gameObject.GetComponent<Enemy>().Stunned = false;
-                    collision.gameObject.GetComponent<Enemy>().frozen = false;
-                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("StunCooldown");
-                }
-                Destroy(this.gameObject);
-            }
-            else if (PoisonCloud)
-            {
-                Phase1 = false;
-                Phase2 = true;
-                GetComponent<CircleCollider2D>().enabled = false;
-                GetComponent<SpriteRenderer>().enabled = false;
-                StoneAOE.SetActive(true);
-                StartCoroutine("PoisonCoroutine");
-            }
             else
             {
                 collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
@@ -377,9 +364,13 @@ public class Attack : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
-            if (!collision.gameObject.CompareTag("GroundMoveable") && !Splash &&  !StoneForm)
+            if (!collision.gameObject.CompareTag("GroundMoveable") && !Splash &&  !StoneForm && !Zephyr)
             {
                 Destroy(this.gameObject);
+            }
+            else if (Zephyr)
+            {
+                playerTurnedRight = !playerTurnedRight;
             }
         }
         else if (collision.gameObject.CompareTag("Player"))
@@ -420,6 +411,32 @@ public class Attack : MonoBehaviour
                     collision.gameObject.GetComponent<Enemy>().CheckHealth();
                 }
             }
+            else if (PoisonCloud)
+            {
+                Phase1 = false;
+                Phase2 = true;
+                GetComponent<CircleCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+                StoneAOE.SetActive(true);
+                StartCoroutine("PoisonCoroutine");
+            }
+            else if (Combust)
+            {
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("WetCooldown");
+                collision.gameObject.GetComponent<Enemy>().wet = false;
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
+                collision.gameObject.GetComponent<Enemy>().DOTDamage = Damage;
+                collision.gameObject.GetComponent<Enemy>().onFire = true;
+                collision.gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
+                if (collision.gameObject.GetComponent<Enemy>().frozen)
+                {
+                    collision.gameObject.GetComponent<Enemy>().Stunned = false;
+                    collision.gameObject.GetComponent<Enemy>().frozen = false;
+                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("StunCooldown");
+                }
+                Destroy(this.gameObject);
+            }
         }
         else if (!collision.gameObject.CompareTag("Enemy") && collision.isTrigger == false)
         {
@@ -429,6 +446,44 @@ public class Attack : MonoBehaviour
                 Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
                 Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
                 Destroy(this.gameObject);
+            }
+        }
+        else if (collision.gameObject.CompareTag("Ground") | collision.gameObject.CompareTag("GroundBreakable") | collision.gameObject.CompareTag("GroundMoveable"))
+        {
+            if (Zephyr)
+            {
+                if (Phase1)
+                {
+                    Phase1 = false;
+                    Phase2 = true;
+                    StartCoroutine("ZephyrPhase2");
+                }
+            }
+            else if (Combust)
+            {
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("WetCooldown");
+                collision.gameObject.GetComponent<Enemy>().wet = false;
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
+                collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
+                collision.gameObject.GetComponent<Enemy>().DOTDamage = Damage;
+                collision.gameObject.GetComponent<Enemy>().onFire = true;
+                collision.gameObject.GetComponent<Enemy>().StartCoroutine("DOTCooldown");
+                if (collision.gameObject.GetComponent<Enemy>().frozen)
+                {
+                    collision.gameObject.GetComponent<Enemy>().Stunned = false;
+                    collision.gameObject.GetComponent<Enemy>().frozen = false;
+                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("StunCooldown");
+                }
+                Destroy(this.gameObject);
+            }
+            else if (PoisonCloud)
+            {
+                Phase1 = false;
+                Phase2 = true;
+                GetComponent<CircleCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+                StoneAOE.SetActive(true);
+                StartCoroutine("PoisonCoroutine");
             }
         }
     }
@@ -481,22 +536,16 @@ public class Attack : MonoBehaviour
     }
     #region Zephyr Coroutines
     //Zephyr coroutines move the cloud where it needs to go and then move back and forth randomly casting lighening
-    IEnumerator ZephyrCoroutine()
-    {
-        yield return new WaitForSeconds(1.5f);
-        Phase1 = false;
-        Phase2 = true;
-        StartCoroutine("ZephyrPhase2");
-        StartCoroutine("ZephyrMovement");
-    }
 
     IEnumerator ZephyrPhase2()
     {
         yield return new WaitForSeconds(Random.Range(0.2f, 0.8f));
         StoneAOE.SetActive(true);
         var list = new Collider2D[10];
+        var list2 = new Collider2D[10];
         var filter = new ContactFilter2D().NoFilter();
         int hitColliders = Physics2D.OverlapCollider(StoneAOE.GetComponent<CapsuleCollider2D>(), filter, list);
+        int hitColliders2 = Physics2D.OverlapCollider(cloudChild.GetComponent<CapsuleCollider2D>(), filter, list2);
         for (int i = hitColliders - 1; i >= 0; i--)
         {
             if (list[i].gameObject.CompareTag("Enemy"))
@@ -512,17 +561,25 @@ public class Attack : MonoBehaviour
                 }
             }
         }
+        for (int i = hitColliders2 - 1; i >= 0; i--)
+        {
+            if (list2[i].gameObject.CompareTag("Enemy"))
+            {
+                list2[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                list2[i].gameObject.GetComponent<Enemy>().CheckHealth();
+
+                if (list2[i].gameObject.GetComponent<Enemy>().wet)
+                {
+                    list2[i].gameObject.GetComponent<Enemy>().Stunned = true;
+                    list2[i].gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
+                    list2[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
+                }
+            }
+        }
         yield return new WaitForSeconds(0.15f);
         StoneAOE.SetActive(false);
         yield return new WaitForSeconds(Random.Range(0.3f, 2f));
         StartCoroutine("ZephyrPhase2");
-    }
-
-    IEnumerator ZephyrMovement()
-    {
-        yield return new WaitForSeconds(4f);
-        playerTurnedRight = !playerTurnedRight;
-        StartCoroutine("ZephyrMovement");
     }
 
     IEnumerator PoisonCoroutine()

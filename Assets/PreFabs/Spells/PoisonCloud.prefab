@@ -272,7 +272,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -306,6 +306,16 @@ MonoBehaviour:
   Might: 0
   CardTrick: 0
   Blink: 0
+  Dash: 0
+  Magic8Ball: 0
+  StoneAOE: {fileID: 0}
+  FallStartingHeight: 0
+  Phase1: 0
+  Phase2: 0
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  initialXSpeed: 0
+  initialYSpeed: 0
+  maxYSpeed: 0
+  rotation: 0
