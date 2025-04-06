@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
-  seconds: 1.5
+  seconds: 5
   speed: 0
   stunDuration: 0
+  distance: 0
   Splash: 0
   Dove: 0
   WildGrowth: 0
@@ -58,3 +59,17 @@ MonoBehaviour:
   ConeOfCold: 0
   Might: 0
   CardTrick: 1
+  Blink: 0
+  Dash: 0
+  Magic8Ball: 0
+  StoneAOE: {fileID: 0}
+  FallStartingHeight: 0
+  Phase1: 0
+  Phase2: 0
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  initialXSpeed: 0
+  initialYSpeed: 0
+  maxYSpeed: 0
+  rotation: 0

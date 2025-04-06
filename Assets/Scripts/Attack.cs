@@ -99,7 +99,7 @@ public class Attack : MonoBehaviour
         {
             StoneAOE = transform.GetChild(0).gameObject;
             StoneAOE.SetActive(false);
-            timer = -2f;
+            timer = 0.4f;
         }
         else if (ConeOfCold && !playerTurnedRight)
         {
@@ -265,10 +265,11 @@ public class Attack : MonoBehaviour
         else if (Combust)
         {
             //Combust moves whichever way the player is facing until it hits the ground
-            if (timer > -0.2)
+            rb.linearVelocity = Vector2.zero;
+            if (timer <= 0)
             {
-                rb.linearVelocity = Vector2.zero;
-                if (timer % 0.3f == 0)
+                StoneAOE.SetActive(true);
+                if (timer % 0.2f == 0 | timer == 0)
                 {
                     var list = new Collider2D[10];
                     var filter = new ContactFilter2D().NoFilter();
@@ -293,11 +294,6 @@ public class Attack : MonoBehaviour
                         }
                     }
                 }
-                timer -= Time.deltaTime;
-                if (timer <= 0)
-                {
-                    Destroy(this.gameObject);
-                }
             }
             else if (playerTurnedRight)
             {
@@ -307,7 +303,13 @@ public class Attack : MonoBehaviour
             {
                 rb.linearVelocityX = -speed;
             }
-            
+
+            if (timer <= -0.25f)
+            {
+                Destroy(this.gameObject);
+            }
+
+            timer -= Time.deltaTime;
         }
         else if (PoisonCloud)
         {
@@ -630,7 +632,14 @@ public class Attack : MonoBehaviour
             else if (list[i].gameObject.CompareTag("Combust"))
             {
                 explode = true;
-                Destroy(list[i].gameObject);
+                if (list[i].gameObject.transform.parent != null)
+                {
+                    Destroy(list[i].gameObject.transform.parent.gameObject);
+                }
+                else
+                {
+                    Destroy(list[i].gameObject);
+                }
                 break;
             }
         }

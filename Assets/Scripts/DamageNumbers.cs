@@ -15,6 +15,7 @@ public class DamageNumbers : MonoBehaviour
     private float xRate;
     private float yRate;
     private Rigidbody2D rb;
+    private float Size;
 
 
     private void Start()
@@ -106,6 +107,8 @@ public class DamageNumbers : MonoBehaviour
     public void Display(int Damage, Color numberColor)
     {
         var len = Damage.ToString().Length;
+        Size = Damage / 100;
+        transform.localScale = new Vector3(1 * (1 + Size), 1 * (1 + Size), 1);
         if (len == 1)
         {
             var damageText = Damage.ToString();
@@ -115,6 +118,7 @@ public class DamageNumbers : MonoBehaviour
                 var num = Instantiate(numbers[0], positions[0], false);
                 num.transform.localPosition = Vector3.zero;
                 num.GetComponent<SpriteRenderer>().color = numberColor;
+
             }
             else if (damageTextList[0] == '1')
             {

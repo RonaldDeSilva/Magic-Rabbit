@@ -62,6 +62,7 @@ public class Movement : MonoBehaviour
     public bool invulnerable = false;
     public bool dashing = false;
     public bool justHit = false;
+    public bool RapidFire = false;
 
     #endregion
 
@@ -113,10 +114,15 @@ public class Movement : MonoBehaviour
                 }
             }
 
-            if (Input.GetAxis("Fire1") > 0 && !UsingCard)
+            if (Input.GetAxis("Fire1") > 0 && !UsingCard && !RapidFire)
             {
                 UseCard();
                 UsingCard = true;
+            }
+
+            if (RapidFire && Input.GetAxis("Fire1") > 0)
+            {
+                UseCard();
             }
         }
 

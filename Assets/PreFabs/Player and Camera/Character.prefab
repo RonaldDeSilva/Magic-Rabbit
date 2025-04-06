@@ -124,8 +124,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.020734847, y: -0.26436687}
-  m_Size: {x: 0.7719189, y: 1.9123249}
+  m_Offset: {x: -0.0027291775, y: -0.10489166}
+  m_Size: {x: 0.7153306, y: 1.5933745}
   m_Direction: 0
 --- !u!50 &8180581177887621384
 Rigidbody2D:
@@ -139,10 +139,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 2.5
+  m_GravityScale: 4.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -166,9 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac92115dc0ad1ac41bec87feefc5d0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  jumpHeight: 2000
-  maxHealth: 5
+  speed: 10
+  jumpHeight: 5800
+  maxHealth: 100000
+  knockback: 70
+  EnemyKnockback: 30
   rb: {fileID: 0}
   StartingColor: {r: 0, g: 0, b: 0, a: 0}
   Attacks:
@@ -189,3 +191,4 @@ MonoBehaviour:
   StoneForm: 0
   invulnerable: 0
   dashing: 0
+  justHit: 0
