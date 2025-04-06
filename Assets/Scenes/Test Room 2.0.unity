@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 25898817}
   - component: {fileID: 25898819}
   - component: {fileID: 25898818}
+  - component: {fileID: 25898820}
   m_Layer: 3
   m_Name: Square (5)
   m_TagString: Ground
@@ -253,6 +254,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &25898820
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25898816}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &139397704
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +462,7 @@ GameObject:
   - component: {fileID: 145651430}
   - component: {fileID: 145651432}
   - component: {fileID: 145651431}
+  - component: {fileID: 145651433}
   m_Layer: 3
   m_Name: Square (11)
   m_TagString: Ground
@@ -557,6 +586,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &145651433
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145651429}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &153373828
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +805,7 @@ GameObject:
   - component: {fileID: 206844304}
   - component: {fileID: 206844306}
   - component: {fileID: 206844305}
+  - component: {fileID: 206844307}
   m_Layer: 3
   m_Name: Square (12)
   m_TagString: Ground
@@ -872,6 +929,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &206844307
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206844303}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &243685543
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +967,7 @@ GameObject:
   - component: {fileID: 243685544}
   - component: {fileID: 243685546}
   - component: {fileID: 243685545}
+  - component: {fileID: 243685547}
   m_Layer: 3
   m_Name: Square (15)
   m_TagString: Ground
@@ -1006,6 +1091,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &243685547
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243685543}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &259102182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1129,7 @@ GameObject:
   - component: {fileID: 259102183}
   - component: {fileID: 259102185}
   - component: {fileID: 259102184}
+  - component: {fileID: 259102186}
   m_Layer: 3
   m_Name: Square (6)
   m_TagString: Ground
@@ -1140,6 +1253,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &259102186
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259102182}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &260355357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1291,7 @@ GameObject:
   - component: {fileID: 260355358}
   - component: {fileID: 260355360}
   - component: {fileID: 260355359}
+  - component: {fileID: 260355361}
   m_Layer: 3
   m_Name: Square (9)
   m_TagString: Ground
@@ -1274,6 +1415,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &260355361
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260355357}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &340053534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,6 +1855,7 @@ GameObject:
   - component: {fileID: 468459024}
   - component: {fileID: 468459026}
   - component: {fileID: 468459025}
+  - component: {fileID: 468459027}
   m_Layer: 3
   m_Name: Square (1)
   m_TagString: Ground
@@ -1810,6 +1979,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &468459027
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468459023}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &520162806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,6 +2151,7 @@ GameObject:
   - component: {fileID: 525067757}
   - component: {fileID: 525067759}
   - component: {fileID: 525067758}
+  - component: {fileID: 525067760}
   m_Layer: 3
   m_Name: Square (4)
   m_TagString: Ground
@@ -2078,6 +2275,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &525067760
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525067756}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &534261673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,6 +2350,7 @@ GameObject:
   - component: {fileID: 545576903}
   - component: {fileID: 545576905}
   - component: {fileID: 545576904}
+  - component: {fileID: 545576906}
   m_Layer: 3
   m_Name: Square (13)
   m_TagString: Ground
@@ -2249,6 +2474,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &545576906
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545576902}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &675292110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,6 +2682,7 @@ GameObject:
   - component: {fileID: 676535130}
   - component: {fileID: 676535132}
   - component: {fileID: 676535131}
+  - component: {fileID: 676535133}
   m_Layer: 3
   m_Name: Square (15)
   m_TagString: Ground
@@ -2553,6 +2806,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &676535133
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676535129}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &683757588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,6 +3061,7 @@ GameObject:
   - component: {fileID: 708030648}
   - component: {fileID: 708030650}
   - component: {fileID: 708030649}
+  - component: {fileID: 708030651}
   m_Layer: 3
   m_Name: Square
   m_TagString: Ground
@@ -2904,6 +3185,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &708030651
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708030647}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &730485867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3320,7 @@ GameObject:
   - component: {fileID: 816518083}
   - component: {fileID: 816518085}
   - component: {fileID: 816518084}
+  - component: {fileID: 816518086}
   m_Layer: 3
   m_Name: Square (6)
   m_TagString: Ground
@@ -3135,6 +3444,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &816518086
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816518082}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1140824601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3146,6 +3482,7 @@ GameObject:
   - component: {fileID: 1140824602}
   - component: {fileID: 1140824604}
   - component: {fileID: 1140824603}
+  - component: {fileID: 1140824605}
   m_Layer: 3
   m_Name: Square (1)
   m_TagString: Ground
@@ -3269,6 +3606,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1140824605
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140824601}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1155966787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,6 +4006,7 @@ GameObject:
   - component: {fileID: 1187300829}
   - component: {fileID: 1187300828}
   - component: {fileID: 1187300827}
+  - component: {fileID: 1187300830}
   m_Layer: 3
   m_Name: Wall (1)
   m_TagString: Ground
@@ -3765,6 +4130,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1268229750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1187300830
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187300826}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1236834869
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,6 +4168,7 @@ GameObject:
   - component: {fileID: 1236834870}
   - component: {fileID: 1236834872}
   - component: {fileID: 1236834871}
+  - component: {fileID: 1236834873}
   m_Layer: 3
   m_Name: Square (7)
   m_TagString: Ground
@@ -3899,6 +4292,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1236834873
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236834869}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1245452001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,6 +4330,7 @@ GameObject:
   - component: {fileID: 1245452002}
   - component: {fileID: 1245452004}
   - component: {fileID: 1245452003}
+  - component: {fileID: 1245452005}
   m_Layer: 3
   m_Name: Square (13)
   m_TagString: Ground
@@ -4033,6 +4454,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1245452005
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245452001}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1268229749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,6 +4532,7 @@ GameObject:
   - component: {fileID: 1287041272}
   - component: {fileID: 1287041274}
   - component: {fileID: 1287041273}
+  - component: {fileID: 1287041275}
   m_Layer: 3
   m_Name: Square (5)
   m_TagString: Ground
@@ -4207,6 +4656,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1287041275
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287041271}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1303081510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,6 +4864,7 @@ GameObject:
   - component: {fileID: 1322041215}
   - component: {fileID: 1322041217}
   - component: {fileID: 1322041216}
+  - component: {fileID: 1322041218}
   m_Layer: 3
   m_Name: Square (10)
   m_TagString: Ground
@@ -4511,6 +4988,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1322041218
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322041214}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1335355925
 GameObject:
   m_ObjectHideFlags: 0
@@ -4522,6 +5026,7 @@ GameObject:
   - component: {fileID: 1335355926}
   - component: {fileID: 1335355928}
   - component: {fileID: 1335355927}
+  - component: {fileID: 1335355929}
   m_Layer: 3
   m_Name: Square (9)
   m_TagString: Ground
@@ -4645,6 +5150,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1335355929
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335355925}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1346822386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4753,6 +5285,7 @@ GameObject:
   - component: {fileID: 1355215000}
   - component: {fileID: 1355215002}
   - component: {fileID: 1355215001}
+  - component: {fileID: 1355215003}
   m_Layer: 3
   m_Name: Square (7)
   m_TagString: Ground
@@ -4876,6 +5409,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1355215003
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355214999}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1381867141
 GameObject:
   m_ObjectHideFlags: 0
@@ -5021,6 +5581,7 @@ GameObject:
   - component: {fileID: 1441115247}
   - component: {fileID: 1441115249}
   - component: {fileID: 1441115248}
+  - component: {fileID: 1441115250}
   m_Layer: 3
   m_Name: Square (14)
   m_TagString: Ground
@@ -5144,6 +5705,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1441115250
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441115246}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1454333463
 GameObject:
   m_ObjectHideFlags: 0
@@ -5290,6 +5878,7 @@ GameObject:
   - component: {fileID: 1483778972}
   - component: {fileID: 1483778974}
   - component: {fileID: 1483778973}
+  - component: {fileID: 1483778975}
   m_Layer: 3
   m_Name: Square (12)
   m_TagString: Ground
@@ -5413,6 +6002,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1483778975
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483778971}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1504727662
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,6 +6040,7 @@ GameObject:
   - component: {fileID: 1504727663}
   - component: {fileID: 1504727665}
   - component: {fileID: 1504727664}
+  - component: {fileID: 1504727666}
   m_Layer: 3
   m_Name: Square (2)
   m_TagString: Ground
@@ -5547,6 +6164,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1504727666
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504727662}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1518874445
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,6 +6202,7 @@ GameObject:
   - component: {fileID: 1518874446}
   - component: {fileID: 1518874448}
   - component: {fileID: 1518874447}
+  - component: {fileID: 1518874449}
   m_Layer: 3
   m_Name: Square (3)
   m_TagString: Ground
@@ -5681,6 +6326,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1518874449
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518874445}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1573791303
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,6 +6364,7 @@ GameObject:
   - component: {fileID: 1573791304}
   - component: {fileID: 1573791306}
   - component: {fileID: 1573791305}
+  - component: {fileID: 1573791307}
   m_Layer: 3
   m_Name: Square (16)
   m_TagString: Ground
@@ -5815,6 +6488,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1573791307
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573791303}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1592213841
 GameObject:
   m_ObjectHideFlags: 0
@@ -5959,6 +6659,7 @@ GameObject:
   - component: {fileID: 1749678624}
   - component: {fileID: 1749678626}
   - component: {fileID: 1749678625}
+  - component: {fileID: 1749678627}
   m_Layer: 3
   m_Name: Square (6)
   m_TagString: Ground
@@ -6082,6 +6783,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1749678627
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749678623}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1801160741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6229,6 +6957,7 @@ GameObject:
   - component: {fileID: 1892434504}
   - component: {fileID: 1892434506}
   - component: {fileID: 1892434505}
+  - component: {fileID: 1892434507}
   m_Layer: 3
   m_Name: Square (16)
   m_TagString: Ground
@@ -6352,6 +7081,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1892434507
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892434503}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1897934566
 GameObject:
   m_ObjectHideFlags: 0
@@ -6363,6 +7119,7 @@ GameObject:
   - component: {fileID: 1897934568}
   - component: {fileID: 1897934567}
   - component: {fileID: 1897934569}
+  - component: {fileID: 1897934570}
   m_Layer: 3
   m_Name: Wall
   m_TagString: Ground
@@ -6486,6 +7243,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.57, y: 1.3}
   m_EdgeRadius: 0
+--- !u!50 &1897934570
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897934566}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1902204102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6497,6 +7281,7 @@ GameObject:
   - component: {fileID: 1902204103}
   - component: {fileID: 1902204105}
   - component: {fileID: 1902204104}
+  - component: {fileID: 1902204106}
   m_Layer: 3
   m_Name: Square (14)
   m_TagString: Ground
@@ -6620,6 +7405,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1902204106
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902204102}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1983820132
 GameObject:
   m_ObjectHideFlags: 0
@@ -6847,6 +7659,7 @@ GameObject:
   - component: {fileID: 2085165914}
   - component: {fileID: 2085165916}
   - component: {fileID: 2085165915}
+  - component: {fileID: 2085165917}
   m_Layer: 3
   m_Name: Square (8)
   m_TagString: Ground
@@ -6970,6 +7783,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2085165917
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085165913}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1001 &311225239445935668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7191,7 +8031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2409268377397062633, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3193271589272312659, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: orthographic
@@ -7199,43 +8039,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4437585256267846122, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4869560129696056386, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5247069169308565211, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5436188187406907725, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5834230579386243829, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6063558656905938332, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6895039849325753913, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7164251499210291344, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7649154001262415199, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390392390472465615, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
+      propertyPath: CardNum
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8627363305990944964, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8793221486186342244, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7279,7 +8123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9098700166858660022, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

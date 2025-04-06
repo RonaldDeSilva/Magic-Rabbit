@@ -39,7 +39,9 @@ public class Attack : MonoBehaviour
     private bool flying = false;
     private bool hasStarted = false;
     public LayerMask groundLayerMask;
-    private float initialXSpeed;
+    public float initialXSpeed;
+    public float initialYSpeed;
+    public float maxYSpeed;
 
 
     #endregion
@@ -160,12 +162,13 @@ public class Attack : MonoBehaviour
             Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 0.01f, Player.transform.position.z);
             Player.GetComponent<Rigidbody2D>().gravityScale = 0.0000001f;
         }
-        else if (Dove)
+
+        if (rb.bodyType == RigidbodyType2D.Kinematic)
         {
-            StartCoroutine("DovePause");
+            rb.useFullKinematicContacts = true;
         }
 
-        if (!StoneForm)
+        if (!StoneForm && !Dove)
         {
             StartCoroutine("Delete");
         }
@@ -173,7 +176,7 @@ public class Attack : MonoBehaviour
     #endregion
 
     #region Behaviors
-    private void Update()
+    private void FixedUpdate()
     {
         if (Splash)
         {
@@ -191,7 +194,20 @@ public class Attack : MonoBehaviour
         {
             if (flying)
             {
-                rb.linearVelocityY = speed;
+                rb.linearVelocityY = initialYSpeed; 
+                rb.linearVelocityX = initialXSpeed;
+                initialYSpeed += Time.deltaTime;
+                initialXSpeed -= Time.deltaTime;
+                initialYSpeed = Mathf.Clamp(initialYSpeed, initialYSpeed, maxYSpeed);
+                initialXSpeed = Mathf.Clamp(initialXSpeed, 0, initialXSpeed);
+            }
+            else
+            {
+                seconds -= Time.deltaTime;
+                if (seconds <= 2f)
+                {
+                    flying = true;
+                }
             }
         }
         else if (WildGrowth)
@@ -365,6 +381,10 @@ public class Attack : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            flying = true;
         }
     }
 
@@ -591,12 +611,6 @@ public class Attack : MonoBehaviour
         }
         yield return new WaitForSeconds(0.2f);
         StartCoroutine("MightCoroutine");
-    }
-
-    IEnumerator DovePause()
-    {
-        yield return new WaitForSeconds(2.5f);
-        flying = true;
     }
     #endregion
     private IEnumerator Delete()
