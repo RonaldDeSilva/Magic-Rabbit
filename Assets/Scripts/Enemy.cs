@@ -16,39 +16,116 @@ public class Enemy : MonoBehaviour
     public bool onFire = false;
     public bool poisoned = false;
     public bool frozen = false;
+    public class theCollider { };
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public int curHealth;
     private bool right = true;
     private Color startColor;
+    private bool isTurnedRight;
+    private float theMagnitude;
+    public bool bounce = false;
+    private int bounces = 0;
+    private float CurrentTime = 1;
+    private GameObject Player;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         curHealth = maxHealth;
         startColor = GetComponent<SpriteRenderer>().color;
+        Player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine("WalkCycle");
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        if (!Stunned)
+        if (!bounce)
         {
             if (right)
             {
-                rb.linearVelocityX = speed;
+                rb.linearVelocityX += speed/10;
             }
             else if (!right)
             {
-                rb.linearVelocityX = -speed;
+                rb.linearVelocityX -= speed/10;
+            }
+
+            if (Stunned)
+            {
+                rb.linearVelocityX = 0;
             }
         }
-        else if (Stunned)
+        else if (CurrentTime >= 0f && bounce)
         {
-            rb.linearVelocityX = 0;
+            if (CurrentTime >= 1)
+            {
+                if (Player.transform.position.x < transform.position.x)
+                {
+                    rb.AddForce(new Vector2(1 * theMagnitude, 1f * theMagnitude), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    rb.AddForce(new Vector2(-1 * theMagnitude, 1f * theMagnitude), ForceMode2D.Impulse);
+                }
+            }
+
+            CurrentTime -= Time.deltaTime;
+            if (CurrentTime <= 0f)
+            {
+                bounce = false;
+                bounces = 0;
+            }
+            else if (CurrentTime <= 0.75f)
+            {
+                GetComponent<CapsuleCollider2D>().isTrigger = false;
+            }
+        }
+        if (CurrentTime <= 0f)
+        {
+            bounce = false;
+            bounces = 0;
+        }
+        rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -speed * 3, speed * 3);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (bounce && bounces <= 1)
+        {
+            if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundMoveable") || collision.gameObject.CompareTag("GroundBreakable"))
+            {
+                rb.linearVelocity = new Vector2(-rb.linearVelocityX, -rb.linearVelocityY);
+                bounces += 1;
+            }
+        }
+        else
+        {
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
+            bounces = 0;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (bounce)
+        {
+            if (rb.linearVelocityX > 1 | rb.linearVelocityX < -1 && rb.linearVelocityY > 1 | rb.linearVelocityY < -1)
+            {
+                rb.linearVelocity = new Vector2(-rb.linearVelocityX, -rb.linearVelocityY);
+            }
+            else if (isTurnedRight)
+            {
+                rb.AddForce(new Vector2(3 * theMagnitude, 5f * theMagnitude), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(-3 * theMagnitude, 5f * theMagnitude), ForceMode2D.Impulse);
+            }
+            CurrentTime -= 0.1f;
+        }
+    }
+
 
     public void CheckHealth()
     {
@@ -57,6 +134,14 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+    public void Knockback(bool turnedRight, float magnitude)
+    {
+        isTurnedRight = turnedRight;
+        theMagnitude = magnitude;
+        bounce = true;
+        CurrentTime = 1;
+        GetComponent<CapsuleCollider2D>().isTrigger = true; 
     }
 
     IEnumerator WalkCycle()

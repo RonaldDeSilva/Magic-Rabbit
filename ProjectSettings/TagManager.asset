@@ -12,6 +12,7 @@ TagManager:
   - Combust
   - Room
   - FakeCamera
+  - StoneForm
   layers:
   - Default
   - TransparentFX

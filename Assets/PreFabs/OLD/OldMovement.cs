@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Movement : MonoBehaviour
+public class OldMovement : MonoBehaviour
 {
     #region Card Numbers and what they mean
 
@@ -46,7 +46,6 @@ public class Movement : MonoBehaviour
     private int curHealth;
     private float CooldownTime = 1f;
     public float knockback;
-    public float EnemyKnockback;
 
     public Rigidbody2D rb;
     public Color StartingColor;
@@ -61,7 +60,6 @@ public class Movement : MonoBehaviour
     public bool StoneForm = false;
     public bool invulnerable = false;
     public bool dashing = false;
-    public bool justHit = false;
 
     #endregion
 
@@ -69,8 +67,8 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Hand = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(0).gameObject;
-        Deck = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(1).gameObject;
+        Hand = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).gameObject;
+        Deck = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(1).gameObject;
         curHealth = maxHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
         DealCards();
@@ -82,7 +80,7 @@ public class Movement : MonoBehaviour
     {
         #region Input
 
-        if (!StoneForm && !dashing && !justHit)
+        if (!StoneForm & !dashing)
         {
             if (Input.GetAxis("Horizontal") != 0)
             {
@@ -132,7 +130,7 @@ public class Movement : MonoBehaviour
     #region Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
             jumped = false;
             if (StoneForm && collision.gameObject.CompareTag("GroundBreakable"))
@@ -140,24 +138,13 @@ public class Movement : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
-        
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (!invulnerable && !StoneForm && !justHit)
+            if (!invulnerable && !StoneForm)
             {
-                justHit = true;
                 curHealth -= collision.gameObject.GetComponent<Enemy>().bumpDamage;
                 CheckHealth();
-                if (collision.gameObject.transform.position.x > transform.position.x)
-                {
-                    rb.AddForceY(1 * knockback, ForceMode2D.Impulse);
-                    rb.AddForceX(-1 * knockback, ForceMode2D.Impulse);
-                } 
-                else if (collision.gameObject.transform.position.x < transform.position.x)
-                {
-                    rb.AddForce(new Vector2(1 * knockback, 1 * knockback), ForceMode2D.Impulse);
-                }
-                StartCoroutine("DamageCooldown");
             }
             else if (StoneForm)
             {
@@ -165,7 +152,14 @@ public class Movement : MonoBehaviour
                 var dam = thing.Damage;
                 collision.gameObject.GetComponent<Enemy>().curHealth -= dam;
                 collision.gameObject.GetComponent<Enemy>().CheckHealth();
-                collision.gameObject.GetComponent<Enemy>().Knockback(turnedRight, EnemyKnockback);
+                if (collision.gameObject.transform.position.x > transform.position.x)
+                {
+                    collision.gameObject.GetComponent<Enemy>().rb.AddForceX(((thing.FallStartingHeight - transform.position.y) + 1) * knockback);
+                }
+                else
+                {
+                    collision.gameObject.GetComponent<Enemy>().rb.AddForceX(-((thing.FallStartingHeight - transform.position.y) + 1) * knockback);
+                }
             }
         }
     }
@@ -203,7 +197,7 @@ public class Movement : MonoBehaviour
     private void UseCard()
     {
         var CurCard = Hand.transform.GetChild(0);
-        
+
         if (CurCard.GetComponent<CardEffects>().CardNum == 1) //Splash
         {
             if (turnedRight)
@@ -228,7 +222,7 @@ public class Movement : MonoBehaviour
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 3) //Wild Growth
         {
-             Instantiate(Attacks[2], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
+            Instantiate(Attacks[2], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 4) //Stone Form
         {
@@ -326,7 +320,7 @@ public class Movement : MonoBehaviour
                             else
                             {
                                 newCard = Deck.transform.GetChild((num - Hand.transform.childCount)).gameObject;
-                            }  
+                            }
                         }
                     }
                 }
@@ -511,11 +505,5 @@ public class Movement : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
-
-     IEnumerator DamageCooldown()
-    {
-        yield return new WaitForSeconds(0.25f);
-        justHit = false;
     }
 }

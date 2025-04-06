@@ -32,12 +32,14 @@ public class Attack : MonoBehaviour
     private bool playerTurnedRight;
     private float PlayerStartingSpeed;
     private float PlayerStartingJumpHeight;
-    private float FallStartingHeight;
+    public float FallStartingHeight;
     private float PlayerStartingGravity;
     private bool Phase1 = false;
     private bool Phase2 = false;
     private bool flying = false;
+    private bool hasStarted = false;
     public LayerMask groundLayerMask;
+    private float initialXSpeed;
 
 
     #endregion
@@ -199,10 +201,11 @@ public class Attack : MonoBehaviour
         else if (StoneForm)
         {
             this.transform.position = Player.transform.position;
-            if (MovementScript.canJump)
+            if (MovementScript.canJump && !hasStarted)
             {
                 Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 StartCoroutine("StoneFormAttack");
+                hasStarted = true;
             }
         }
         else if (Zephyr)
@@ -358,7 +361,7 @@ public class Attack : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
-            if (!collision.gameObject.CompareTag("GroundMoveable") && !Splash)
+            if (!collision.gameObject.CompareTag("GroundMoveable") && !Splash &&  !StoneForm)
             {
                 Destroy(this.gameObject);
             }

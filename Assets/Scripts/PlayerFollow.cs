@@ -18,7 +18,7 @@ public class PlayerFollow : MonoBehaviour
     {
         if (type1)
         {
-            transform.position = new Vector3(Mathf.Clamp(Player.transform.position.x, startingX, 9999999), transform.position.y, -10);
+            transform.position = new Vector3(Player.transform.position.x, transform.position.y, -10);
         }
         else if (type2)
         {
