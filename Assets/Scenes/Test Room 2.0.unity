@@ -8118,7 +8118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2409268377397062633, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3193271589272312659, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: orthographic
@@ -8126,47 +8126,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4437585256267846122, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4869560129696056386, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5247069169308565211, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5436188187406907725, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5834230579386243829, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6063558656905938332, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6895039849325753913, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7164251499210291344, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7649154001262415199, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8390392390472465615, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8627363305990944964, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8793221486186342244, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8210,7 +8210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9098700166858660022, guid: 609028aed3a65514e8be0e65ff377d14, type: 3}
       propertyPath: CardNum
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
