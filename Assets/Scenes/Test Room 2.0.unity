@@ -8089,7 +8089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107d3bed0614864478bd159048fca010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 100000
   speed: 6
   walkTime: 2
   bumpDamage: 2
@@ -8104,6 +8104,7 @@ MonoBehaviour:
   rb: {fileID: 4482869860745890941}
   curHealth: 0
   bounce: 0
+  damageNumber: {fileID: 3534988914727803720, guid: c43a4ac537c04264e92b860b0ddfd0a8, type: 3}
 --- !u!1001 &4798367984954179177
 PrefabInstance:
   m_ObjectHideFlags: 0

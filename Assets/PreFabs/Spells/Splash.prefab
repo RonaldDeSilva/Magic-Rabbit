@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7e38129cdb6004290191cd09792d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 3
   seconds: 1
   speed: 10
   stunDuration: 0
@@ -181,6 +181,16 @@ MonoBehaviour:
   Might: 0
   CardTrick: 0
   Blink: 0
+  Dash: 0
+  Magic8Ball: 0
+  StoneAOE: {fileID: 0}
+  FallStartingHeight: 0
+  Phase1: 0
+  Phase2: 0
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  initialXSpeed: 0
+  initialYSpeed: 0
+  maxYSpeed: 0
+  rotation: 0

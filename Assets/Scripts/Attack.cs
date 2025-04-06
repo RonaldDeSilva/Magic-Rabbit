@@ -265,7 +265,7 @@ public class Attack : MonoBehaviour
         else if (Combust)
         {
             //Combust moves whichever way the player is facing until it hits the ground
-            if (timer > -1)
+            if (timer > -0.2)
             {
                 rb.linearVelocity = Vector2.zero;
                 if (timer % 0.3f == 0)
@@ -292,8 +292,8 @@ public class Attack : MonoBehaviour
                             }
                         }
                     }
-                    timer -= Time.deltaTime;
                 }
+                timer -= Time.deltaTime;
                 if (timer <= 0)
                 {
                     Destroy(this.gameObject);
@@ -401,7 +401,7 @@ public class Attack : MonoBehaviour
             else if (Combust)
             {
                 StoneAOE.SetActive(true);
-                timer = 2.1f;
+                timer = 0.3f;
             }
             else if (PoisonCloud)
             {
@@ -431,7 +431,7 @@ public class Attack : MonoBehaviour
             else if (Combust)
             {
                 StoneAOE.SetActive(true);
-                timer = 2.1f;
+                timer = 0.3f;
             }
             else if (PoisonCloud)
             {

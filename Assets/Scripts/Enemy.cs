@@ -28,11 +28,14 @@ public class Enemy : MonoBehaviour
     private int bounces = 0;
     private float CurrentTime = 1;
     private GameObject Player;
+    public GameObject damageNumber;
+    private int prevHealth;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         curHealth = maxHealth;
+        prevHealth = curHealth;
         startColor = GetComponent<SpriteRenderer>().color;
         Player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine("WalkCycle");
@@ -134,6 +137,27 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        else
+        {
+            var numbers = Instantiate(damageNumber, transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
+            if (onFire)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.red);
+            }
+            else if (frozen)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.blue);
+            }
+            else if (poisoned)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.green);
+            }
+            else
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.white);
+            }
+            prevHealth = curHealth;
+        }
     }
     public void Knockback(bool turnedRight, float magnitude)
     {
@@ -188,9 +212,8 @@ public class Enemy : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.green;
         }
         curHealth -= DOTDamage;
-        yield return new WaitForSeconds(0.1f);
-        GetComponent<SpriteRenderer>().color = startColor;
-        yield return new WaitForSeconds(0.4f);
+        CheckHealth();
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine("DamageOverTime");
 
     }
