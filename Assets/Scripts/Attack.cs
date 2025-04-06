@@ -403,7 +403,7 @@ public class Attack : MonoBehaviour
             else if (Combust)
             {
                 StoneAOE.SetActive(true);
-                timer = 0.3f;
+                timer = 0f;
             }
             else if (PoisonCloud)
             {
@@ -433,7 +433,7 @@ public class Attack : MonoBehaviour
             else if (Combust)
             {
                 StoneAOE.SetActive(true);
-                timer = 0.3f;
+                timer = 0f;
             }
             else if (PoisonCloud)
             {
