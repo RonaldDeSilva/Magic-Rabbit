@@ -250,7 +250,6 @@ public class Attack : MonoBehaviour
             else if (Phase2)
             {
                 distance = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), -Vector2.up, 500, groundLayerMask).point.y;
-                Debug.Log(distance);
                 rb.linearVelocityY = 0;
                 if (playerTurnedRight)
                 {
@@ -398,6 +397,8 @@ public class Attack : MonoBehaviour
                     collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
                     //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
                 }
+                collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                collision.gameObject.GetComponent<Enemy>().CheckHealth();
                 Destroy(this.gameObject);
             }
             else if (Combust)
@@ -462,7 +463,8 @@ public class Attack : MonoBehaviour
             {
                 if (ConeOfCold && collision.gameObject.GetComponent<Enemy>().wet)
                 {
-                    collision.gameObject.GetComponent<Enemy>().curHealth -= Damage * 4;
+                    collision.gameObject.GetComponent<Enemy>().curHealth -= Damage * 4; 
+                    collision.gameObject.GetComponent<Enemy>().frozen = true;
                     collision.gameObject.GetComponent<Enemy>().CheckHealth();
                     collision.gameObject.GetComponent<Enemy>().Stunned = true;
                     collision.gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration * 2;
@@ -470,15 +472,15 @@ public class Attack : MonoBehaviour
                 }
                 else if (ConeOfCold)
                 {
+                    collision.gameObject.GetComponent<Enemy>().frozen = true;
+                    collision.gameObject.GetComponent<Enemy>().onFire = false;
                     collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
                     collision.gameObject.GetComponent<Enemy>().CheckHealth();
                     collision.gameObject.GetComponent<Enemy>().Stunned = true;
-                    collision.gameObject.GetComponent<Enemy>().frozen = true;
                     collision.gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
                     collision.gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
                     collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
                     collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
-                    collision.gameObject.GetComponent<Enemy>().onFire = false;
                 }
                 else if (!Might && !ConeOfCold)
                 {
@@ -573,29 +575,38 @@ public class Attack : MonoBehaviour
         {
             if (list[i].gameObject.CompareTag("Enemy"))
             {
-                list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
-                list[i].gameObject.GetComponent<Enemy>().CheckHealth();
-
                 if (list[i].gameObject.GetComponent<Enemy>().wet)
                 {
                     list[i].gameObject.GetComponent<Enemy>().Stunned = true;
                     list[i].gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
                     list[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
+                    list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage * 3;
+                    list[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                }
+                else
+                {
+                    list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                    list[i].gameObject.GetComponent<Enemy>().CheckHealth();
                 }
             }
         }
+
         for (int i = hitColliders2 - 1; i >= 0; i--)
         {
             if (list2[i].gameObject.CompareTag("Enemy"))
             {
-                list2[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
-                list2[i].gameObject.GetComponent<Enemy>().CheckHealth();
-
                 if (list2[i].gameObject.GetComponent<Enemy>().wet)
                 {
                     list2[i].gameObject.GetComponent<Enemy>().Stunned = true;
                     list2[i].gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
                     list2[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
+                    list2[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                    list2[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                }
+                else
+                {
+                    list2[i].gameObject.GetComponent<Enemy>().curHealth -= Damage / 3;
+                    list2[i].gameObject.GetComponent<Enemy>().CheckHealth();
                 }
             }
         }

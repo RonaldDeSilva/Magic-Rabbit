@@ -16,11 +16,8 @@ public class Enemy : MonoBehaviour
     public bool onFire = false;
     public bool poisoned = false;
     public bool frozen = false;
-    public class theCollider { };
-
     public Rigidbody2D rb;
     public int curHealth;
-    private bool right = true;
     private Color startColor;
     private bool isTurnedRight;
     private float theMagnitude;
@@ -30,6 +27,14 @@ public class Enemy : MonoBehaviour
     private GameObject Player;
     public GameObject damageNumber;
     private int prevHealth;
+    public GameObject Zombie;
+    public GameObject IceBat;
+    private float necroTimer = 0;
+
+    public bool isNecromancer;
+    public bool isZombie;
+    public bool isIceBat;
+    private float Acceleration = 0.01f;
 
     void Start()
     {
@@ -38,27 +43,53 @@ public class Enemy : MonoBehaviour
         prevHealth = curHealth;
         startColor = GetComponent<SpriteRenderer>().color;
         Player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine("WalkCycle");
     }
 
 
     void FixedUpdate()
     {
-        if (!bounce)
+        if (!bounce && !Stunned)
         {
-            if (right)
+            if (isZombie)
             {
-                rb.linearVelocityX += speed/10;
+                Acceleration = Mathf.Clamp(Acceleration, 0, 1);
+                rb.linearVelocityX = (Player.transform.position.x - transform.position.x) * speed * Acceleration;
+                if (Acceleration != 1)
+                {
+                    Acceleration += Time.deltaTime;
+                }
             }
-            else if (!right)
+            else if (isNecromancer)
             {
-                rb.linearVelocityX -= speed/10;
+                necroTimer += 1f;
+                if (necroTimer % 200f == 0)
+                {
+                    var coinFlip = Random.Range(0, 2);
+                    if (coinFlip == 0)
+                    {
+                        var child = Instantiate(Zombie, new Vector3(transform.position.x - 1f, transform.position.y + 0.25f, 0f), new Quaternion(0, 0, 0, 0), transform);
+                    }
+                    else if (coinFlip == 1)
+                    {
+                        var child = Instantiate(IceBat, new Vector3(transform.position.x - 1f, transform.position.y + 2.5f, 0f), new Quaternion(0, 0, 0, 0), transform);
+                    }
+                }
+
+                if (necroTimer > 601)
+                {
+                    necroTimer = 0;
+                }
+            }
+            else if (isIceBat)
+            {
+                Acceleration = Mathf.Clamp(Acceleration, 0, 1);
+                rb.linearVelocity = new Vector2((Player.transform.position.x - transform.position.x) * speed * Acceleration, (Player.transform.position.y - transform.position.y) * speed * Acceleration);
+                if (Acceleration != 1)
+                {
+                    Acceleration += Time.deltaTime;
+                }
             }
 
-            if (Stunned)
-            {
-                rb.linearVelocityX = 0;
-            }
         }
         else if (CurrentTime >= 0f && bounce)
         {
@@ -85,7 +116,11 @@ public class Enemy : MonoBehaviour
                 GetComponent<CapsuleCollider2D>().isTrigger = false;
             }
         }
-        if (CurrentTime <= 0f)
+        else if (Stunned)
+        {
+            rb.linearVelocityX = 0;
+        }
+        else if (CurrentTime <= 0f)
         {
             bounce = false;
             bounces = 0;
@@ -127,6 +162,26 @@ public class Enemy : MonoBehaviour
             }
             CurrentTime -= 0.1f;
         }
+        if (IceBat)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (!Player.GetComponent<Movement>().invulnerable && !Player.GetComponent<Movement>().justHit && !Player.GetComponent<Movement>().StoneForm)
+                {
+                    Player.GetComponent<Movement>().curHealth -= bumpDamage;
+                    CheckHealth();
+                    var rando = Random.Range(0, 4);
+                    if (rando == 3)
+                    {
+                        if (!Player.GetComponent<Movement>().frozen)
+                        {
+                            Player.GetComponent<Movement>().frozen = true;
+                            Player.GetComponent<Movement>().FrozenTimer = 2f;
+                        }
+                    }
+                }
+            }
+        }
     }
 
 
@@ -146,11 +201,19 @@ public class Enemy : MonoBehaviour
             }
             else if (frozen)
             {
-                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.blue);
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.cyan);
             }
             else if (poisoned)
             {
                 numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.green);
+            }
+            else if (wet)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.blue);
+            }
+            else if (Stunned)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.gray);
             }
             else
             {
@@ -166,15 +229,6 @@ public class Enemy : MonoBehaviour
         bounce = true;
         CurrentTime = 1;
         GetComponent<CapsuleCollider2D>().isTrigger = true; 
-    }
-
-    IEnumerator WalkCycle()
-    {
-        right = true;
-        yield return new WaitForSeconds(walkTime);
-        right = false;
-        yield return new WaitForSeconds(walkTime);
-        StartCoroutine("WalkCycle");
     }
 
     IEnumerator FlashRed()

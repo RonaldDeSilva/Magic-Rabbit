@@ -107,8 +107,9 @@ public class DamageNumbers : MonoBehaviour
     public void Display(int Damage, Color numberColor)
     {
         var len = Damage.ToString().Length;
-        Size = Damage / 100;
-        transform.localScale = new Vector3(1 * (1 + Size), 1 * (1 + Size), 1);
+        Size = Damage / 50f;
+        Size = Mathf.Clamp(Size, 0f, 0.6f);
+        transform.localScale = new Vector3(1 * (0.9f + Size), 1 * (0.9f + Size), 1);
         if (len == 1)
         {
             var damageText = Damage.ToString();

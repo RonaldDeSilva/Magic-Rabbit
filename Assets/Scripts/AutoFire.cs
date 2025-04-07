@@ -28,6 +28,7 @@ public class AutoFire : MonoBehaviour
             }
 
             collision.gameObject.GetComponent<Movement>().RapidFire = true;
+            Destroy(this.gameObject);
         }
     }
 }

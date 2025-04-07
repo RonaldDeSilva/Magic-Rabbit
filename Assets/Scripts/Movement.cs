@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
     public float speed;
     public float jumpHeight;
     public int maxHealth;
-    private int curHealth;
+    public int curHealth;
     private float CooldownTime = 1f;
     public float knockback;
     public float EnemyKnockback;
@@ -53,6 +53,7 @@ public class Movement : MonoBehaviour
     private GameObject Hand;
     private GameObject Deck;
     public GameObject[] Attacks;
+    public GameObject DamageNumbers;
 
     private bool jumped = false;
     public bool canJump = false;
@@ -63,6 +64,14 @@ public class Movement : MonoBehaviour
     public bool dashing = false;
     public bool justHit = false;
     public bool RapidFire = false;
+    public bool poisoned = false;
+    public bool frozen = false;
+    public bool onFire = false;
+    public bool wet = false;
+    public bool stunned = false;
+    public float DOTDamage;
+    private int prevHealth;
+    public float FrozenTimer;
 
     #endregion
 
@@ -73,6 +82,7 @@ public class Movement : MonoBehaviour
         Hand = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(0).gameObject;
         Deck = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(1).gameObject;
         curHealth = maxHealth;
+        prevHealth = curHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
         DealCards();
     }
@@ -83,7 +93,7 @@ public class Movement : MonoBehaviour
     {
         #region Input
 
-        if (!StoneForm && !dashing && !justHit)
+        if (!StoneForm && !dashing && !justHit && !frozen)
         {
             if (Input.GetAxis("Horizontal") != 0)
             {
@@ -125,10 +135,23 @@ public class Movement : MonoBehaviour
                 UseCard();
             }
         }
+        else if (frozen)
+        {
+            FrozenTimer -= Time.deltaTime;
+            if (FrozenTimer <= 0)
+            {
+                frozen = false;
+            }
+        }
 
         if (Input.GetButton("StartButton"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
         }
 
         #endregion
@@ -152,8 +175,6 @@ public class Movement : MonoBehaviour
             if (!invulnerable && !StoneForm && !justHit)
             {
                 justHit = true;
-                curHealth -= collision.gameObject.GetComponent<Enemy>().bumpDamage;
-                CheckHealth();
                 if (collision.gameObject.transform.position.x > transform.position.x)
                 {
                     rb.AddForceY(1 * knockback, ForceMode2D.Impulse);
@@ -516,6 +537,35 @@ public class Movement : MonoBehaviour
         if (curHealth <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            var numbers = Instantiate(DamageNumbers, transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
+            if (onFire)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.red);
+            }
+            else if (frozen)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.cyan);
+            }
+            else if (poisoned)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.green);
+            }
+            else if (wet)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.blue);
+            }
+            else if (stunned)
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.gray);
+            }
+            else
+            {
+                numbers.GetComponent<DamageNumbers>().Display(prevHealth - curHealth, Color.white);
+            }
+            prevHealth = curHealth;
         }
     }
 
