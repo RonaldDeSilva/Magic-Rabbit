@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16, y: 16, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7620038368563192089}
@@ -308,7 +308,7 @@ MonoBehaviour:
   Blink: 0
   Dash: 0
   Magic8Ball: 0
-  StoneAOE: {fileID: 0}
+  StoneAOE: {fileID: 3565026210367443246}
   FallStartingHeight: 0
   Phase1: 0
   Phase2: 0

@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
             else if (isNecromancer)
             {
                 necroTimer += 1f;
-                if (necroTimer % 200f == 0)
+                if (necroTimer % 100f == 0)
                 {
                     var coinFlip = Random.Range(0, 2);
                     if (coinFlip == 0)

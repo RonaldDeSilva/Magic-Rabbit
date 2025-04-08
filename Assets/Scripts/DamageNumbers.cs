@@ -109,7 +109,7 @@ public class DamageNumbers : MonoBehaviour
         var len = Damage.ToString().Length;
         Size = Damage / 50f;
         Size = Mathf.Clamp(Size, 0f, 0.6f);
-        transform.localScale = new Vector3(1 * (0.9f + Size), 1 * (0.9f + Size), 1);
+        transform.localScale = new Vector3(1 * (0.75f + Size), 1 * (0.75f + Size), 1);
         if (len == 1)
         {
             var damageText = Damage.ToString();

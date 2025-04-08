@@ -200,7 +200,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  initialXSpeed: 3
-  initialYSpeed: 1
+  initialXSpeed: 3.5
+  initialYSpeed: 0
   maxYSpeed: 10
   rotation: 0

@@ -275,7 +275,7 @@ MonoBehaviour:
   Blink: 0
   Dash: 0
   Magic8Ball: 0
-  StoneAOE: {fileID: 0}
+  StoneAOE: {fileID: 6644449582742674560}
   FallStartingHeight: 0
   Phase1: 1
   Phase2: 0

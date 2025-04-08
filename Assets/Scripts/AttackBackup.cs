@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Attack : MonoBehaviour
+public class AttackBackup : MonoBehaviour
 {
     #region Attributes
 
@@ -80,7 +80,7 @@ public class Attack : MonoBehaviour
                 StartCoroutine("Delete");
             }
         }
-        else if (Dove && !playerTurnedRight) 
+        else if (Dove && !playerTurnedRight)
         {
             initialXSpeed = -initialXSpeed;
         }
@@ -133,7 +133,7 @@ public class Attack : MonoBehaviour
             }
             else
             {
-                
+
                 if (playerTurnedRight)
                 {
                     var direction = new Vector2(1, 0);
@@ -348,7 +348,7 @@ public class Attack : MonoBehaviour
             {
                 this.transform.position = new Vector3(Player.transform.position.x + 1.5f, Player.transform.position.y, transform.position.z);
             }
-            else if(!playerTurnedRight)
+            else if (!playerTurnedRight)
             {
                 this.transform.position = new Vector3(Player.transform.position.x - 1.5f, Player.transform.position.y, transform.position.z);
             }
@@ -436,7 +436,7 @@ public class Attack : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
-            if (!collision.gameObject.CompareTag("GroundMoveable") && !Splash &&  !StoneForm && !Zephyr && !PoisonCloud && !Combust)
+            if (!collision.gameObject.CompareTag("GroundMoveable") && !Splash && !StoneForm && !Zephyr && !PoisonCloud && !Combust)
             {
                 Destroy(this.gameObject);
             }
@@ -475,7 +475,7 @@ public class Attack : MonoBehaviour
             {
                 if (ConeOfCold && collision.gameObject.GetComponent<Enemy>().wet)
                 {
-                    collision.gameObject.GetComponent<Enemy>().curHealth -= Damage * 4; 
+                    collision.gameObject.GetComponent<Enemy>().curHealth -= Damage * 4;
                     collision.gameObject.GetComponent<Enemy>().frozen = true;
                     collision.gameObject.GetComponent<Enemy>().CheckHealth();
                     collision.gameObject.GetComponent<Enemy>().Stunned = true;
@@ -551,7 +551,8 @@ public class Attack : MonoBehaviour
     IEnumerator StoneFormAttack()
     {
         var StunTime = Mathf.Clamp(FallStartingHeight - Player.transform.position.y, 0, 10);
-        if (StunTime > 0) {
+        if (StunTime > 0)
+        {
             StoneAOE.SetActive(true);
             var list = new Collider2D[10];
             var filter = new ContactFilter2D().NoFilter();
@@ -713,7 +714,7 @@ public class Attack : MonoBehaviour
                 if (playerTurnedRight)
                 {
                     list[i].gameObject.transform.position = new Vector3(list[i].gameObject.transform.position.x + 0.1f, list[i].gameObject.transform.position.y + 0.1f, list[i].gameObject.transform.position.z);
-                } 
+                }
                 else if (!playerTurnedRight)
                 {
                     list[i].gameObject.transform.position = new Vector3(list[i].gameObject.transform.position.x - 0.1f, list[i].gameObject.transform.position.y + 0.1f, list[i].gameObject.transform.position.z);

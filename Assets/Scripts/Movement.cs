@@ -54,6 +54,7 @@ public class Movement : MonoBehaviour
     private GameObject Deck;
     public GameObject[] Attacks;
     public GameObject DamageNumbers;
+    private GameObject MemoryCard;
 
     private bool jumped = false;
     public bool canJump = false;
@@ -84,6 +85,7 @@ public class Movement : MonoBehaviour
         curHealth = maxHealth;
         prevHealth = curHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
+        MemoryCard = GameObject.FindGameObjectWithTag("MemoryCard");
         DealCards();
     }
     #endregion
@@ -146,7 +148,12 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButton("StartButton"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            var len = MemoryCard.transform.childCount;
+            for (int i = len - 1; i >= 0; i--)
+            {
+                Destroy(MemoryCard.transform.GetChild(i).gameObject);
+            }
+            SceneManager.LoadScene("Card Menu 2");
         }
 
         if (Input.GetKeyDown("escape"))
@@ -217,6 +224,15 @@ public class Movement : MonoBehaviour
     #region Card Stuff
     private void DealCards()
     {
+        if (Deck.transform.childCount == 0)
+        {
+            var len = MemoryCard.transform.childCount;
+            for (int i = len - 1; i >= 0; i--)
+            {
+                var card = Instantiate(MemoryCard.transform.GetChild(i).gameObject, Deck.transform, true);
+                card.transform.localPosition = Vector3.zero;
+            }
+        }
         while (Deck.transform.childCount != 0)
         {
             var children = Deck.transform.childCount;

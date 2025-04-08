@@ -13,6 +13,7 @@ TagManager:
   - Room
   - FakeCamera
   - StoneForm
+  - MemoryCard
   layers:
   - Default
   - TransparentFX

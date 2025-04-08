@@ -37,7 +37,10 @@ public class RoomScript : MonoBehaviour
         {
 
             Enemies.SetActive(true);
-            Barriers.SetActive(true);
+            if (Enemies.transform.childCount > 0)
+            {
+                Barriers.SetActive(true);
+            }
             MC.transform.position = new Vector3(transform.position.x, transform.position.y, MC.transform.position.z);
             LightController.RoomTransfer();
             playerIsIn = true;
