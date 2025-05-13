@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     public GameObject Zombie;
     public GameObject IceBat;
     private float necroTimer = 0;
+    private float jumpTimer = 0;
 
     public bool isNecromancer;
     public bool isZombie;
@@ -58,11 +59,28 @@ public class Enemy : MonoBehaviour
                 {
                     Acceleration += Time.deltaTime;
                 }
+
+                
+                if (jumpTimer < 2)
+                {
+                    jumpTimer += Time.deltaTime;
+                }
+                else
+                {
+                    var jumpValue = Random.Range(0, 2);
+                    if (jumpValue == 1)
+                    {
+                        rb.AddForceY(4000);
+                        jumpTimer = 0;
+                    }
+                }
+
+
             }
             else if (isNecromancer)
             {
                 necroTimer += 1f;
-                if (necroTimer % 100f == 0)
+                if (necroTimer % 300f == 0)
                 {
                     var coinFlip = Random.Range(0, 2);
                     if (coinFlip == 0)

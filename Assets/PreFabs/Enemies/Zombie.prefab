@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
-  speed: 5
+  speed: 2
   walkTime: 1
   bumpDamage: 20
   attackDamage: 10
@@ -147,7 +147,6 @@ MonoBehaviour:
   damageNumber: {fileID: 3534988914727803720, guid: c43a4ac537c04264e92b860b0ddfd0a8, type: 3}
   Zombie: {fileID: 0}
   IceBat: {fileID: 0}
-  Room: {fileID: 0}
   isNecromancer: 0
   isZombie: 1
   isIceBat: 0

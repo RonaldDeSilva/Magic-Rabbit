@@ -47,6 +47,7 @@ public class Movement : MonoBehaviour
     private float CooldownTime = 1f;
     public float knockback;
     public float EnemyKnockback;
+    public float shuffleTime;
 
     public Rigidbody2D rb;
     public Color StartingColor;
@@ -70,6 +71,7 @@ public class Movement : MonoBehaviour
     public bool onFire = false;
     public bool wet = false;
     public bool stunned = false;
+    private bool shuffling = false;
     public float DOTDamage;
     private int prevHealth;
     public float FrozenTimer;
@@ -126,7 +128,7 @@ public class Movement : MonoBehaviour
                 }
             }
 
-            if (Input.GetAxis("Fire1") > 0 && !UsingCard && !RapidFire)
+            if (Input.GetAxis("Fire1") > 0 && !UsingCard && !shuffling)
             {
                 UseCard();
                 UsingCard = true;
@@ -241,6 +243,7 @@ public class Movement : MonoBehaviour
         }
         Hand.transform.GetChild(0).localPosition = new Vector3(6.74f, -3.73f, 0);
         Hand.transform.GetChild(1).localPosition = new Vector3(8.11f, -3.73f, 0);
+        StartCoroutine("ShufflingCooldown");
     }
 
     private void UseCard()
@@ -583,6 +586,13 @@ public class Movement : MonoBehaviour
             }
             prevHealth = curHealth;
         }
+    }
+
+    IEnumerator ShufflingCooldown()
+    {
+        shuffling = true;
+        yield return new WaitForSeconds(shuffleTime);
+        shuffling = false;
     }
 
      IEnumerator DamageCooldown()
