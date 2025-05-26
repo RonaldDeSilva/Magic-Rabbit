@@ -15,6 +15,10 @@ public class CardMenu : MonoBehaviour
     private void Start()
     {
         MemoryCard = GameObject.FindGameObjectWithTag("MemoryCard");
+        for (int i = MemoryCard.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(MemoryCard.transform.GetChild(0).gameObject);
+        }
     }
 
     void Update()
@@ -48,18 +52,18 @@ public class CardMenu : MonoBehaviour
                 numCards++;
                 delay = 0.2f;
             }
+        }
 
-            if (numCards >= 4)
+        if (numCards >= 4)
+        {
+            if (Input.GetAxis("Fire1") > 0)
             {
-                if (Input.GetAxis("Fire1") > 0)
+                var len = MemoryCard.transform.childCount;
+                for (int i = len - 1; i >= 0; i--)
                 {
-                    var len = MemoryCard.transform.childCount;
-                    for (int i = len - 1; i >= 0; i--)
-                    {
-                        MemoryCard.transform.GetChild(i).transform.localPosition = Vector3.zero;
-                    }
-                    SceneManager.LoadScene("New Demo");
+                    MemoryCard.transform.GetChild(i).transform.localPosition = Vector3.zero;
                 }
+                SceneManager.LoadScene("New Demo");
             }
         }
         delay -= Time.deltaTime;

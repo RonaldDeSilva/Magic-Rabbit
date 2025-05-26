@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RoomScript : MonoBehaviour
 {
-    private GameObject MC;
+    //private GameObject MC;
     private LightingController LightController;
     public GameObject Barriers;
     private GameObject Enemies;
@@ -12,7 +12,7 @@ public class RoomScript : MonoBehaviour
     {
         Barriers = transform.GetChild(0).gameObject;
         Enemies = transform.GetChild(1).gameObject;
-        MC = GameObject.FindGameObjectWithTag("FakeCamera");
+        //MC = GameObject.FindGameObjectWithTag("FakeCamera");
         LightController = GameObject.Find("LightingController").GetComponent<LightingController>();
         Enemies.SetActive(false);
         Barriers.SetActive(false);
@@ -41,7 +41,7 @@ public class RoomScript : MonoBehaviour
             {
                 Barriers.SetActive(true);
             }
-            MC.transform.position = new Vector3(transform.position.x, transform.position.y, MC.transform.position.z);
+            //MC.transform.position = new Vector3(transform.position.x, transform.position.y, MC.transform.position.z);
             LightController.RoomTransfer();
             playerIsIn = true;
         }

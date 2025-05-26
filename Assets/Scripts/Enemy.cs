@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
             else if (isNecromancer)
             {
                 necroTimer += 1f;
-                if (necroTimer % 300f == 0)
+                if (necroTimer % 250f == 0)
                 {
                     var coinFlip = Random.Range(0, 2);
                     if (coinFlip == 0)
@@ -93,18 +93,42 @@ public class Enemy : MonoBehaviour
                     }
                 }
 
-                if (necroTimer > 601)
+                if (necroTimer > 501)
                 {
                     necroTimer = 0;
                 }
             }
             else if (isIceBat)
             {
-                Acceleration = Mathf.Clamp(Acceleration, 0, 1);
-                rb.linearVelocity = new Vector2((Player.transform.position.x - transform.position.x) * speed * Acceleration, (Player.transform.position.y - transform.position.y) * speed * Acceleration);
-                if (Acceleration != 1)
+                if (jumpTimer < 2)
                 {
-                    Acceleration += Time.deltaTime;
+                    jumpTimer += Time.deltaTime;
+                    Acceleration = Mathf.Clamp(Acceleration, 0, 1);
+                    if (jumpTimer > 0.6f)
+                    {
+                        rb.linearVelocity = new Vector2((Player.transform.position.x - transform.position.x) * speed * Acceleration, (Player.transform.position.y - transform.position.y) * speed * Acceleration);
+                    }
+
+                    if (Acceleration != 1)
+                    {
+                        Acceleration += Time.deltaTime;
+                    }
+                }
+                else
+                {
+                    var jumpValue = Random.Range(0, 2);
+                    if (jumpValue == 1)
+                    {
+                        if (Player.transform.position.x < transform.position.x)
+                        {
+                            rb.AddForceX(-450);
+                        }
+                        else if (Player.transform.position.x > transform.position.x)
+                        {
+                            rb.AddForceX(450);
+                        }
+                        jumpTimer = 0;
+                    }
                 }
             }
 
@@ -180,7 +204,7 @@ public class Enemy : MonoBehaviour
             }
             CurrentTime -= 0.1f;
         }
-        if (IceBat)
+        if (isIceBat)
         {
             if (collision.gameObject.CompareTag("Player"))
             {

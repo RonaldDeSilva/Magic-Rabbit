@@ -45,6 +45,8 @@ public class Attack : MonoBehaviour
     private float timer = 0f;
     public float rotation;
     private GameObject cloudChild;
+    private Vector2 Dir;
+    private GameObject Hat;
 
     #endregion
 
@@ -56,6 +58,8 @@ public class Attack : MonoBehaviour
         playerTurnedRight = MovementScript.turnedRight;
         rb = GetComponent<Rigidbody2D>();
         PlayerStartingGravity = Player.GetComponent<Rigidbody2D>().gravityScale;
+        Hat = Player.transform.GetChild(0).GetChild(0).gameObject;
+        Dir = new Vector2(Hat.transform.position.x - Player.transform.position.x, Hat.transform.position.y - Player.transform.position.y);
         if (WildGrowth)
         {
             //Wild Growth is an aoe around the player which increases their speed and jump height and also damages enemies periodically
@@ -120,7 +124,8 @@ public class Attack : MonoBehaviour
         {
             if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
             {
-                var direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                //var direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                var direction = Dir;
                 var ray = Physics2D.Raycast(new Vector2(Player.transform.position.x, Player.transform.position.y), direction, distance, groundLayerMask);
                 if (ray.transform != null)
                 {
@@ -192,15 +197,7 @@ public class Attack : MonoBehaviour
     {
         if (Splash)
         {
-            //Splash moves whichever way the player is facing until it hits the ground
-            if (playerTurnedRight)
-            {
-                rb.linearVelocityX = speed;
-            }
-            else if (!playerTurnedRight)
-            {
-                rb.linearVelocityX = -speed;
-            }
+            rb.linearVelocity = Dir * speed;
         }
         else if (Dove)
         {
@@ -308,13 +305,9 @@ public class Attack : MonoBehaviour
                     }
                 }
             }
-            else if (playerTurnedRight && timer > 0)
+            else if (timer > 0)
             {
-                rb.linearVelocityX = speed;
-            }
-            else if (!playerTurnedRight && timer > 0)
-            {
-                rb.linearVelocityX = -speed;
+                rb.linearVelocity = Dir * speed;
             }
 
             if (timer <= -0.1f)
@@ -328,14 +321,7 @@ public class Attack : MonoBehaviour
         {
             if (Phase1)
             {
-                if (playerTurnedRight)
-                {
-                    rb.linearVelocityX = speed;
-                }
-                else if (!playerTurnedRight)
-                {
-                    rb.linearVelocityX = -speed;
-                }
+                rb.linearVelocity = Dir * speed;
             }
             else if (Phase2)
             {
@@ -344,31 +330,20 @@ public class Attack : MonoBehaviour
         }
         else if (ConeOfCold)
         {
-            if (playerTurnedRight)
-            {
-                this.transform.position = new Vector3(Player.transform.position.x + 1.5f, Player.transform.position.y, transform.position.z);
-            }
-            else if(!playerTurnedRight)
-            {
-                this.transform.position = new Vector3(Player.transform.position.x - 1.5f, Player.transform.position.y, transform.position.z);
-            }
+            transform.position = Hat.transform.position;
+            transform.rotation = Hat.transform.rotation;
         }
         else if (Might)
         {
-            playerTurnedRight = MovementScript.turnedRight;
-            if (playerTurnedRight)
-            {
-                this.transform.position = new Vector3(Player.transform.position.x + 1.5f, Player.transform.position.y, transform.position.z);
-            }
-            else if (!playerTurnedRight)
-            {
-                this.transform.position = new Vector3(Player.transform.position.x - 1.5f, Player.transform.position.y, transform.position.z);
-            }
+            transform.position = Hat.transform.position;
+            transform.rotation = Hat.transform.rotation;
         }
         else if (Dash)
         {
             if (MovementScript.dashing)
             {
+                MovementScript.rb.linearVelocity = new Vector2(Dir.x * speed, Dir.y * speed);
+                /*
                 if (playerTurnedRight)
                 {
                     MovementScript.rb.linearVelocity = new Vector2(speed, 0);
@@ -377,6 +352,7 @@ public class Attack : MonoBehaviour
                 {
                     MovementScript.rb.linearVelocity = new Vector2(-speed, 0);
                 }
+                */
             }
             else
             {

@@ -56,6 +56,7 @@ public class Movement : MonoBehaviour
     public GameObject[] Attacks;
     public GameObject DamageNumbers;
     private GameObject MemoryCard;
+    private GameObject hat;
 
     private bool jumped = false;
     public bool canJump = false;
@@ -75,6 +76,8 @@ public class Movement : MonoBehaviour
     public float DOTDamage;
     private int prevHealth;
     public float FrozenTimer;
+    private Color DefaultColor;
+    private GameObject DeadManMessage;
 
     #endregion
 
@@ -84,10 +87,14 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Hand = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(0).gameObject;
         Deck = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(1).gameObject;
+        hat = transform.GetChild(0).GetChild(0).gameObject;
         curHealth = maxHealth;
         prevHealth = curHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
         MemoryCard = GameObject.FindGameObjectWithTag("MemoryCard");
+        DefaultColor = GetComponent<SpriteRenderer>().color;
+        DeadManMessage = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(2).gameObject;
+        DeadManMessage.SetActive(false);
         DealCards();
     }
     #endregion
@@ -142,8 +149,10 @@ public class Movement : MonoBehaviour
         else if (frozen)
         {
             FrozenTimer -= Time.deltaTime;
+            GetComponent<SpriteRenderer>().color = Color.blue;
             if (FrozenTimer <= 0)
             {
+                GetComponent<SpriteRenderer>().color = DefaultColor;
                 frozen = false;
             }
         }
@@ -193,6 +202,9 @@ public class Movement : MonoBehaviour
                 {
                     rb.AddForce(new Vector2(1 * knockback, 1 * knockback), ForceMode2D.Impulse);
                 }
+                //Damage section
+                curHealth -= collision.gameObject.GetComponent<Enemy>().bumpDamage;
+                CheckHealth();
                 StartCoroutine("DamageCooldown");
             }
             else if (StoneForm)
@@ -252,14 +264,7 @@ public class Movement : MonoBehaviour
         
         if (CurCard.GetComponent<CardEffects>().CardNum == 1) //Splash
         {
-            if (turnedRight)
-            {
-                Instantiate(Attacks[0], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
-            }
-            else if (!turnedRight)
-            {
-                Instantiate(Attacks[0], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
-            }
+            Instantiate(Attacks[0], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 2) //Dove
         {
@@ -293,47 +298,19 @@ public class Movement : MonoBehaviour
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 6) //Combust
         {
-            if (turnedRight)
-            {
-                Instantiate(Attacks[5], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
-            }
-            else if (!turnedRight)
-            {
-                Instantiate(Attacks[5], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
-            }
+            Instantiate(Attacks[5], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 7) // Poison Cloud
         {
-            if (turnedRight)
-            {
-                Instantiate(Attacks[6], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
-            }
-            else if (!turnedRight)
-            {
-                Instantiate(Attacks[6], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
-            }
+            Instantiate(Attacks[6], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 8) //Cone of Cold
         {
-            if (turnedRight)
-            {
-                Instantiate(Attacks[7], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
-            }
-            else if (!turnedRight)
-            {
-                Instantiate(Attacks[7], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
-            }
+            Instantiate(Attacks[7], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 9) //Might
         {
-            if (turnedRight)
-            {
-                Instantiate(Attacks[8], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
-            }
-            else if (!turnedRight)
-            {
-                Instantiate(Attacks[8], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
-            }
+            Instantiate(Attacks[8], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 10) //Card Trick
         {
@@ -555,7 +532,7 @@ public class Movement : MonoBehaviour
     {
         if (curHealth <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine("DeadMan");
         }
         else
         {
@@ -597,7 +574,16 @@ public class Movement : MonoBehaviour
 
      IEnumerator DamageCooldown()
     {
-        yield return new WaitForSeconds(0.25f);
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.75f);
+        GetComponent<SpriteRenderer>().color = DefaultColor;
         justHit = false;
+    }
+
+    IEnumerator DeadMan()
+    {
+        DeadManMessage.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Card Menu 2");
     }
 }
