@@ -78,6 +78,9 @@ public class Movement : MonoBehaviour
     public float FrozenTimer;
     private Color DefaultColor;
     private GameObject DeadManMessage;
+    public int WildGrowths = 0;
+    public float startSpeed;
+    public float startJumpHeight;
 
     #endregion
 
@@ -96,6 +99,8 @@ public class Movement : MonoBehaviour
         DeadManMessage = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(2).gameObject;
         DeadManMessage.SetActive(false);
         DealCards();
+        startSpeed = speed;
+        startJumpHeight = jumpHeight;
     }
     #endregion
 
@@ -141,10 +146,13 @@ public class Movement : MonoBehaviour
                 UsingCard = true;
             }
 
-            if (RapidFire && Input.GetAxis("Fire1") > 0)
+            if (Input.GetAxis("Fire2") > 0 && !UsingCard && !shuffling)
             {
-                UseCard();
+                DiscardCard();
+                UsingCard = true;
+                StartCoroutine("Cooldown");
             }
+
         }
         else if (frozen)
         {
@@ -159,11 +167,6 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButton("StartButton"))
         {
-            var len = MemoryCard.transform.childCount;
-            for (int i = len - 1; i >= 0; i--)
-            {
-                Destroy(MemoryCard.transform.GetChild(i).gameObject);
-            }
             SceneManager.LoadScene("Card Menu 2");
         }
 
@@ -243,7 +246,8 @@ public class Movement : MonoBehaviour
             var len = MemoryCard.transform.childCount;
             for (int i = len - 1; i >= 0; i--)
             {
-                var card = Instantiate(MemoryCard.transform.GetChild(i).gameObject, Deck.transform, true);
+                var card = MemoryCard.transform.GetChild(i).gameObject;
+                card.transform.parent = Deck.transform;
                 card.transform.localPosition = Vector3.zero;
             }
         }
@@ -255,7 +259,7 @@ public class Movement : MonoBehaviour
         }
         Hand.transform.GetChild(0).localPosition = new Vector3(6.74f, -3.73f, 0);
         Hand.transform.GetChild(1).localPosition = new Vector3(8.11f, -3.73f, 0);
-        StartCoroutine("ShufflingCooldown");
+        
     }
 
     private void UseCard()
@@ -508,7 +512,8 @@ public class Movement : MonoBehaviour
 
         if (Hand.transform.childCount == 0)
         {
-            DealCards();
+            shuffling = true;
+            StartCoroutine("ShufflingCooldown");
         }
         else if (Hand.transform.childCount == 1)
         {
@@ -521,9 +526,32 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public void DiscardCard()
+    {
+        var CurCard = Hand.transform.GetChild(0);
+        CurCard.transform.parent = Deck.transform;
+        CurCard.transform.localPosition = Vector3.zero;
+
+        if (Hand.transform.childCount == 0)
+        {
+            shuffling = true;
+            StartCoroutine("ShufflingCooldown");
+        }
+        else if (Hand.transform.childCount == 1)
+        {
+            Hand.transform.GetChild(0).localPosition = new Vector3(6.74f, -3.73f, 0);
+        }
+        else if (Hand.transform.childCount >= 2)
+        {
+            Hand.transform.GetChild(0).localPosition = new Vector3(6.74f, -3.73f, 0);
+            Hand.transform.GetChild(1).localPosition = new Vector3(8.11f, -3.73f, 0);
+        }
+    }
+
+
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(CooldownTime);
+        yield return new WaitForSeconds(0.1f);
         UsingCard = false;
     }
     #endregion
@@ -569,6 +597,8 @@ public class Movement : MonoBehaviour
     {
         shuffling = true;
         yield return new WaitForSeconds(shuffleTime);
+        DealCards();
+        yield return new WaitForSeconds(0.2f);
         shuffling = false;
     }
 

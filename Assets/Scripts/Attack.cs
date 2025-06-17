@@ -63,11 +63,19 @@ public class Attack : MonoBehaviour
         if (WildGrowth)
         {
             //Wild Growth is an aoe around the player which increases their speed and jump height and also damages enemies periodically
-            PlayerStartingSpeed = MovementScript.speed;
-            PlayerStartingJumpHeight = MovementScript.jumpHeight;
-            MovementScript.speed = MovementScript.speed * 1.5f;
-            MovementScript.jumpHeight = MovementScript.jumpHeight * 1.5f;
-            StartCoroutine("WildGrowthDamage");
+            if (MovementScript.WildGrowths <= 3)
+            {
+                PlayerStartingSpeed = MovementScript.startSpeed;
+                PlayerStartingJumpHeight = MovementScript.startJumpHeight;
+                MovementScript.speed = MovementScript.speed * 1.2f;
+                MovementScript.jumpHeight = MovementScript.jumpHeight * 1.05f;
+                MovementScript.WildGrowths += 1;
+                StartCoroutine("WildGrowthDamage");
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
         else if (StoneForm)
         {
@@ -80,7 +88,6 @@ public class Attack : MonoBehaviour
             Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity * 3;
             if (MovementScript.canJump)
             {
-                seconds = 1f;
                 StartCoroutine("Delete");
             }
         }
@@ -106,10 +113,6 @@ public class Attack : MonoBehaviour
         else if (Combust)
         {
             timer = 0.4f;
-        }
-        else if (ConeOfCold && !playerTurnedRight)
-        {
-            GetComponent<SpriteRenderer>().flipY = true;
         }
         else if (Might)
         {
@@ -705,8 +708,22 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         if (WildGrowth)
         {
-            MovementScript.speed = PlayerStartingSpeed;
-            MovementScript.jumpHeight = PlayerStartingJumpHeight;
+            if (MovementScript.WildGrowths == 1)
+            {
+                MovementScript.speed = PlayerStartingSpeed;
+                MovementScript.jumpHeight = PlayerStartingJumpHeight;
+            }
+            else if (MovementScript.WildGrowths == 2)
+            {
+                MovementScript.speed = PlayerStartingSpeed * 1.2f;
+                MovementScript.jumpHeight = PlayerStartingJumpHeight * 1.05f;
+            }
+            else if (MovementScript.WildGrowths == 3)
+            {
+                MovementScript.speed = PlayerStartingSpeed * 1.2f * 1.2f;
+                MovementScript.jumpHeight = PlayerStartingJumpHeight * 1.05f * 1.05f;
+            }
+            MovementScript.WildGrowths -= 1;
         }
         else if (StoneForm)
         {

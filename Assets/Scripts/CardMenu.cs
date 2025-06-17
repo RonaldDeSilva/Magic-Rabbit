@@ -17,7 +17,7 @@ public class CardMenu : MonoBehaviour
         MemoryCard = GameObject.FindGameObjectWithTag("MemoryCard");
         for (int i = MemoryCard.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(MemoryCard.transform.GetChild(0).gameObject);
+            Destroy(MemoryCard.transform.GetChild(i).gameObject);
         }
     }
 
@@ -75,6 +75,16 @@ public class CardMenu : MonoBehaviour
         else if (position < 0)
         {
             position = 12;
+        }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+        }
+
+        if (Input.GetButton("StartButton"))
+        {
+            SceneManager.LoadScene("Card Menu 2");
         }
     }
 }
