@@ -373,45 +373,8 @@ public class Attack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (Splash)
-            {
-                if (collision.gameObject.GetComponent<Enemy>().wet)
-                {
-                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("WetCooldown");
-                    collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
-                    //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
-                }
-                else
-                {
-                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
-                    collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
-                    collision.gameObject.GetComponent<Enemy>().onFire = false;
-                    collision.gameObject.GetComponent<Enemy>().wet = true;
-                    collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
-                    //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
-                }
-                collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
-                collision.gameObject.GetComponent<Enemy>().CheckHealth();
-                Destroy(this.gameObject);
-            }
-            else if (Combust)
-            {
-                timer = 0f;
-            }
-            else if (PoisonCloud)
-            {
-                Phase1 = false;
-                Phase2 = true;
-                GetComponent<CircleCollider2D>().enabled = false;
-                GetComponent<SpriteRenderer>().enabled = false;
-                StoneAOE.SetActive(true);
-                StartCoroutine("PoisonCoroutine");
-            }
-            else
-            {
-                collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
-                collision.gameObject.GetComponent<Enemy>().CheckHealth();
-            }
+            collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
+            collision.gameObject.GetComponent<Enemy>().CheckHealth();
         }
         else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
@@ -422,19 +385,6 @@ public class Attack : MonoBehaviour
             else if (Zephyr)
             {
                 playerTurnedRight = !playerTurnedRight;
-            }
-            else if (Combust)
-            {
-                timer = 0f;
-            }
-            else if (PoisonCloud)
-            {
-                Phase1 = false;
-                Phase2 = true;
-                GetComponent<CircleCollider2D>().enabled = false;
-                GetComponent<SpriteRenderer>().enabled = false;
-                StoneAOE.SetActive(true);
-                StartCoroutine("PoisonCoroutine");
             }
         }
         else if (collision.gameObject.CompareTag("Player"))
@@ -473,11 +423,45 @@ public class Attack : MonoBehaviour
                     collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
                     collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
                 }
-                else if (!Might && !ConeOfCold)
+                else if (Splash)
+                {
+                    if (collision.gameObject.GetComponent<Enemy>().wet)
+                    {
+                        collision.gameObject.GetComponent<Enemy>().StopCoroutine("WetCooldown");
+                        collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
+                    }
+                    else
+                    {
+                        collision.gameObject.GetComponent<Enemy>().StopCoroutine("DOTCooldown");
+                        collision.gameObject.GetComponent<Enemy>().StopCoroutine("DamageOverTime");
+                        collision.gameObject.GetComponent<Enemy>().onFire = false;
+                        collision.gameObject.GetComponent<Enemy>().wet = true;
+                        collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
+                        //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
+                    }
+                    collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                    collision.gameObject.GetComponent<Enemy>().CheckHealth();
+                    Destroy(this.gameObject);
+                }
+                else if (Combust)
+                {
+                    timer = 0f;
+                }
+                else if (PoisonCloud)
+                {
+                    Phase1 = false;
+                    Phase2 = true;
+                    GetComponent<CircleCollider2D>().enabled = false;
+                    GetComponent<SpriteRenderer>().enabled = false;
+                    StoneAOE.SetActive(true);
+                    StartCoroutine("PoisonCoroutine");
+                }
+                else if (!Might)
                 {
                     collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
                     collision.gameObject.GetComponent<Enemy>().CheckHealth();
                 }
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
             }
         }
         else if (!collision.gameObject.CompareTag("Enemy") && collision.isTrigger == false)
@@ -500,6 +484,19 @@ public class Attack : MonoBehaviour
                     Phase2 = true;
                     StartCoroutine("ZephyrPhase2");
                 }
+            }
+            else if (Combust)
+            {
+                timer = 0f;
+            }
+            else if (PoisonCloud)
+            {
+                Phase1 = false;
+                Phase2 = true;
+                GetComponent<CircleCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+                StoneAOE.SetActive(true);
+                StartCoroutine("PoisonCoroutine");
             }
         }
     }
