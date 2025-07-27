@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2297669833271763245}
   - component: {fileID: 3361724236185262664}
   - component: {fileID: 4249775378703081547}
+  - component: {fileID: -1493871695727001601}
   m_Layer: 0
   m_Name: Ice Bat
   m_TagString: Enemy
@@ -187,3 +188,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.010179699, y: 0.04695817}
   m_Size: {x: 0.44711745, y: 0.44711745}
   m_Direction: 0
+--- !u!95 &-1493871695727001601
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3262045144358008270}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 8466041751117538750, guid: 25212e8b16f73604ea8fc373adac7e79, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
