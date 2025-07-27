@@ -27,5 +27,14 @@ public class MusicLoop : MonoBehaviour
             music.Play();
             music.loop = true;
         }
+
+        if (Input.GetKey(KeyCode.M) && music.volume == 0.5f)
+        {
+            music.volume = 0;
+        } 
+        else if (Input.GetKey(KeyCode.M) && music.volume == 0)
+        {
+            music.volume = 0.5f;
+        }
     }
 }
