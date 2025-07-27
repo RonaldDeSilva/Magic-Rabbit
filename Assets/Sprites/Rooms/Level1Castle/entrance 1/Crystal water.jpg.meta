@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: de57e0befdc6b1045bc8d8671ba3edc0
+guid: b8a2b0e0eb7ab3640b1d74b6b538df2a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8961090165499873673
-    second: tedfwef_0
+      213: 2974949508514171273
+    second: Crystal water_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tedfwef_0
+      name: Crystal water_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 630
-        height: 328
+        width: 392
+        height: 236
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 989cdd217003c5c70800000000000000
-      internalID: 8961090165499873673
+      spriteID: 989c5b7e0d4294920800000000000000
+      internalID: 2974949508514171273
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      tedfwef_0: 8961090165499873673
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
