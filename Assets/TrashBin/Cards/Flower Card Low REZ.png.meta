@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 454b0a4cb65f8c240a38b310004bd974
+guid: 3f71d1984b243fe4bae4918423015a18
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -391916267885321843
-    second: Burn Card Best1_0
+      213: 2508984362527776616
+    second: Flower Card Low REZ_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Burn Card Best1_0
+      name: Flower Card Low REZ_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 45
-        height: 68
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d81aff61b32af8af0800000000000000
-      internalID: -391916267885321843
+      spriteID: 86f5a7b0cf3b1d220800000000000000
+      internalID: 2508984362527776616
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Burn Card Best1_0: -391916267885321843
+      Flower Card Low REZ_0: 2508984362527776616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

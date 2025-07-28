@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1b13905e07782af469f12dc929fa25e2
+guid: 454b0a4cb65f8c240a38b310004bd974
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7791991216234147115
-    second: Stone Form Card Low REZ_0
+      213: -391916267885321843
+    second: Burn Card Best1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stone Form Card Low REZ_0
+      name: Burn Card Best1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 45
-        height: 67
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2da9983ab6b22c60800000000000000
-      internalID: 7791991216234147115
+      spriteID: d81aff61b32af8af0800000000000000
+      internalID: -391916267885321843
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stone Form Card Low REZ_0: 7791991216234147115
+      Burn Card Best1_0: -391916267885321843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

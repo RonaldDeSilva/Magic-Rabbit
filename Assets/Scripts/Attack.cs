@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Attack : MonoBehaviour
 {

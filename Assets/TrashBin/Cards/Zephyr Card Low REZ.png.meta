@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dc48c54a9abbbe94db31ace06d99e30b
+guid: 78fabd761077d1c408314dcbce8d248b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -650740806379821223
-    second: Blink Low Rez_0
+      213: 3469169465282858650
+    second: Zephyr Card Low REZ_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blink Low Rez_0
+      name: Zephyr Card Low REZ_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95721e23faa18f6f0800000000000000
-      internalID: -650740806379821223
+      spriteID: a9e01db8f37f42030800000000000000
+      internalID: 3469169465282858650
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Blink Low Rez_0: -650740806379821223
+      Zephyr Card Low REZ_0: 3469169465282858650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

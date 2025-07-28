@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 48b8c1378258a73489bc04864457482b
+guid: 1b13905e07782af469f12dc929fa25e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8417616569932909149
-    second: Card trick_0
+      213: 7791991216234147115
+    second: Stone Form Card Low REZ_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card trick_0
+      name: Stone Form Card Low REZ_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5a0b420ca161d470800000000000000
-      internalID: 8417616569932909149
+      spriteID: b2da9983ab6b22c60800000000000000
+      internalID: 7791991216234147115
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Card trick_0: 8417616569932909149
+      Stone Form Card Low REZ_0: 7791991216234147115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

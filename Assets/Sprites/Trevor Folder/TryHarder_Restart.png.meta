@@ -144,6 +144,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -534,7 +547,24 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TryHarder_Restart_0: -4454879971085434986
+      TryHarder_Restart_1: 4418120974605085287
+      TryHarder_Restart_10: 1106105543472464554
+      TryHarder_Restart_11: 5502177091707022988
+      TryHarder_Restart_12: 1959213464813342155
+      TryHarder_Restart_13: 8019099726514554744
+      TryHarder_Restart_14: -3406262158566543543
+      TryHarder_Restart_15: 1314456228432872771
+      TryHarder_Restart_16: 8364550995936371889
+      TryHarder_Restart_2: 4194512109364952915
+      TryHarder_Restart_3: 3315501507746426509
+      TryHarder_Restart_4: -5820196140736964231
+      TryHarder_Restart_5: -5960584800665154431
+      TryHarder_Restart_6: -1568319368325081134
+      TryHarder_Restart_7: -8247840631964880009
+      TryHarder_Restart_8: 8148337805194503767
+      TryHarder_Restart_9: 2632428474319653183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

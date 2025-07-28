@@ -138,6 +138,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -484,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      You Died_Restart_0: 1193564884969054400
+      You Died_Restart_1: -3986162925109833692
+      You Died_Restart_10: -4141481497623965435
+      You Died_Restart_11: -6175716562590995416
+      You Died_Restart_12: -7068281176352043070
+      You Died_Restart_13: 7488710659239667920
+      You Died_Restart_14: -3112030139237049499
+      You Died_Restart_2: -5211224704394676406
+      You Died_Restart_3: -9040406249866880120
+      You Died_Restart_4: 7083061412655816418
+      You Died_Restart_5: 2765921612458518866
+      You Died_Restart_6: -927306711377209175
+      You Died_Restart_7: 8410565765567190514
+      You Died_Restart_8: 4697457449957141699
+      You Died_Restart_9: 8063201822808185880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
