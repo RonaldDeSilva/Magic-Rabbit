@@ -18,6 +18,7 @@ public class Companion : MonoBehaviour
     public float teleportRadius;
     public int randRange;
     public float BeeTimer;
+    private float beeSpawned = 0f;
 
     private void Start()
     {
@@ -33,17 +34,9 @@ public class Companion : MonoBehaviour
             {
                 transform.parent = Player.transform.GetChild(1).GetChild(1);
             }
-            else if (Player.transform.GetChild(1).GetChild(2).childCount == 0)
-            {
-                transform.parent = Player.transform.GetChild(1).GetChild(2);
-            }
-            else if (Player.transform.GetChild(1).GetChild(3).childCount == 0)
-            {
-                transform.parent = Player.transform.GetChild(1).GetChild(3);
-            }
             else
             {
-                transform.parent = Player.transform;
+                Destroy(this.gameObject);
             }
         }
         else if (Bee)
@@ -108,12 +101,18 @@ public class Companion : MonoBehaviour
             if (timer % 2f == 0)
             {
                 rb.linearVelocity = new Vector2((transform.parent.position.x - transform.position.x) * speed , (transform.parent.position.y - transform.position.y) * speed);
-                if (timer % 10f == 0 && transform.childCount <= 10)
+                if (timer % 10f == 0 && transform.childCount <= 7 && beeSpawned <= 13)
                 {
                     Instantiate(BeeGameObject, this.transform);
+                    beeSpawned = beeSpawned + 1;
                 }
             }
-            
+
+            if (beeSpawned >= 14)
+            {
+                Destroy(this.gameObject);
+            }
+
             if (timer >= 310f)
             {
                 timer = 0;

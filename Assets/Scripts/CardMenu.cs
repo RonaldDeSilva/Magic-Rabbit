@@ -74,7 +74,7 @@ public class CardMenu : MonoBehaviour
         }
         else if (position < 0)
         {
-            position = 12;
+            position = Deck.transform.childCount - 1;
         }
 
         if (Input.GetKeyDown("escape"))
