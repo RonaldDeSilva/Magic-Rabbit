@@ -129,6 +129,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -409,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WOW_Restart_0: 4330790017174060782
+      WOW_Restart_1: -8448644989452776611
+      WOW_Restart_10: -7789851357610940254
+      WOW_Restart_11: -7558077238114701816
+      WOW_Restart_2: 5717581428314932022
+      WOW_Restart_3: 2077699084223280559
+      WOW_Restart_4: -2237641258806187464
+      WOW_Restart_5: 7335935796918679369
+      WOW_Restart_6: -4634268597719161193
+      WOW_Restart_7: -6480169574258182647
+      WOW_Restart_8: -7917428894192037816
+      WOW_Restart_9: -6637309384961257374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

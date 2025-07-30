@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4574438285753838285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.26, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66,8 +66,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.0089643}
-  m_Radius: 1.8715086
+  m_Offset: {x: 0, y: -0.035007477}
+  m_Radius: 3.2103353
 --- !u!1 &4932726109211192443
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 4932726109211192443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.327, y: 0.09, z: 0}
+  m_LocalPosition: {x: -1.312, y: 0.144, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -121,8 +121,11 @@ MonoBehaviour:
   BeeHive: 0
   damage: 5
   health: 0
+  speed: 0
   BeeGameObject: {fileID: 0}
   teleportRadius: 12
+  randRange: 0
+  BeeTimer: 0
 --- !u!95 &440877935673059524
 Animator:
   serializedVersion: 7
@@ -234,8 +237,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.009999998, y: 0.29}
-  m_Radius: 0.21000001
+  m_Offset: {x: 0.00999999, y: -0.026031837}
+  m_Radius: 0.20808466
 --- !u!50 &1502559244255868706
 Rigidbody2D:
   serializedVersion: 5

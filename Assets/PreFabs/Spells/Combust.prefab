@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 545893675343331120}
   - component: {fileID: 5546375088840401152}
   - component: {fileID: 9033246777332186033}
+  - component: {fileID: -7110870528460875904}
   m_Layer: 0
   m_Name: Combust
   m_TagString: Combust
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7264151, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 6558171124084228757, guid: e3dffb666ad40e54ead34fffc15335c1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -151,8 +152,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0.47367182, y: 0.024522496}
+  m_Radius: 0.1489408
 --- !u!114 &9033246777332186033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +195,25 @@ MonoBehaviour:
   initialYSpeed: 0
   maxYSpeed: 0
   rotation: 0
+--- !u!95 &-7110870528460875904
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548090005339090119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 8339675689385272211, guid: e3dffb666ad40e54ead34fffc15335c1, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

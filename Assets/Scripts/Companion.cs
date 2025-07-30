@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Companion : MonoBehaviour
@@ -10,10 +11,13 @@ public class Companion : MonoBehaviour
     private Rigidbody2D rb;
     public int damage;
     public int health;
+    public float speed;
     public GameObject BeeGameObject;
     private GameObject Player;
     private GameObject BeeSearchRadius;
     public float teleportRadius;
+    public int randRange;
+    public float BeeTimer;
 
     private void Start()
     {
@@ -45,6 +49,7 @@ public class Companion : MonoBehaviour
         else if (Bee)
         {
             BeeSearchRadius = transform.GetChild(0).gameObject;
+            randRange = transform.parent.gameObject.GetComponent<Companion>().randRange;
         }
     }
 
@@ -54,14 +59,41 @@ public class Companion : MonoBehaviour
         {
             if (timer % 5f == 0)
             {
-                if (Target == null)
+                if (Target == null && BeeTimer <= 0f)
                 {
-                    rb.AddForce(new Vector2((transform.parent.position.x - transform.position.x) * Time.deltaTime * 0.13f, (transform.parent.position.y - transform.position.y) * Time.deltaTime * 0.1f));
-                    StartCoroutine("SearchForEnemies");
+                    //rb.AddForce(new Vector2((transform.parent.position.x - transform.position.x) * Time.deltaTime * 0.13f, 0f));
+                    //rb.linearVelocity = new Vector2((transform.parent.position.x - transform.position.x) * 3, (transform.parent.position.y - transform.position.y) * 2);
+                    rb.linearVelocity = new Vector2((transform.parent.position.x - transform.position.x) * 10 + Random.Range(-randRange, randRange), (transform.parent.position.y - transform.position.y) * 10 + Random.Range(-randRange, randRange));
+                    var list = new Collider2D[10];
+                    var filter = new ContactFilter2D().NoFilter();
+                    int hitColliders = Physics2D.OverlapCollider(BeeSearchRadius.GetComponent<CircleCollider2D>(), filter, list);
+                    for (int i = hitColliders - 1; i >= 0; i--)
+                    {
+                        if (list[i].gameObject.CompareTag("Enemy"))
+                        {
+                            Target = list[i].gameObject;
+                        }
+                    }
+                }
+                else if (BeeTimer >= 0f && Target == null)
+                {
+                    //rb.linearVelocity = new Vector2(-(transform.parent.position.x - transform.position.x), -(transform.parent.position.y - transform.position.y));
+                    rb.linearVelocity = new Vector2((transform.parent.position.x - transform.position.x) * 8 + Random.Range(-randRange, randRange), (transform.parent.position.y - transform.position.y) * 8 + Random.Range(-randRange, randRange));
+                    BeeTimer -= Time.deltaTime;
+                    var list = new Collider2D[10];
+                    var filter = new ContactFilter2D().NoFilter();
+                    int hitColliders = Physics2D.OverlapCollider(BeeSearchRadius.GetComponent<CircleCollider2D>(), filter, list);
+                    for (int i = hitColliders - 1; i >= 0; i--)
+                    {
+                        if (list[i].gameObject.CompareTag("Enemy"))
+                        {
+                            Target = list[i].gameObject;
+                        }
+                    }
                 }
                 else
                 {
-                    rb.AddForce(new Vector2((Target.transform.position.x - transform.position.x) * Time.deltaTime * 0.11f, (Target.transform.position.y - transform.position.y) * Time.deltaTime * 0.2f));
+                    rb.linearVelocity = new Vector2((Target.transform.position.x - transform.position.x), (Target.transform.position.y - transform.position.y));
                 }
             }
 
@@ -75,7 +107,7 @@ public class Companion : MonoBehaviour
         {
             if (timer % 2f == 0)
             {
-                rb.AddForce(new Vector2((transform.parent.position.x - transform.position.x) * Time.deltaTime * 0.03f, (transform.parent.position.y - transform.position.y) * Time.deltaTime * 0.03f));
+                rb.linearVelocity = new Vector2((transform.parent.position.x - transform.position.x) * speed , (transform.parent.position.y - transform.position.y) * speed);
                 if (timer % 10f == 0 && transform.childCount <= 10)
                 {
                     Instantiate(BeeGameObject, this.transform);
@@ -96,11 +128,6 @@ public class Companion : MonoBehaviour
         timer += 1f;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && Bee)
@@ -109,20 +136,17 @@ public class Companion : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().CheckHealth();
             Destroy(this.gameObject);
         }
+        else if (collision.gameObject.CompareTag("BeeHive"))
+        {
+            BeeTimer = 0.05f;
+        }
     }
 
-    IEnumerator SearchForEnemies()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        var list = new Collider2D[10];
-        var filter = new ContactFilter2D().NoFilter();
-        int hitColliders = Physics2D.OverlapCollider(BeeSearchRadius.GetComponent<CircleCollider2D>(), filter, list);
-        for (int i = hitColliders - 1; i >= 0; i--)
+        if (collision.gameObject.CompareTag("BeeHive"))
         {
-            if (list[i].gameObject.CompareTag("Enemy"))
-            {
-                Target = list[i].gameObject;
-            }
+            BeeTimer = 0.05f;
         }
-        yield return new WaitForEndOfFrame();
     }
 }

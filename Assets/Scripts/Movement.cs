@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
     //13 = Magic 8 Ball - Randomly chooses a card from the deck and does that effect of the card----------------------------------------------------------------------
 
-    //14 = Mirror - reflects attack back at attacker----------------------------------------------------------------------------------------------------------------
+    //14 = Bee Hive - Spawns bees which swarm and attack enemies----------------------------------------------------------------------------------------------------------------
 
     #endregion
 
@@ -505,6 +505,10 @@ public class Movement : MonoBehaviour
             }
         }
         #endregion
+        else if (CurCard.GetComponent<CardEffects>().CardNum == 14)
+        {
+            Instantiate(Attacks[12], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
+        }
         CurCard.transform.parent = Deck.transform;
         CurCard.transform.localPosition = Vector3.zero;
         CooldownTime = CurCard.GetComponent<CardEffects>().Cooldown;
