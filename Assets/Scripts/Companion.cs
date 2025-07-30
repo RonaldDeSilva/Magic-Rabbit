@@ -108,7 +108,7 @@ public class Companion : MonoBehaviour
                 }
             }
 
-            if (beeSpawned >= 14)
+            if (beeSpawned >= 14 && transform.childCount == 0)
             {
                 Destroy(this.gameObject);
             }

@@ -272,6 +272,7 @@ public class Movement : MonoBehaviour
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 2) //Dove
         {
+            /*
             if (turnedRight)
             {
                 Instantiate(Attacks[1], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), this.transform.rotation);
@@ -280,6 +281,8 @@ public class Movement : MonoBehaviour
             {
                 Instantiate(Attacks[1], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), this.transform.rotation);
             }
+            */
+            Instantiate(Attacks[1], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 3) //Wild Growth
         {
@@ -291,14 +294,7 @@ public class Movement : MonoBehaviour
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 5) //Zephyr
         {
-            if (turnedRight)
-            {
-                Instantiate(Attacks[4], new Vector3(transform.position.x + 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
-            }
-            else if (!turnedRight)
-            {
-                Instantiate(Attacks[4], new Vector3(transform.position.x - 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
-            }
+            Instantiate(Attacks[4], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 6) //Combust
         {
@@ -408,25 +404,11 @@ public class Movement : MonoBehaviour
 
             if (newCard.GetComponent<CardEffects>().CardNum == 1) //Splash
             {
-                if (turnedRight)
-                {
-                    Instantiate(Attacks[0], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
-                }
-                else if (!turnedRight)
-                {
-                    Instantiate(Attacks[0], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
-                }
+                Instantiate(Attacks[0], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 2) //Dove
             {
-                if (turnedRight)
-                {
-                    Instantiate(Attacks[1], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), this.transform.rotation);
-                }
-                else if (!turnedRight)
-                {
-                    Instantiate(Attacks[1], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), this.transform.rotation);
-                }
+                Instantiate(Attacks[1], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 3) //Wild Growth
             {
@@ -438,14 +420,7 @@ public class Movement : MonoBehaviour
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 5) //Zephyr
             {
-                if (turnedRight)
-                {
-                    Instantiate(Attacks[4], new Vector3(transform.position.x + 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
-                }
-                else if (!turnedRight)
-                {
-                    Instantiate(Attacks[4], new Vector3(transform.position.x - 2.5f, transform.position.y + 1, transform.position.z), Attacks[4].transform.rotation);
-                }
+                Instantiate(Attacks[4], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 6) //Combust
             {
@@ -503,9 +478,13 @@ public class Movement : MonoBehaviour
             {
                 Instantiate(Attacks[11], new Vector3(transform.position.x, transform.position.y, transform.position.z), this.transform.rotation, transform);
             }
+            else if (newCard.GetComponent<CardEffects>().CardNum == 14) //Bee Hive
+            {
+                Instantiate(Attacks[12], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
+            }
         }
         #endregion
-        else if (CurCard.GetComponent<CardEffects>().CardNum == 14)
+        else if (CurCard.GetComponent<CardEffects>().CardNum == 14) //Bee Hive
         {
             Instantiate(Attacks[12], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
