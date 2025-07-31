@@ -81,6 +81,7 @@ public class Movement : MonoBehaviour
     public int WildGrowths = 0;
     public float startSpeed;
     public float startJumpHeight;
+    private bool discardingCard = false;
 
     #endregion
 
@@ -105,7 +106,7 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Update
-    void FixedUpdate()
+    void Update()
     {
         #region Input
 
@@ -140,17 +141,27 @@ public class Movement : MonoBehaviour
                 }
             }
 
-            if (Input.GetAxis("Fire1") > 0 && !UsingCard && !shuffling)
+            if (Input.GetMouseButtonDown(0) && !UsingCard && !shuffling)
             {
                 UseCard();
                 UsingCard = true;
             }
 
-            if (Input.GetAxis("Fire2") > 0 && !UsingCard && !shuffling)
+            if (Input.GetMouseButtonUp(0) && UsingCard)
+            {
+                UsingCard = false;
+                StopCoroutine("Cooldown");
+            }
+
+            if (Input.GetMouseButtonDown(1) && !discardingCard && !shuffling)
             {
                 DiscardCard();
-                UsingCard = true;
-                StartCoroutine("Cooldown");
+                discardingCard = true;
+            }
+
+            if (Input.GetMouseButtonUp(1) && discardingCard)
+            {
+                discardingCard = false;
             }
 
         }
@@ -272,16 +283,6 @@ public class Movement : MonoBehaviour
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 2) //Dove
         {
-            /*
-            if (turnedRight)
-            {
-                Instantiate(Attacks[1], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), this.transform.rotation);
-            }
-            else if (!turnedRight)
-            {
-                Instantiate(Attacks[1], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), this.transform.rotation);
-            }
-            */
             Instantiate(Attacks[1], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 3) //Wild Growth
@@ -294,7 +295,7 @@ public class Movement : MonoBehaviour
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 5) //Zephyr
         {
-            Instantiate(Attacks[4], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
+            Instantiate(Attacks[4], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), Attacks[4].transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 6) //Combust
         {
@@ -424,47 +425,19 @@ public class Movement : MonoBehaviour
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 6) //Combust
             {
-                if (turnedRight)
-                {
-                    Instantiate(Attacks[5], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
-                }
-                else if (!turnedRight)
-                {
-                    Instantiate(Attacks[5], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
-                }
+                Instantiate(Attacks[5], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 7) // Poison Cloud
             {
-                if (turnedRight)
-                {
-                    Instantiate(Attacks[6], new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), this.transform.rotation);
-                }
-                else if (!turnedRight)
-                {
-                    Instantiate(Attacks[6], new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), this.transform.rotation);
-                }
+                Instantiate(Attacks[6], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 8) //Cone of Cold
             {
-                if (turnedRight)
-                {
-                    Instantiate(Attacks[7], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
-                }
-                else if (!turnedRight)
-                {
-                    Instantiate(Attacks[7], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
-                }
+                Instantiate(Attacks[7], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 9) //Might
             {
-                if (turnedRight)
-                {
-                    Instantiate(Attacks[8], new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
-                }
-                else if (!turnedRight)
-                {
-                    Instantiate(Attacks[8], new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z), Attacks[7].transform.rotation);
-                }
+                Instantiate(Attacks[8], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
             }
             else if (newCard.GetComponent<CardEffects>().CardNum == 10) //Card Trick
             {
@@ -531,14 +504,16 @@ public class Movement : MonoBehaviour
         }
     }
 
-
-    IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(0.1f);
-        UsingCard = false;
-    }
     #endregion
 
+
+    #region Co-Routines
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(0.35f);
+        UsingCard = false;
+    }
+    
     private void CheckHealth()
     {
         if (curHealth <= 0)
@@ -599,4 +574,6 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Card Menu 2");
     }
+
+    #endregion
 }
