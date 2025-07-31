@@ -200,6 +200,12 @@ public class Movement : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
+
+            if (!collision.gameObject.CompareTag("Enemy") && justHit)
+            {
+                justHit = false;
+                StopCoroutine("DamageCooldown");
+            }
         }
         
         if (collision.gameObject.CompareTag("Enemy"))

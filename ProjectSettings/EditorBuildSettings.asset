@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Card Menu.unity
+    path: Assets/Scenes/Main Scenes/Card Menu.unity
     guid: 1645deff82f196440b9498ce1c18611c
   - enabled: 1
     path: Assets/Scenes/Card Menu 2.unity
     guid: fa8df5759806f0b49aa4e6dbedb2a937
   - enabled: 1
-    path: Assets/Scenes/New Demo.unity
+    path: Assets/Scenes/Main Scenes/New Demo.unity
     guid: d9cbd17dd70f19c49a1912b45583131e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}

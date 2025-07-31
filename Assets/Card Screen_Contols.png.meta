@@ -147,6 +147,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -559,7 +572,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card Screen_Contols_0: 7467564584639097196
+      Card Screen_Contols_1: -340457895384390586
+      Card Screen_Contols_10: -637790000650174288
+      Card Screen_Contols_11: 21363238774525720
+      Card Screen_Contols_12: -4510698012661412155
+      Card Screen_Contols_13: -6593809145794026376
+      Card Screen_Contols_14: 5971970428172347797
+      Card Screen_Contols_15: -7830482093211804470
+      Card Screen_Contols_16: -8192301680237757131
+      Card Screen_Contols_17: 3030752947053746584
+      Card Screen_Contols_2: 4616155209700058601
+      Card Screen_Contols_3: 9175942025283117977
+      Card Screen_Contols_4: -8794819866280674242
+      Card Screen_Contols_5: -3498993818393071812
+      Card Screen_Contols_6: -1403896231173325947
+      Card Screen_Contols_7: -95638440007696044
+      Card Screen_Contols_8: -1918449671407392317
+      Card Screen_Contols_9: 772688359466973887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
