@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f627ce70667fa04cbc9c842c2ca907b
+guid: 474762dc676584d469dee96cbd23aad9
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Card Screen_Contols
+  - name: Card Screen_Contols 1
     originalName: 
     pivot: {x: 0.5256849, y: -0.09022556}
     alignment: 9
@@ -135,7 +135,7 @@ ScriptedImporter:
       y: 4
       width: 292
       height: 133
-    spriteID: caced16277c12d74684dfd9b3719f293
+    spriteID: 2d91c49c94ffa774480c8ccb0c2d5f8d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,13 +147,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1650086551
-    name: Card Screen_Contols
+    guid: -1488327208
+    name: Card Screen_Contols 1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Card Screen_Contols
+    - name: Card Screen_Contols 1
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -161,7 +161,7 @@ ScriptedImporter:
         y: 12
         width: 292
         height: 133
-      spriteId: caced16277c12d74684dfd9b3719f293
+      spriteId: 2d91c49c94ffa774480c8ccb0c2d5f8d
     linkedCells: []
     parentIndex: -1
   platformSettings:
