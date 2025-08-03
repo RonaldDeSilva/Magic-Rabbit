@@ -210,14 +210,13 @@ public class Enemy : MonoBehaviour
             }
             CurrentTime -= 0.1f;
         }
-        if (isIceBat)
+        else if (isIceBat)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
                 if (!Player.GetComponent<Movement>().invulnerable && !Player.GetComponent<Movement>().justHit && !Player.GetComponent<Movement>().StoneForm)
                 {
-                    Player.GetComponent<Movement>().curHealth -= bumpDamage;
-                    CheckHealth();
+                    
                     var rando = Random.Range(0, 4);
                     if (rando == 3)
                     {
@@ -225,8 +224,31 @@ public class Enemy : MonoBehaviour
                         {
                             Player.GetComponent<Movement>().frozen = true;
                             Player.GetComponent<Movement>().FrozenTimer = 2f;
+                            Player.GetComponent<Movement>().curHealth -= attackDamage;
+                            Player.GetComponent<Movement>().CheckHealth(this.gameObject);
+                        }
+                        else
+                        {
+                            Player.GetComponent<Movement>().curHealth -= attackDamage;
+                            Player.GetComponent<Movement>().CheckHealth(this.gameObject);
                         }
                     }
+                    else
+                    {
+                        Player.GetComponent<Movement>().curHealth -= bumpDamage;
+                        Player.GetComponent<Movement>().CheckHealth(this.gameObject);
+                    }
+                }
+            }
+        }
+        else if (isZombie)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (!Player.GetComponent<Movement>().invulnerable && !Player.GetComponent<Movement>().justHit && !Player.GetComponent<Movement>().StoneForm)
+                {
+                    Player.GetComponent<Movement>().curHealth -= bumpDamage;
+                    Player.GetComponent<Movement>().CheckHealth(this.gameObject);
                 }
             }
         }
