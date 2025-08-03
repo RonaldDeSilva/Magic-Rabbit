@@ -14,7 +14,7 @@ public class LightingController : MonoBehaviour
     private GameObject IntroLighting;
     private GameObject LoopingLighting;
     private GameObject BossRoomLighting;
-
+    /*
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -51,5 +51,5 @@ public class LightingController : MonoBehaviour
         StartCoroutine("LightFollow");
     }
 
-
+    */
 }
