@@ -82,6 +82,7 @@ public class Movement : MonoBehaviour
     public float startSpeed;
     public float startJumpHeight;
     private bool discardingCard = false;
+    public bool slowed = false;
 
     #endregion
 
@@ -184,6 +185,11 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             Application.Quit();
+        }
+
+        if (slowed)
+        {
+            rb.linearVelocity = rb.linearVelocity * 0.1f;
         }
 
         #endregion
