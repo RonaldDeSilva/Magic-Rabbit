@@ -97,6 +97,12 @@ public class Enemy : MonoBehaviour
                 {
                     necroTimer = 0;
                 }
+
+                if (Mathf.Abs(Player.transform.position.x - transform.position.x) < 4f | Mathf.Abs(Player.transform.position.y - transform.position.y) < 4f)
+                {
+                    rb.AddForce(new Vector2((transform.position.x - Player.transform.position.x) * 100, (transform.position.y - Player.transform.position.y) * 10));
+                }
+
             }
             else if (isIceBat)
             {
