@@ -154,23 +154,22 @@ public class Enemy : MonoBehaviour
                     }
                 }
             }
+            else if (isSlime)
+            {
+                necroTimer++;
+                if (necroTimer % 200 == 0)
+                {
+                    left = !left;
+                }
 
-        }
-        else if (isSlime)
-        {
-            necroTimer++;
-            if (necroTimer % 90 == 0)
-            {
-                left = !left;
-            }
-
-            if (left)
-            {
-                rb.linearVelocityX = speed;
-            }
-            else
-            {
-                rb.linearVelocityX = -speed;
+                if (left)
+                {
+                    rb.linearVelocityX = speed;
+                }
+                else
+                {
+                    rb.linearVelocityX = -speed;
+                }
             }
         }
         else if (CurrentTime >= 0f && bounce)
@@ -299,6 +298,25 @@ public class Enemy : MonoBehaviour
                     Player.GetComponent<Movement>().CheckHealth(this.gameObject);
                 }
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (!Player.GetComponent<Movement>().StoneForm)
+            {
+                Player.GetComponent<Movement>().slowed = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player.GetComponent<Movement>().slowed = false;
         }
     }
 
