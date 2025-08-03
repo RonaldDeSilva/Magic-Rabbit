@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107d3bed0614864478bd159048fca010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 25
   speed: 2.5
   walkTime: 2
   bumpDamage: 3

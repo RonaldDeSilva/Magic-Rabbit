@@ -4,9 +4,10 @@ using System.Collections;
 public class Enemy : MonoBehaviour
 {
 
+    #region Attributes
+
     public int maxHealth;
     public float speed;
-    public float walkTime;
     public int bumpDamage;
     public int attackDamage;
     public bool Stunned = false;
@@ -31,21 +32,37 @@ public class Enemy : MonoBehaviour
     public GameObject IceBat;
     private float necroTimer = 0;
     private float jumpTimer = 0;
+    private bool left = false;
 
     public bool isNecromancer;
     public bool isZombie;
     public bool isIceBat;
+    public bool isSlime;
     private float Acceleration = 0.01f;
 
+
+    #endregion
+
+    #region Start
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         curHealth = maxHealth;
         prevHealth = curHealth;
-        startColor = GetComponent<SpriteRenderer>().color;
+        if (!isSlime)
+        {
+            startColor = GetComponent<SpriteRenderer>().color;
+        }
+        else
+        {
+            startColor = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color;
+        }
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    #endregion
+
+    #region FixedUpdate
 
     void FixedUpdate()
     {
@@ -80,7 +97,7 @@ public class Enemy : MonoBehaviour
             else if (isNecromancer)
             {
                 necroTimer += 1f;
-                if (necroTimer % 250f == 0)
+                if (necroTimer % 200f == 0)
                 {
                     var coinFlip = Random.Range(0, 2);
                     if (coinFlip == 0)
@@ -93,7 +110,7 @@ public class Enemy : MonoBehaviour
                     }
                 }
 
-                if (necroTimer > 501)
+                if (necroTimer > 401)
                 {
                     necroTimer = 0;
                 }
@@ -139,6 +156,23 @@ public class Enemy : MonoBehaviour
             }
 
         }
+        else if (isSlime)
+        {
+            necroTimer++;
+            if (necroTimer % 90 == 0)
+            {
+                left = !left;
+            }
+
+            if (left)
+            {
+                rb.linearVelocityX = speed;
+            }
+            else
+            {
+                rb.linearVelocityX = -speed;
+            }
+        }
         else if (CurrentTime >= 0f && bounce)
         {
             if (CurrentTime >= 1)
@@ -159,9 +193,13 @@ public class Enemy : MonoBehaviour
                 bounce = false;
                 bounces = 0;
             }
-            else if (CurrentTime <= 0.75f)
+            else if (CurrentTime <= 0.75f && !isSlime)
             {
                 GetComponent<CapsuleCollider2D>().isTrigger = false;
+            }
+            else if (CurrentTime <= 0.75f && !isSlime)
+            {
+                transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             }
         }
         else if (Stunned)
@@ -176,6 +214,10 @@ public class Enemy : MonoBehaviour
         rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -speed * 3, speed * 3);
     }
 
+    #endregion
+
+    #region Collision
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (bounce && bounces <= 1)
@@ -186,12 +228,18 @@ public class Enemy : MonoBehaviour
                 bounces += 1;
             }
         }
-        else
+        else if (!isSlime)
         {
             GetComponent<CapsuleCollider2D>().isTrigger = false;
             bounces = 0;
         }
+        else if (isSlime)
+        {
+            transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+            bounces = 0;
+        }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (bounce)
@@ -254,6 +302,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Getting Damaged Functions
 
     public void CheckHealth()
     {
@@ -298,30 +349,83 @@ public class Enemy : MonoBehaviour
         theMagnitude = magnitude;
         bounce = true;
         CurrentTime = 1;
-        GetComponent<CapsuleCollider2D>().isTrigger = true; 
+        if (!isSlime)
+        {
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
     }
 
+    #endregion
+
+    #region Coroutines
     IEnumerator FlashRed()
     {
-        GetComponent<SpriteRenderer>().color = Color.black;
-        yield return new WaitForSeconds(0.1f);
-        GetComponent<SpriteRenderer>().color = startColor;
+        if (!isSlime)
+        {
+            GetComponent<SpriteRenderer>().color = Color.black;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+        }
+            yield return new WaitForSeconds(0.1f);
+        if (!isSlime)
+        {
+            GetComponent<SpriteRenderer>().color = startColor;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = startColor;
+        }
     }
 
     public IEnumerator StunCooldown()
     {
-        GetComponent<SpriteRenderer>().color = Color.gray;
+        if (!isSlime)
+        {
+            GetComponent<SpriteRenderer>().color = Color.gray;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+        }
         yield return new WaitForSeconds(StunCooldownTime);
-        GetComponent<SpriteRenderer>().color = startColor;
+        if (!isSlime)
+        {
+            GetComponent<SpriteRenderer>().color = startColor;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = startColor;
+        }
         Stunned = false;
         frozen = false;
     }
 
     public IEnumerator WetCooldown()
     {
-        GetComponent<SpriteRenderer>().color = Color.blue;
+
+        if (!isSlime)
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        }
         yield return new WaitForSeconds(15f);
-        GetComponent<SpriteRenderer>().color = startColor;
+        if (!isSlime)
+        {
+            GetComponent<SpriteRenderer>().color = startColor;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = startColor;
+        }
         wet = false;
     }
 
@@ -329,11 +433,27 @@ public class Enemy : MonoBehaviour
     {
         if (onFire)
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+
+            if (!isSlime)
+            {
+                GetComponent<SpriteRenderer>().color = Color.red;
+            }
+            else
+            {
+                transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            }
         }
         else if (poisoned)
         {
-            GetComponent<SpriteRenderer>().color = Color.green;
+
+            if (!isSlime)
+            {
+                GetComponent<SpriteRenderer>().color = Color.green;
+            }
+            else
+            {
+                transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            }
         }
         curHealth -= DOTDamage;
         CheckHealth();
@@ -347,7 +467,17 @@ public class Enemy : MonoBehaviour
         StartCoroutine("DamageOverTime");
         yield return new WaitForSeconds(4);
         StopCoroutine("DamageOverTime");
+        if (!isSlime)
+        {
+            GetComponent<SpriteRenderer>().color = startColor;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = startColor;
+        }
         onFire = false;
         poisoned = false;
     }
+
+    #endregion
 }
