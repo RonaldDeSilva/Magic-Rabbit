@@ -106,6 +106,10 @@ public class DamageNumbers : MonoBehaviour
 
     public void Display(int Damage, Color numberColor)
     {
+        if (Damage == 0)
+        {
+            Destroy(this.gameObject);
+        }
         var len = Damage.ToString().Length;
         Size = Damage / 50f;
         Size = Mathf.Clamp(Size, 0f, 0.6f);
