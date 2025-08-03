@@ -133,8 +133,8 @@ MonoBehaviour:
   maxHealth: 15
   speed: 2.5
   walkTime: 2
-  bumpDamage: 2
-  attackDamage: 5
+  bumpDamage: 3
+  attackDamage: 6
   Stunned: 0
   StunCooldownTime: 0
   wet: 0

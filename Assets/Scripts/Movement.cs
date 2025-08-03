@@ -210,24 +210,7 @@ public class Movement : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (!invulnerable && !StoneForm && !justHit)
-            {
-                justHit = true;
-                if (collision.gameObject.transform.position.x > transform.position.x)
-                {
-                    rb.AddForceY(1 * knockback, ForceMode2D.Impulse);
-                    rb.AddForceX(-1 * knockback, ForceMode2D.Impulse);
-                } 
-                else if (collision.gameObject.transform.position.x < transform.position.x)
-                {
-                    rb.AddForce(new Vector2(1 * knockback, 1 * knockback), ForceMode2D.Impulse);
-                }
-                //Damage section
-                curHealth -= collision.gameObject.GetComponent<Enemy>().bumpDamage;
-                CheckHealth();
-                StartCoroutine("DamageCooldown");
-            }
-            else if (StoneForm)
+            if (StoneForm)
             {
                 var thing = GameObject.FindGameObjectWithTag("StoneForm").GetComponent<Attack>();
                 var dam = thing.Damage;
@@ -237,6 +220,9 @@ public class Movement : MonoBehaviour
             }
         }
     }
+
+
+
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -520,7 +506,7 @@ public class Movement : MonoBehaviour
         UsingCard = false;
     }
     
-    private void CheckHealth()
+    public void CheckHealth(GameObject Attacker)
     {
         if (curHealth <= 0)
         {
@@ -528,6 +514,21 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            if (!invulnerable && !StoneForm && !justHit)
+            {
+                justHit = true;
+                if (Attacker.transform.position.x > transform.position.x)
+                {
+                    rb.AddForceY(1 * knockback, ForceMode2D.Impulse);
+                    rb.AddForceX(-1 * knockback, ForceMode2D.Impulse);
+                }
+                else if (Attacker.transform.position.x < transform.position.x)
+                {
+                    rb.AddForce(new Vector2(1 * knockback, 1 * knockback), ForceMode2D.Impulse);
+                }
+                StartCoroutine("DamageCooldown");
+            }
+
             var numbers = Instantiate(DamageNumbers, transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
             if (onFire)
             {
@@ -569,7 +570,7 @@ public class Movement : MonoBehaviour
      IEnumerator DamageCooldown()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1f);
         GetComponent<SpriteRenderer>().color = DefaultColor;
         justHit = false;
     }
