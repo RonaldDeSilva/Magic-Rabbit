@@ -584,6 +584,7 @@ public class Movement : MonoBehaviour
     IEnumerator DeadMan()
     {
         DeadManMessage.SetActive(true);
+        stunned = true;
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Card Menu 2");
     }

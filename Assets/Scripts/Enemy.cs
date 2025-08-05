@@ -33,11 +33,14 @@ public class Enemy : MonoBehaviour
     private float necroTimer = 0;
     private float jumpTimer = 0;
     private bool left = false;
+    private bool hunting = false;
+    public Sprite huntingMode;
 
     public bool isNecromancer;
     public bool isZombie;
     public bool isIceBat;
     public bool isSlime;
+    public bool isMimic;
     private float Acceleration = 0.01f;
 
 
@@ -58,6 +61,11 @@ public class Enemy : MonoBehaviour
             startColor = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color;
         }
         Player = GameObject.FindGameObjectWithTag("Player");
+
+        if (isMimic)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        }
     }
 
     #endregion
@@ -171,6 +179,13 @@ public class Enemy : MonoBehaviour
                     rb.linearVelocityX = -speed;
                 }
             }
+            else if (isMimic)
+            {
+                if (hunting)
+                {
+                    rb.linearVelocity = new Vector2 ((Player.transform.position.x - transform.position.x) * speed, rb.linearVelocityY);
+                }
+            }
         }
         else if (CurrentTime >= 0f && bounce)
         {
@@ -227,14 +242,25 @@ public class Enemy : MonoBehaviour
                 bounces += 1;
             }
         }
-        else if (!isSlime)
-        {
-            GetComponent<CapsuleCollider2D>().isTrigger = false;
-            bounces = 0;
-        }
         else if (isSlime)
         {
             transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+            bounces = 0;
+        }
+        else if (isMimic)
+        {
+            if (collision.gameObject.CompareTag("Player") && !hunting)
+            {
+                hunting = true;
+                var boxes = GetComponents<BoxCollider2D>();
+                boxes[1].size = new Vector2(0f, 0f);
+                GetComponent<SpriteRenderer>().sprite = huntingMode;
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
+        }
+        else
+        {
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
             bounces = 0;
         }
     }
@@ -295,6 +321,17 @@ public class Enemy : MonoBehaviour
                 if (!Player.GetComponent<Movement>().invulnerable && !Player.GetComponent<Movement>().justHit && !Player.GetComponent<Movement>().StoneForm)
                 {
                     Player.GetComponent<Movement>().curHealth -= bumpDamage;
+                    Player.GetComponent<Movement>().CheckHealth(this.gameObject);
+                }
+            }
+        }
+        else if (isMimic)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (!Player.GetComponent<Movement>().invulnerable && !Player.GetComponent<Movement>().justHit && !Player.GetComponent<Movement>().StoneForm)
+                {
+                    Player.GetComponent<Movement>().curHealth -= attackDamage;
                     Player.GetComponent<Movement>().CheckHealth(this.gameObject);
                 }
             }
