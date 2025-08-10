@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 903da42cf43e1ee4cb572af8985adef4
+guid: 0a29aa824bfb63840a56a14be0c2e3b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3063841963128474276
-    second: hat_0
+      213: 84021435641649468
+    second: hatbetter_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hat_0
+      name: hatbetter_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 11
-        width: 48
-        height: 46
+        width: 46
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4aa45345804f48a20800000000000000
-      internalID: 3063841963128474276
+      spriteID: c3950f0fc018a2100800000000000000
+      internalID: 84021435641649468
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hat_0: 3063841963128474276
+      hatbetter_0: 84021435641649468
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

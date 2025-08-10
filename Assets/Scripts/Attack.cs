@@ -26,7 +26,7 @@ public class Attack : MonoBehaviour
     public bool Dash;
     public bool Magic8Ball;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D rb = null;
     private GameObject Player;
     private Movement MovementScript;
     public GameObject StoneAOE;
@@ -57,8 +57,11 @@ public class Attack : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         MovementScript = Player.GetComponent<Movement>();
         playerTurnedRight = MovementScript.turnedRight;
-        rb = GetComponent<Rigidbody2D>();
-        PlayerStartingGravity = Player.GetComponent<Rigidbody2D>().gravityScale;
+        if (GetComponent<Rigidbody2D>() != null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+            PlayerStartingGravity = Player.GetComponent<Rigidbody2D>().gravityScale;
+        }
         Hat = Player.transform.GetChild(0).GetChild(0).gameObject;
         Dir = new Vector2(Hat.transform.position.x - Player.transform.position.x, Hat.transform.position.y - Player.transform.position.y);
         if (WildGrowth)
@@ -462,7 +465,11 @@ public class Attack : MonoBehaviour
                     collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
                     collision.gameObject.GetComponent<Enemy>().CheckHealth();
                 }
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
+
+                if (rb != null)
+                {
+                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
+                }
             }
         }
         else if (!collision.gameObject.CompareTag("Enemy") && collision.isTrigger == false)
