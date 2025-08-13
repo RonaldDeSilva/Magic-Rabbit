@@ -7,9 +7,8 @@ public class HatScript : MonoBehaviour
 
     private void Start()
     {
-        //Player = transform.parent.parent.gameObject;
         Player = transform.parent.gameObject;
-        Cam = GameObject.FindGameObjectWithTag("FakeCamera").GetComponent<Camera>();
+        Cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void FixedUpdate()

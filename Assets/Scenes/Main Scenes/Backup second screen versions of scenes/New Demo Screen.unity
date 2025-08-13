@@ -24364,7 +24364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1062955186317219689
 Transform:
   m_ObjectHideFlags: 0
@@ -24854,7 +24854,7 @@ GameObject:
   - component: {fileID: 8932139155543520171}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: FakeCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25011,7 +25011,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 23464f7669850af4892f1bd0a33afba4, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 0
   m_HDR: 0
