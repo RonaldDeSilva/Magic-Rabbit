@@ -90,15 +90,15 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Hand = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(0).gameObject;
-        Deck = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(1).gameObject;
+        Hand = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).gameObject;
+        Deck = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(1).gameObject;
         hat = transform.GetChild(0).GetChild(0).gameObject;
         curHealth = maxHealth;
         prevHealth = curHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
         MemoryCard = GameObject.FindGameObjectWithTag("MemoryCard");
         DefaultColor = GetComponent<SpriteRenderer>().color;
-        DeadManMessage = GameObject.FindGameObjectWithTag("FakeCamera").transform.GetChild(2).gameObject;
+        DeadManMessage = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(2).gameObject;
         DeadManMessage.SetActive(false);
         DealCards();
         startSpeed = speed;
@@ -453,6 +453,7 @@ public class Movement : MonoBehaviour
             {
                 Instantiate(Attacks[12], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
             }
+
         }
         #endregion
         else if (CurCard.GetComponent<CardEffects>().CardNum == 14) //Bee Hive

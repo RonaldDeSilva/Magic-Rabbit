@@ -7,13 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Card Menu.unity
-    guid: 1645deff82f196440b9498ce1c18611c
+    guid: 2a4605d38fc01af41ae7afc54225a0c1
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Card Menu 2.unity
-    guid: a912ec66f0b5cce4687da8d3b6db1549
+    guid: 32f33dd7768a2f14ca6102d361069d18
   - enabled: 1
     path: Assets/Scenes/Main Scenes/New Demo.unity
-    guid: d9cbd17dd70f19c49a1912b45583131e
+    guid: 41a6f03b82a23ac4593e5b58de98e41c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
