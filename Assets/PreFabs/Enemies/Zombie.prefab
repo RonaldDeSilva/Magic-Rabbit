@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 44.12, y: -5.88, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   speed: 2
-  walkTime: 1
   bumpDamage: 5
   attackDamage: 10
   Stunned: 0
@@ -147,9 +146,12 @@ MonoBehaviour:
   damageNumber: {fileID: 3534988914727803720, guid: c43a4ac537c04264e92b860b0ddfd0a8, type: 3}
   Zombie: {fileID: 0}
   IceBat: {fileID: 0}
+  huntingMode: {fileID: 0}
   isNecromancer: 0
   isZombie: 1
   isIceBat: 0
+  isSlime: 0
+  isMimic: 0
 --- !u!70 &2651081363917652483
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

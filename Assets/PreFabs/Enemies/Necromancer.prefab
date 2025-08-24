@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4318473331109866835}
   - component: {fileID: 5655501099851466617}
   - component: {fileID: 736726871424590478}
+  - component: {fileID: 7174394116500590828}
   m_Layer: 0
   m_Name: Necromancer
   m_TagString: Enemy
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1675831536, guid: 07dde0d9e40054744bb648cab0090d8c, type: 3}
+  m_Sprite: {fileID: 2736436089325153170, guid: bb02f5383bbdc0041abea645a1e043de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 600
   speed: 2
-  walkTime: 0
   bumpDamage: 1
   attackDamage: 1
   Stunned: 0
@@ -147,9 +147,12 @@ MonoBehaviour:
   damageNumber: {fileID: 3534988914727803720, guid: c43a4ac537c04264e92b860b0ddfd0a8, type: 3}
   Zombie: {fileID: 2746423947938410679, guid: 665f09b8cbafcbc45a2ea0e3431fd6c0, type: 3}
   IceBat: {fileID: 3262045144358008270, guid: 7a6e172f5f10d294e8fda1ff5f2d487c, type: 3}
+  huntingMode: {fileID: 0}
   isNecromancer: 1
   isZombie: 0
   isIceBat: 0
+  isSlime: 0
+  isMimic: 0
 --- !u!70 &736726871424590478
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -184,6 +187,28 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.039211273, y: -0.0022654533}
-  m_Size: {x: 1.6024246, y: 1.6024246}
+  m_Offset: {x: 0.09324551, y: 0.003276348}
+  m_Size: {x: 0.85702324, y: 1.3973703}
   m_Direction: 0
+--- !u!95 &7174394116500590828
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2229736927639977067}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 2204934670792126084, guid: bb02f5383bbdc0041abea645a1e043de, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

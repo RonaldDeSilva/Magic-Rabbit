@@ -382,7 +382,7 @@ public class Attack : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("GroundBreakable") || collision.gameObject.CompareTag("GroundMoveable"))
         {
-            if (!collision.gameObject.CompareTag("GroundMoveable") && !Splash &&  !StoneForm && !Zephyr && !PoisonCloud && !Combust)
+            if (!StoneForm && !Zephyr && !PoisonCloud && !Combust)
             {
                 Destroy(this.gameObject);
             }
@@ -390,6 +390,7 @@ public class Attack : MonoBehaviour
             {
                 playerTurnedRight = !playerTurnedRight;
             }
+
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
@@ -472,16 +473,6 @@ public class Attack : MonoBehaviour
                 }
             }
         }
-        else if (!collision.gameObject.CompareTag("Enemy") && collision.isTrigger == false)
-        {
-            if (Dash)
-            {
-                MovementScript.dashing = false;
-                Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
-                Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
-                Destroy(this.gameObject);
-            }
-        }
         else if (collision.gameObject.CompareTag("Ground") | collision.gameObject.CompareTag("GroundBreakable") | collision.gameObject.CompareTag("GroundMoveable"))
         {
             if (Zephyr)
@@ -505,6 +496,25 @@ public class Attack : MonoBehaviour
                 GetComponent<SpriteRenderer>().enabled = false;
                 StoneAOE.SetActive(true);
                 StartCoroutine("PoisonCoroutine");
+            }
+            else if (collision.gameObject.CompareTag("GroundMoveable") && Splash)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForceX(Dir.x * speed);
+                Destroy(this.gameObject);
+            }
+            else if (!WildGrowth && !ConeOfCold && !Might && !StoneForm)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        else if (!collision.gameObject.CompareTag("Enemy") && collision.isTrigger == false)
+        {
+            if (Dash)
+            {
+                MovementScript.dashing = false;
+                Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
+                Destroy(this.gameObject);
             }
         }
     }
