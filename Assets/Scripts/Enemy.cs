@@ -185,6 +185,31 @@ public class Enemy : MonoBehaviour
                 {
                     rb.linearVelocity = new Vector2 ((Player.transform.position.x - transform.position.x) * speed, rb.linearVelocityY);
                 }
+                else
+                {
+                    var list = new Collider2D[10];
+                    var filter = new ContactFilter2D().NoFilter();
+                    int hitColliders = Physics2D.OverlapCollider(transform.GetChild(0).GetComponent<BoxCollider2D>(), filter, list);
+                    for (int i = hitColliders - 1; i >= 0; i--)
+                    {
+                        if (list[i].gameObject.CompareTag("Player"))
+                        {
+                            GetComponent<SpriteRenderer>().sprite = huntingMode;
+                            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                            transform.GetChild(0).gameObject.SetActive(false);
+                            hunting = true;
+                        }
+                    }
+
+                    if (curHealth < maxHealth)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = huntingMode;
+                        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                        transform.GetChild(0).gameObject.SetActive(false);
+                        hunting = true;
+                    }
+
+                }
             }
         }
         else if (CurrentTime >= 0f && bounce)
@@ -247,6 +272,7 @@ public class Enemy : MonoBehaviour
             transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             bounces = 0;
         }
+        /* Old 
         else if (isMimic)
         {
             if (collision.gameObject.CompareTag("Player") && !hunting)
@@ -258,6 +284,7 @@ public class Enemy : MonoBehaviour
                 GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             }
         }
+        */
         else
         {
             GetComponent<CapsuleCollider2D>().isTrigger = false;
@@ -344,7 +371,10 @@ public class Enemy : MonoBehaviour
         {
             if (!Player.GetComponent<Movement>().StoneForm)
             {
-                Player.GetComponent<Movement>().slowed = true;
+                if (isSlime)
+                {
+                    Player.GetComponent<Movement>().slowed = true;
+                }
             }
         }
     }
@@ -353,7 +383,10 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Player.GetComponent<Movement>().slowed = false;
+            if (isSlime)
+            {
+                Player.GetComponent<Movement>().slowed = false;
+            }
         }
     }
 
