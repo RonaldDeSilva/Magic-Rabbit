@@ -85,16 +85,19 @@ MonoBehaviour:
   onFire: 0
   poisoned: 0
   frozen: 0
+  shocked: 0
   rb: {fileID: 4140114602923683714}
   curHealth: 0
   bounce: 0
   damageNumber: {fileID: 3534988914727803720, guid: c43a4ac537c04264e92b860b0ddfd0a8, type: 3}
   Zombie: {fileID: 0}
   IceBat: {fileID: 0}
+  huntingMode: {fileID: 0}
   isNecromancer: 0
   isZombie: 0
   isIceBat: 0
   isSlime: 1
+  isMimic: 0
 --- !u!70 &7373722429072017996
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -254,7 +257,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.019241452, y: -0.29951423}
+  m_Offset: {x: -0.019241452, y: -0.30671948}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -264,5 +267,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3226287, y: 0.030028313}
+  m_Size: {x: 1.3226287, y: 0.015617818}
   m_EdgeRadius: 0

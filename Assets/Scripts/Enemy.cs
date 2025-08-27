@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public bool onFire = false;
     public bool poisoned = false;
     public bool frozen = false;
+    public bool shocked = false;
+
+
     public Rigidbody2D rb;
     public int curHealth;
     private Color startColor;
@@ -469,6 +472,7 @@ public class Enemy : MonoBehaviour
         {
             transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = startColor;
         }
+        shocked = false;
     }
 
     public IEnumerator StunCooldown()

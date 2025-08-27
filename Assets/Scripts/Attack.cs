@@ -588,11 +588,13 @@ public class Attack : MonoBehaviour
                     list[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
                     list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage * 3;
                     list[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                    list[i].gameObject.GetComponent<Enemy>().shocked = true;
                 }
                 else
                 {
                     list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
                     list[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                    list[i].gameObject.GetComponent<Enemy>().shocked = true;
                 }
             }
         }
@@ -601,18 +603,21 @@ public class Attack : MonoBehaviour
         {
             if (list2[i].gameObject.CompareTag("Enemy"))
             {
-                if (list2[i].gameObject.GetComponent<Enemy>().wet)
+                if (!list2[i].gameObject.GetComponent<Enemy>().shocked)
                 {
-                    list2[i].gameObject.GetComponent<Enemy>().Stunned = true;
-                    list2[i].gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
-                    list2[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
-                    list2[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
-                    list2[i].gameObject.GetComponent<Enemy>().CheckHealth();
-                }
-                else
-                {
-                    list2[i].gameObject.GetComponent<Enemy>().curHealth -= Damage / 3;
-                    list2[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                    if (list2[i].gameObject.GetComponent<Enemy>().wet)
+                    {
+                        list2[i].gameObject.GetComponent<Enemy>().Stunned = true;
+                        list2[i].gameObject.GetComponent<Enemy>().StunCooldownTime = stunDuration;
+                        list2[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
+                        list2[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
+                        list2[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                    }
+                    else
+                    {
+                        list2[i].gameObject.GetComponent<Enemy>().curHealth -= Damage / 3;
+                        list2[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                    }
                 }
             }
         }
