@@ -654,7 +654,7 @@ public class Attack : MonoBehaviour
     {
         var list = new Collider2D[5];
         var filter = new ContactFilter2D().NoFilter();
-        int hitColliders = Physics2D.OverlapCollider(GetComponent<BoxCollider2D>(), filter, list);
+        int hitColliders = Physics2D.OverlapCollider(GetComponent<CapsuleCollider2D>(), filter, list);
         for (int i = hitColliders - 1; i >= 0; i--)
         {
             if (list[i].gameObject.CompareTag("Enemy"))
@@ -675,7 +675,7 @@ public class Attack : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.35f);
         StartCoroutine("MightCoroutine");
     }
     #endregion
