@@ -57,6 +57,7 @@ public class Attack : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         MovementScript = Player.GetComponent<Movement>();
         playerTurnedRight = MovementScript.turnedRight;
+        PlayerStartingGravity = Player.GetComponent<Rigidbody2D>().gravityScale;
         if (GetComponent<Rigidbody2D>() != null)
         {
             rb = GetComponent<Rigidbody2D>();
@@ -129,49 +130,16 @@ public class Attack : MonoBehaviour
         }
         else if (Blink)
         {
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            var direction = Dir;
+            Debug.Log(Dir);
+            var ray = Physics2D.Raycast(new Vector2(Player.transform.position.x, Player.transform.position.y), direction, distance, groundLayerMask);
+            if (ray.transform != null)
             {
-                //var direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                var direction = Dir;
-                var ray = Physics2D.Raycast(new Vector2(Player.transform.position.x, Player.transform.position.y), direction, distance, groundLayerMask);
-                if (ray.transform != null)
-                {
-                    Player.transform.position = ray.point;
-                }
-                else
-                {
-                    Player.transform.position = new Vector2(Player.transform.position.x + (direction.x * distance), Player.transform.position.y + (direction.y * distance));
-                }
+                Player.transform.position = new Vector2(ray.point.x - Dir.x, ray.point.y - Dir.y);
             }
             else
             {
-                
-                if (playerTurnedRight)
-                {
-                    var direction = new Vector2(1, 0);
-                    var ray = Physics2D.Raycast(new Vector2(Player.transform.position.x, Player.transform.position.y), direction, distance, groundLayerMask);
-                    if (ray.transform != null)
-                    {
-                        Player.transform.position = ray.point;
-                    }
-                    else
-                    {
-                        Player.transform.position = new Vector2(Player.transform.position.x + (1 * distance), Player.transform.position.y);
-                    }
-                }
-                else
-                {
-                    var direction = new Vector2(-1, 0);
-                    var ray = Physics2D.Raycast(new Vector2(Player.transform.position.x, Player.transform.position.y), direction, distance, groundLayerMask);
-                    if (ray.transform != null)
-                    {
-                        Player.transform.position = ray.point;
-                    }
-                    else
-                    {
-                        Player.transform.position = new Vector2(Player.transform.position.x + (-1 * distance), Player.transform.position.y);
-                    }
-                }
+                Player.transform.position = new Vector2(Player.transform.position.x + (direction.x * distance), Player.transform.position.y + (direction.y * distance));
             }
             Destroy(this.gameObject);
         }
@@ -181,7 +149,8 @@ public class Attack : MonoBehaviour
             Player.GetComponent<CapsuleCollider2D>().isTrigger = true;
             MovementScript.rb.linearVelocity = Vector2.zero;
             Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 0.01f, Player.transform.position.z);
-            Player.GetComponent<Rigidbody2D>().gravityScale = 0.0000001f;
+            Player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+            GetComponent<CapsuleCollider2D>().size = new Vector2(Player.GetComponent<CapsuleCollider2D>().size.x - 0.1f, Player.GetComponent<CapsuleCollider2D>().size.y - 0.1f);
         }
 
         if (rb != null)
@@ -350,20 +319,11 @@ public class Attack : MonoBehaviour
             if (MovementScript.dashing)
             {
                 MovementScript.rb.linearVelocity = new Vector2(Dir.x * speed, Dir.y * speed);
-                /*
-                if (playerTurnedRight)
-                {
-                    MovementScript.rb.linearVelocity = new Vector2(speed, 0);
-                }
-                else if (!playerTurnedRight)
-                {
-                    MovementScript.rb.linearVelocity = new Vector2(-speed, 0);
-                }
-                */
             }
             else
             {
                 Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                Player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 Destroy(this.gameObject);
             }
         }
@@ -442,7 +402,6 @@ public class Attack : MonoBehaviour
                         collision.gameObject.GetComponent<Enemy>().onFire = false;
                         collision.gameObject.GetComponent<Enemy>().wet = true;
                         collision.gameObject.GetComponent<Enemy>().StartCoroutine("WetCooldown");
-                        //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.linearVelocity * 5);
                     }
                     collision.gameObject.GetComponent<Enemy>().curHealth -= Damage;
                     collision.gameObject.GetComponent<Enemy>().CheckHealth();
@@ -502,18 +461,15 @@ public class Attack : MonoBehaviour
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForceX(Dir.x * speed);
                 Destroy(this.gameObject);
             }
-            else if (!WildGrowth && !ConeOfCold && !Might && !StoneForm)
-            {
-                Destroy(this.gameObject);
-            }
-        }
-        else if (!collision.gameObject.CompareTag("Enemy") && collision.isTrigger == false)
-        {
-            if (Dash)
+            else if (Dash)
             {
                 MovementScript.dashing = false;
                 Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
-                Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
+                Player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                Destroy(this.gameObject);
+            }
+            else if (!WildGrowth && !ConeOfCold && !Might && !StoneForm)
+            {
                 Destroy(this.gameObject);
             }
         }
@@ -554,8 +510,8 @@ public class Attack : MonoBehaviour
             {
                 if (list[i].gameObject.CompareTag("Enemy"))
                 {
-                    //list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage;
-                    //list[i].gameObject.GetComponent<Enemy>().CheckHealth();
+                    list[i].gameObject.GetComponent<Enemy>().curHealth -= Damage / 2;
+                    list[i].gameObject.GetComponent<Enemy>().CheckHealth();
                     list[i].gameObject.GetComponent<Enemy>().Stunned = true;
                     list[i].gameObject.GetComponent<Enemy>().StunCooldownTime = StunTime;
                     list[i].gameObject.GetComponent<Enemy>().StartCoroutine("StunCooldown");
@@ -761,7 +717,7 @@ public class Attack : MonoBehaviour
         {
             MovementScript.dashing = false;
             Player.GetComponent<CapsuleCollider2D>().isTrigger = false;
-            Player.GetComponent<Rigidbody2D>().gravityScale = PlayerStartingGravity;
+            Player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
         Destroy(this.gameObject);
     }
