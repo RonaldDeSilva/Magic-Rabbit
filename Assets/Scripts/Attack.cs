@@ -118,6 +118,8 @@ public class Attack : MonoBehaviour
         else if (Combust)
         {
             timer = 0.4f;
+            StoneAOE = transform.GetChild(0).gameObject;
+            StoneAOE.SetActive(false);
         }
         else if (Might)
         {
@@ -169,7 +171,7 @@ public class Attack : MonoBehaviour
     #endregion
 
     #region Behaviors
-    private void FixedUpdate()
+    private void Update()
     {
         if (Splash)
         {
@@ -253,13 +255,15 @@ public class Attack : MonoBehaviour
             //Combust moves whichever way the player is facing until it hits the ground
             if (timer <= 0)
             {
-                transform.localScale = new Vector3(2, 1.75f, 1);
                 rb.linearVelocity = Vector2.zero;
                 if (timer == 0)
                 {
+                    StoneAOE.SetActive(true);
+                    GetComponent<SpriteRenderer>().enabled = false;
+                    GetComponent<CircleCollider2D>().enabled = false;
                     var list = new Collider2D[10];
                     var filter = new ContactFilter2D().NoFilter();
-                    int hitColliders = Physics2D.OverlapCollider(GetComponent<CircleCollider2D>(), filter, list);
+                    int hitColliders = Physics2D.OverlapCollider(StoneAOE.GetComponent<CircleCollider2D>(), filter, list);
                     for (int i = hitColliders - 1; i >= 0; i--)
                     {
                         if (list[i].gameObject.CompareTag("Enemy"))
@@ -302,6 +306,7 @@ public class Attack : MonoBehaviour
             else if (Phase2)
             {
                 rb.linearVelocityX = 0;
+                rb.linearVelocityY = 0;
             }
         }
         else if (ConeOfCold)
@@ -417,6 +422,7 @@ public class Attack : MonoBehaviour
                     Phase2 = true;
                     GetComponent<CircleCollider2D>().enabled = false;
                     GetComponent<SpriteRenderer>().enabled = false;
+                    GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     StoneAOE.SetActive(true);
                     StartCoroutine("PoisonCoroutine");
                 }
@@ -453,6 +459,7 @@ public class Attack : MonoBehaviour
                 Phase2 = true;
                 GetComponent<CircleCollider2D>().enabled = false;
                 GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 StoneAOE.SetActive(true);
                 StartCoroutine("PoisonCoroutine");
             }
