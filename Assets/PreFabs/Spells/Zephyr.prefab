@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 17
-  seconds: 5
+  seconds: 8
   speed: 2.5
   stunDuration: 5
   distance: 0
