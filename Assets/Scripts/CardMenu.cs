@@ -45,6 +45,20 @@ public class CardMenu : MonoBehaviour
                 }
             }
 
+            if (Input.GetAxis("Vertical") != 0 && delay < 0f)
+            {
+                if (Input.GetAxis("Vertical") > 0)
+                {
+                    position = position - 7;
+                    delay = 0.2f;
+                }
+                else if (Input.GetAxis("Vertical") < 0)
+                {
+                    position = position + 7;
+                    delay = 0.2f;
+                }
+            }
+
             if (Input.GetAxis("Jump") != 0)
             {
                 var newCard = Instantiate(SelectedCard, MemoryCard.transform, true);
@@ -70,11 +84,11 @@ public class CardMenu : MonoBehaviour
 
         if (position > Deck.transform.childCount - 1)
         {
-            position = 0;
+            position = position - (Deck.transform.childCount - 1);
         }
         else if (position < 0)
         {
-            position = Deck.transform.childCount - 1;
+            position = (Deck.transform.childCount - 1) + position;
         }
 
         if (Input.GetKeyDown("escape"))

@@ -305,7 +305,7 @@ public class Movement : MonoBehaviour
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 8) //Cone of Cold
         {
-            Instantiate(Attacks[7], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), new Quaternion(hat.transform.rotation.x, hat.transform.rotation.y, hat.transform.rotation.z + 90f, hat.transform.rotation.w));
+            Instantiate(Attacks[7], new Vector3(hat.transform.position.x, hat.transform.position.y, transform.position.z), hat.transform.rotation);
         }
         else if (CurCard.GetComponent<CardEffects>().CardNum == 9) //Might
         {
