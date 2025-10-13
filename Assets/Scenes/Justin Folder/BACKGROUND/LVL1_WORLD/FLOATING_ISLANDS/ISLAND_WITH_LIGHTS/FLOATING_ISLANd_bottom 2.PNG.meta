@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FLOATING_ISLANd_bottom 2_0: 7128107454829575023
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SUMMONER_WALKING_ANIMATION0037_0: -6930536684301625174
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

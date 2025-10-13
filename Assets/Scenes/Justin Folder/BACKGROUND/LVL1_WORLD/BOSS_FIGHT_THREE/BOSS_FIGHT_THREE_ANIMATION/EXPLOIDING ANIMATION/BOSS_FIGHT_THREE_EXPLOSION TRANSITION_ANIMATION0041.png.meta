@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BOSS_FIGHT_THREE_EXPLOSION TRANSITION_ANIMATION0041_0: -1765785443044152693
+      BOSS_FIGHT_THREE_EXPLOSION TRANSITION_ANIMATION0041_1: 6375816866306089421
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

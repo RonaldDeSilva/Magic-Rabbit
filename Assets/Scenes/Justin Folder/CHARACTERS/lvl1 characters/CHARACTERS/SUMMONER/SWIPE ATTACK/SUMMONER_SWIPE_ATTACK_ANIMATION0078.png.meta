@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SUMMONER_SWIPE_ATTACK_ANIMATION0078_0: -4006875564340465180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

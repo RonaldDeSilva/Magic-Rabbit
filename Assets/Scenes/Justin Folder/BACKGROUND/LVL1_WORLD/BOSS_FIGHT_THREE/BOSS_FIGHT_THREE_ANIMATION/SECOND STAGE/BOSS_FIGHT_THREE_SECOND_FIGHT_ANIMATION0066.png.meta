@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BOSS_FIGHT_THREE_SECOND_FIGHT_ANIMATION0066_0: -5864577294763146745
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FLOATING ISLAND BLUE LIGHTS_0: 3532225783854253578
+      FLOATING ISLAND BLUE LIGHTS_1: 4271251329845893042
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

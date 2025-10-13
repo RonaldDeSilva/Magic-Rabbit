@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NOwalls_NOceiling_NOfloor_NOLIGHTS_0: 1398922251170357368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

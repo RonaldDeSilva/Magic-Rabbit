@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      walls_ceiling_floor_yellowights_0: 1045367458245877464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

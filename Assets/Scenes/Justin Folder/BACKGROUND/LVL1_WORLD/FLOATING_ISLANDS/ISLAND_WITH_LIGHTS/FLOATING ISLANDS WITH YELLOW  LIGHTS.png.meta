@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FLOATING ISLANDS WITH YELLOW  LIGHTS_0: 8793713882951882563
+      FLOATING ISLANDS WITH YELLOW  LIGHTS_1: 1192254101272300924
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

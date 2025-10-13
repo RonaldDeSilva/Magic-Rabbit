@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CASTEL_LVL3_TOP_0: 6285543167966143773
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

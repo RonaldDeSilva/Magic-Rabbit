@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      2walls_noceiling_floor_bluelights_0: -9200282962140527980
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

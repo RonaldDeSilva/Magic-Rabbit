@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BOSS_FIGHT_ONE_ANIMATION0011_0: -3932854556690424731
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

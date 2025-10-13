@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CASTLE_ISLAND_ENTRANCE_ANIMATION0284_0: -5154665335626493358
+      CASTLE_ISLAND_ENTRANCE_ANIMATION0284_1: 7357612279363074224
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

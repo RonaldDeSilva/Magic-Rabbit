@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CASTLE_ENTRANCE_ANIMATION0006_0: -1702515539077765216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

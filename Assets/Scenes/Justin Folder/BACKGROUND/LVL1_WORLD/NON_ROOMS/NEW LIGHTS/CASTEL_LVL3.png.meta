@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CASTEL_LVL3_0: 6011917503197894119
+      CASTEL_LVL3_1: 9172868100057653662
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FLOATING_ISLANT START_NIGHT_LIGHT_0: -1762786661459505303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

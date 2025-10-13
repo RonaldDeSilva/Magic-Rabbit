@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ENTRANCE_LVL_TWO_ANIMATION0198_0: 461971110727415657
+      ENTRANCE_LVL_TWO_ANIMATION0198_1: -9034034943027562288
+      ENTRANCE_LVL_TWO_ANIMATION0198_2: 742177734982264623
+      ENTRANCE_LVL_TWO_ANIMATION0198_3: -8254100765494067270
+      ENTRANCE_LVL_TWO_ANIMATION0198_4: 569807333022860864
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

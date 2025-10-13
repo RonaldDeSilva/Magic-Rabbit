@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rwalls_ceiling_floor_bluelights_0: -27364662611904112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

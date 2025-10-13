@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SUMMONER_SUMMON_ANIMATION0105_0: -8197936499739234403
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

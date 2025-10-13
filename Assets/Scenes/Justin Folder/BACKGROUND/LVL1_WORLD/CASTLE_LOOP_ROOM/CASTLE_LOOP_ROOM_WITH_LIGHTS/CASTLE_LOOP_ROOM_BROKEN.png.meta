@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CASTLE_LOOP_ROOM_BROKEN_0: -8828663638333062817
+      CASTLE_LOOP_ROOM_BROKEN_1: -2510491260514453183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

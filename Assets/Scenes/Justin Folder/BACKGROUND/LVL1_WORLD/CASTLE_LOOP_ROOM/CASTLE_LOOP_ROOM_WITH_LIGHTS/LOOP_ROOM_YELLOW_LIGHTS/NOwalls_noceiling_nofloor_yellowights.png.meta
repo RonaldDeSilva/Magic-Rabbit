@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NOwalls_noceiling_nofloor_yellowights_0: -8058300312388116040
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
