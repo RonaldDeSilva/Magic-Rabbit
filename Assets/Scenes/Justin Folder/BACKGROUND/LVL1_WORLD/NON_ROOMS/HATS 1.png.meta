@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: a891e39203aa5444a978d77b10a5e2ca
+guid: 16027271bdd887d49984e7386c9f423f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -716814003135702227
-    second: CASTLE_ENTRANCE_LVL2_ANIMATION0194_0
-  - first:
-      213: -6327502323396624787
-    second: CASTLE_ENTRANCE_LVL2_ANIMATION0194_1
-  - first:
-      213: 651460507463619468
-    second: CASTLE_ENTRANCE_LVL2_ANIMATION0194_2
-  - first:
-      213: 5193354956491526862
-    second: CASTLE_ENTRANCE_LVL2_ANIMATION0194_3
-  - first:
-      213: -8202031531095008970
-    second: CASTLE_ENTRANCE_LVL2_ANIMATION0194_4
+      213: 3702839577028309201
+    second: HATS 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CASTLE_ENTRANCE_LVL2_ANIMATION0194_0
+      name: HATS 1_0
       rect:
         serializedVersion: 2
-        x: 103
-        y: 0
-        width: 202
-        height: 137
+        x: 297
+        y: 5
+        width: 930
+        height: 1402
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,96 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2b1215467d5d06f0800000000000000
-      internalID: -716814003135702227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CASTLE_ENTRANCE_LVL2_ANIMATION0194_1
-      rect:
-        serializedVersion: 2
-        x: 503
-        y: 0
-        width: 178
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6e3c7259223038a0800000000000000
-      internalID: -6327502323396624787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CASTLE_ENTRANCE_LVL2_ANIMATION0194_2
-      rect:
-        serializedVersion: 2
-        x: 711
-        y: 23
-        width: 42
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c83909441e37a0900800000000000000
-      internalID: 651460507463619468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CASTLE_ENTRANCE_LVL2_ANIMATION0194_3
-      rect:
-        serializedVersion: 2
-        x: 1327
-        y: 0
-        width: 593
-        height: 1080
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec2113e31d0821840800000000000000
-      internalID: 5193354956491526862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CASTLE_ENTRANCE_LVL2_ANIMATION0194_4
-      rect:
-        serializedVersion: 2
-        x: 799
-        y: 0
-        width: 50
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 639578857c78c2e80800000000000000
-      internalID: -8202031531095008970
+      spriteID: 1d0b7011af0236330800000000000000
+      internalID: 3702839577028309201
       vertices: []
       indices: 
       edges: []
@@ -247,12 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      CASTLE_ENTRANCE_LVL2_ANIMATION0194_0: -716814003135702227
-      CASTLE_ENTRANCE_LVL2_ANIMATION0194_1: -6327502323396624787
-      CASTLE_ENTRANCE_LVL2_ANIMATION0194_2: 651460507463619468
-      CASTLE_ENTRANCE_LVL2_ANIMATION0194_3: 5193354956491526862
-      CASTLE_ENTRANCE_LVL2_ANIMATION0194_4: -8202031531095008970
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

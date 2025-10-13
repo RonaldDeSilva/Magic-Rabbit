@@ -108,6 +108,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -234,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CASTLE_ENTRANCE_LVL2_ANIMATION0195_0: 8726717895654223203
+      CASTLE_ENTRANCE_LVL2_ANIMATION0195_1: -5791068209159472383
+      CASTLE_ENTRANCE_LVL2_ANIMATION0195_2: -7276316490290513117
+      CASTLE_ENTRANCE_LVL2_ANIMATION0195_3: -1435205516807402312
+      CASTLE_ENTRANCE_LVL2_ANIMATION0195_4: 6066110223158165730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

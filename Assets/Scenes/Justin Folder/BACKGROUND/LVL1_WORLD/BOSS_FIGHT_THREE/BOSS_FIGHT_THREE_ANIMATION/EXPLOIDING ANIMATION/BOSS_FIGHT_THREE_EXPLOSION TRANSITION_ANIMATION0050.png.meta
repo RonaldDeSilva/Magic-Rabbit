@@ -108,6 +108,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -234,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BOSS_FIGHT_THREE_EXPLOSION TRANSITION_ANIMATION0050_0: -8969354753717963956
+      BOSS_FIGHT_THREE_EXPLOSION TRANSITION_ANIMATION0050_1: -3107514988650998833
+      BOSS_FIGHT_THREE_EXPLOSION TRANSITION_ANIMATION0050_2: 3602456529803303319
+      BOSS_FIGHT_THREE_EXPLOSION TRANSITION_ANIMATION0050_3: 7326876479352201734
+      BOSS_FIGHT_THREE_EXPLOSION TRANSITION_ANIMATION0050_4: 5437441056969955394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
