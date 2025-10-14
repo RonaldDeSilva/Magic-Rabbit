@@ -141,6 +141,7 @@ MonoBehaviour:
   onFire: 0
   poisoned: 0
   frozen: 0
+  shocked: 0
   rb: {fileID: 4318473331109866835}
   curHealth: 0
   bounce: 0
