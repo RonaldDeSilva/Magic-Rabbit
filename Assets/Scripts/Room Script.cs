@@ -7,6 +7,8 @@ public class RoomScript : MonoBehaviour
     public GameObject Barriers;
     private GameObject Enemies;
     private bool playerIsIn;
+    private MemoryCard mem;
+    private bool CombatRoom = false;
 
     private void Start()
     {
@@ -16,9 +18,10 @@ public class RoomScript : MonoBehaviour
         //LightController = GameObject.Find("LightingController").GetComponent<LightingController>();
         Enemies.SetActive(false);
         Barriers.SetActive(false);
+        mem = GameObject.Find("MemoryCard").GetComponent<MemoryCard>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (playerIsIn)
         {
@@ -40,10 +43,24 @@ public class RoomScript : MonoBehaviour
             if (Enemies.transform.childCount > 0)
             {
                 Barriers.SetActive(true);
+                CombatRoom = true;
             }
             //MC.transform.position = new Vector3(transform.position.x, transform.position.y, MC.transform.position.z);
             //LightController.RoomTransfer();
             playerIsIn = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            if (CombatRoom)
+            {
+                mem.CurrentRooms += 1;
+                CombatRoom = false;
+            }
         }
     }
 }

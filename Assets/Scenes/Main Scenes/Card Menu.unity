@@ -2549,6 +2549,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3379857575783767268, guid: 1c5d595ed9e35e447ab88481b770f151, type: 3}
+      propertyPath: RoomsPerFoot
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6541334609448171401, guid: 1c5d595ed9e35e447ab88481b770f151, type: 3}
       propertyPath: m_Name
       value: MemoryCard
