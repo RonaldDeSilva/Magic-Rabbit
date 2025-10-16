@@ -3,7 +3,7 @@ using UnityEngine;
 public class MemoryCard : MonoBehaviour
 {
     public int rabbitFeet;
-    public int money;
+    public int gems;
     public int RoomsPerFoot;
     public int CurrentRooms;
 
