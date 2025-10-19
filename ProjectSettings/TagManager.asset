@@ -15,6 +15,7 @@ TagManager:
   - StoneForm
   - MemoryCard
   - BeeHive
+  - Trap
   layers:
   - Default
   - TransparentFX
