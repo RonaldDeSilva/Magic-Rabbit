@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Movement : MonoBehaviour
 {
@@ -83,8 +84,8 @@ public class Movement : MonoBehaviour
     public float startJumpHeight;
     private bool discardingCard = false;
     public bool slowed = false;
-    private bool hurtAnim = false;
     private int hurtAnimTimer;
+    private GameObject Canvas;
 
     #endregion
 
@@ -95,6 +96,7 @@ public class Movement : MonoBehaviour
         Hand = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).gameObject;
         Deck = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(1).gameObject;
         hat = transform.GetChild(0).GetChild(0).gameObject;
+        Canvas = GameObject.Find("Canvas");
         curHealth = maxHealth;
         prevHealth = curHealth;
         StartingColor = GetComponent<SpriteRenderer>().color;
@@ -580,11 +582,28 @@ public class Movement : MonoBehaviour
     IEnumerator ShufflingCooldown()
     {
         shuffling = true;
+        StartCoroutine("DeckCooldownVisual");
         yield return new WaitForSeconds(shuffleTime);
         DealCards();
         yield return new WaitForSeconds(0.2f);
         shuffling = false;
     }
+
+    IEnumerator DeckCooldownVisual()
+    {
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "5";
+        yield return new WaitForSeconds(shuffleTime / 5f);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "4";
+        yield return new WaitForSeconds(shuffleTime / 5);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "3";
+        yield return new WaitForSeconds(shuffleTime / 5);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "2";
+        yield return new WaitForSeconds(shuffleTime / 5);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "1";
+        yield return new WaitForSeconds(shuffleTime / 5);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "0";
+    }
+
 
     IEnumerator DeadMan()
     {
