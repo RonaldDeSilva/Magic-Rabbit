@@ -164,6 +164,7 @@ MonoBehaviour:
   onFire: 0
   poisoned: 0
   frozen: 0
+  shocked: 0
   rb: {fileID: 1657596497273492598}
   curHealth: 0
   bounce: 0
@@ -171,6 +172,8 @@ MonoBehaviour:
   Zombie: {fileID: 0}
   IceBat: {fileID: 0}
   huntingMode: {fileID: 7629120926859432625, guid: 89e49f78f1ff3cd4c85b57cacc2a43d2, type: 3}
+  Gem: {fileID: 4165453375949470119, guid: 59d27ab2aeb97044eb4185e5cb17011e, type: 3}
+  gemDrops: 4
   isNecromancer: 0
   isZombie: 0
   isIceBat: 0

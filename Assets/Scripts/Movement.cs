@@ -83,6 +83,8 @@ public class Movement : MonoBehaviour
     public float startJumpHeight;
     private bool discardingCard = false;
     public bool slowed = false;
+    private bool hurtAnim = false;
+    private int hurtAnimTimer;
 
     #endregion
 
@@ -190,6 +192,16 @@ public class Movement : MonoBehaviour
         if (slowed)
         {
             rb.linearVelocity = rb.linearVelocity * 0.1f;
+        }
+
+        if (hurtAnimTimer >= 0)
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+            hurtAnimTimer--;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = DefaultColor;
         }
 
         #endregion
@@ -533,7 +545,7 @@ public class Movement : MonoBehaviour
                 {
                     rb.AddForce(new Vector2(1 * knockback, 1 * knockback), ForceMode2D.Impulse);
                 }
-                StartCoroutine("DamageCooldown");
+                hurtAnimTimer = 30;
             }
 
             var numbers = Instantiate(DamageNumbers, transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
@@ -572,14 +584,6 @@ public class Movement : MonoBehaviour
         DealCards();
         yield return new WaitForSeconds(0.2f);
         shuffling = false;
-    }
-
-     IEnumerator DamageCooldown()
-    {
-        GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(1f);
-        GetComponent<SpriteRenderer>().color = DefaultColor;
-        justHit = false;
     }
 
     IEnumerator DeadMan()

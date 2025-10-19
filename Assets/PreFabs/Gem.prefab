@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2746423947938410679
+--- !u!1 &4165453375949470119
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3066602998766507653}
-  - component: {fileID: 4927326037184121823}
-  - component: {fileID: 7363306358758936160}
-  - component: {fileID: 2421517451058362581}
-  - component: {fileID: 2651081363917652483}
+  - component: {fileID: 170605731306413021}
+  - component: {fileID: 8603570628063821037}
+  - component: {fileID: 9223027157765316228}
+  - component: {fileID: 6048256039037238102}
+  - component: {fileID: 3504135869109750280}
+  - component: {fileID: 515416750577289223}
   m_Layer: 0
-  m_Name: Zombie
-  m_TagString: Enemy
+  m_Name: Gem
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3066602998766507653
+--- !u!4 &170605731306413021
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2746423947938410679}
+  m_GameObject: {fileID: 4165453375949470119}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.12, y: -5.88, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -6.157, y: -3.304, z: 11.0734415}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4927326037184121823
+--- !u!212 &8603570628063821037
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2746423947938410679}
+  m_GameObject: {fileID: 4165453375949470119}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,35 +79,81 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: -6803722848395155862, guid: 2becf290d61bcdd4c8fafe2c900c2dec, type: 3}
+  m_SortingOrder: 50
+  m_Sprite: {fileID: 6254146995019072756, guid: 3543e13a64b8f8949b493897df9a1be9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.26, y: 0.46}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7363306358758936160
+--- !u!61 &9223027157765316228
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4165453375949470119}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.00039172173, y: 0.041151762}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.26, y: 0.46}
+    newSize: {x: 0.26, y: 0.46}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.40177965, y: 0.54230356}
+  m_EdgeRadius: 0
+--- !u!50 &6048256039037238102
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2746423947938410679}
+  m_GameObject: {fileID: 4165453375949470119}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 4
+  m_Mass: 6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 3.6
-  m_Material: {fileID: 6200000, guid: e73efced98369854ab2019c943c265fa, type: 2}
+  m_GravityScale: 4.5
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -117,51 +164,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2421517451058362581
+--- !u!114 &3504135869109750280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2746423947938410679}
+  m_GameObject: {fileID: 4165453375949470119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 107d3bed0614864478bd159048fca010, type: 3}
+  m_Script: {fileID: 11500000, guid: b397f6b912f64974f952020dbc0a472d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  speed: 2
-  bumpDamage: 5
-  attackDamage: 10
-  Stunned: 0
-  StunCooldownTime: 0
-  wet: 0
-  DOTDamage: 0
-  onFire: 0
-  poisoned: 0
-  frozen: 0
-  shocked: 0
-  rb: {fileID: 7363306358758936160}
-  curHealth: 0
-  bounce: 0
-  damageNumber: {fileID: 3534988914727803720, guid: c43a4ac537c04264e92b860b0ddfd0a8, type: 3}
-  Zombie: {fileID: 0}
-  IceBat: {fileID: 0}
-  huntingMode: {fileID: 0}
-  Gem: {fileID: 4165453375949470119, guid: 59d27ab2aeb97044eb4185e5cb17011e, type: 3}
-  gemDrops: 2
-  isNecromancer: 0
-  isZombie: 1
-  isIceBat: 0
-  isSlime: 0
-  isMimic: 0
---- !u!70 &2651081363917652483
-CapsuleCollider2D:
+--- !u!61 &515416750577289223
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2746423947938410679}
+  m_GameObject: {fileID: 4165453375949470119}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -189,6 +210,15 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.03166771, y: 0.002099514}
-  m_Size: {x: 0.49642563, y: 0.840889}
-  m_Direction: 0
+  m_Offset: {x: -0.00039172173, y: -0.24282694}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.26, y: 0.46}
+    newSize: {x: 0.26, y: 0.46}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.060255527, y: 0.06521034}
+  m_EdgeRadius: 0

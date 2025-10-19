@@ -149,6 +149,8 @@ MonoBehaviour:
   Zombie: {fileID: 2746423947938410679, guid: 665f09b8cbafcbc45a2ea0e3431fd6c0, type: 3}
   IceBat: {fileID: 3262045144358008270, guid: 7a6e172f5f10d294e8fda1ff5f2d487c, type: 3}
   huntingMode: {fileID: 0}
+  Gem: {fileID: 4165453375949470119, guid: 59d27ab2aeb97044eb4185e5cb17011e, type: 3}
+  gemDrops: 7
   isNecromancer: 1
   isZombie: 0
   isIceBat: 0

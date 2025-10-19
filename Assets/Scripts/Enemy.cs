@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour
     private bool left = false;
     private bool hunting = false;
     public Sprite huntingMode;
+    public GameObject Gem;
+    public int gemDrops;
 
     public bool isNecromancer;
     public bool isZombie;
@@ -402,6 +404,13 @@ public class Enemy : MonoBehaviour
         StartCoroutine("FlashRed");
         if (curHealth <= 0)
         {
+            var rand = Random.Range(1, gemDrops + 1);
+            for (int i = 0; i < rand; i++)
+            {
+                var drop = Instantiate(Gem, transform.position, new Quaternion(0, 0, 0, 0));
+                drop.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-100f, 101f), Random.Range(-100f, 101f)), ForceMode2D.Impulse);
+            }
+
             Destroy(this.gameObject);
         }
         else

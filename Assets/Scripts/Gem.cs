@@ -18,9 +18,9 @@ public class Gem : MonoBehaviour
     {
         if (bounces >= 3)
         {
-            GetComponent<Rigidbody2D>().linearDamping = 100;
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             GetComponents<BoxCollider2D>()[1].isTrigger = true;
+            GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         }
     }
 
@@ -30,7 +30,10 @@ public class Gem : MonoBehaviour
         {
             bounces++;
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Player"))
         {
             mem.gems++;
