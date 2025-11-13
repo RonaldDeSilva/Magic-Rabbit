@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 551e1ba7c91e82744b785000e4ad214b
+guid: 46d619a4f67ed6c4094f9bff028af4f4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Player Upgrades menu
+  - name: Message 6
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 1488
-      height: 835
-    spriteID: 989d79d239d846143907d1e70ef08247
+      width: 596
+      height: 69
+    spriteID: 0749e85c27d767446aa1515887f18afd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,21 +147,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 260188795
-    name: Player Upgrades menu
+    guid: 436615757
+    name: Message 6
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Player Upgrades menu
+    - name: Message 6
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 1488
-        height: 835
-      spriteId: 989d79d239d846143907d1e70ef08247
+        width: 596
+        height: 69
+      spriteId: 0749e85c27d767446aa1515887f18afd
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -180,5 +180,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 1488, y: 835}
-  previousTextureSize: {x: 2048, y: 1024}
+  canvasSize: {x: 596, y: 69}
+  previousTextureSize: {x: 1024, y: 128}
