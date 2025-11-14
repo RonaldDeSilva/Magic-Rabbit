@@ -195,7 +195,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 230
+      y: 229
       width: 45
       height: 67
     spriteID: 0306ee7f01a37ff419c801e1ab6aa859
@@ -300,7 +300,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 57
-      y: 155
+      y: 154
       width: 45
       height: 67
     spriteID: 0243cabb03464dc42833c820a29fa53b
