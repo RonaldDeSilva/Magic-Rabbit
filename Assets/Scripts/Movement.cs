@@ -67,7 +67,6 @@ public class Movement : MonoBehaviour
     public bool invulnerable = false;
     public bool dashing = false;
     public bool justHit = false;
-    public bool RapidFire = false;
     public bool poisoned = false;
     public bool frozen = false;
     public bool onFire = false;
@@ -238,6 +237,14 @@ public class Movement : MonoBehaviour
                 collision.gameObject.GetComponent<Enemy>().CheckHealth();
                 collision.gameObject.GetComponent<Enemy>().Knockback(turnedRight, EnemyKnockback);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ShopKeeper"))
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerFollow>().ShopScreen.SetActive(true);
         }
     }
 

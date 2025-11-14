@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     public Sprite huntingMode;
     public GameObject Gem;
     public int gemDrops;
+    private Animator anim;
 
     public bool isNecromancer;
     public bool isZombie;
@@ -116,11 +117,18 @@ public class Enemy : MonoBehaviour
                     if (coinFlip == 0)
                     {
                         var child = Instantiate(Zombie, new Vector3(transform.position.x - 1f, transform.position.y + 0.25f, 0f), new Quaternion(0, 0, 0, 0), transform);
+                        anim.SetBool("Summon", true);
                     }
                     else if (coinFlip == 1)
                     {
                         var child = Instantiate(IceBat, new Vector3(transform.position.x - 1f, transform.position.y + 2.5f, 0f), new Quaternion(0, 0, 0, 0), transform);
+                        anim.SetBool("Summon", true);
                     }
+                }
+
+                if (necroTimer == 216 || necroTimer == 17)
+                {
+                    anim.SetBool("Summon", false);
                 }
 
                 if (necroTimer > 401)
@@ -131,7 +139,9 @@ public class Enemy : MonoBehaviour
                 if (Mathf.Abs(Player.transform.position.x - transform.position.x) < 4f | Mathf.Abs(Player.transform.position.y - transform.position.y) < 4f)
                 {
                     rb.AddForce(new Vector2((transform.position.x - Player.transform.position.x) * 100, (transform.position.y - Player.transform.position.y) * 10));
+                    anim.SetBool("Walking", true);
                 }
+                anim.SetBool("Walking", false);
 
             }
             else if (isIceBat)
@@ -466,11 +476,11 @@ public class Enemy : MonoBehaviour
     {
         if (!isSlime)
         {
-            GetComponent<SpriteRenderer>().color = Color.black;
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
         else
         {
-            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
             yield return new WaitForSeconds(0.1f);
         if (!isSlime)
@@ -482,6 +492,11 @@ public class Enemy : MonoBehaviour
             transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = startColor;
         }
         shocked = false;
+
+        if (isNecromancer)
+        {
+            anim.SetBool("Hurt", false);
+        }
     }
 
     public IEnumerator StunCooldown()
