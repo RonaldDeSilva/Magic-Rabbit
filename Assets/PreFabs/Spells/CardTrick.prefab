@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9063216784547848217}
   - component: {fileID: 8049426653142214988}
+  - component: {fileID: 8932478728116808760}
   m_Layer: 0
   m_Name: CardTrick
   m_TagString: Untagged
@@ -73,3 +74,17 @@ MonoBehaviour:
   initialYSpeed: 0
   maxYSpeed: 0
   rotation: 0
+--- !u!114 &8932478728116808760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580742183050705046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 0}
