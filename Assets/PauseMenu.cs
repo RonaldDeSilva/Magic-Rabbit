@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -24,7 +26,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         // Quit with Exit button
-        if (Input.GetButtonDown("Exit"))
+        if (Input.GetButtonDown("Cancel"))
         {
             QuitGame();
         }
@@ -37,21 +39,23 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
-    void LoadCardMenu()
+    public void LoadCardMenu()
     {
-        SceneManager.LoadScene("CardMenu");
+        SceneManager.LoadScene("Card Menu 2");
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 
-    void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quit Game");
+        
     }
 }

@@ -160,9 +160,9 @@ GameObject:
   m_Component:
   - component: {fileID: 47420814}
   - component: {fileID: 47420813}
-  - component: {fileID: 47420817}
-  - component: {fileID: 47420816}
   - component: {fileID: 47420815}
+  - component: {fileID: 47420816}
+  - component: {fileID: 47420817}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -253,7 +253,7 @@ AudioSource:
   m_GameObject: {fileID: 47420811}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 03c611f3183a9834d84f9be717eceb0f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -398,6 +398,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack6
       objectReference: {fileID: 0}
+    - target: {fileID: 2431042519051409957, guid: e6e818e891eb5414a843b515d302ce4e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 5098564497446904905, guid: b7d1e7c1309bce24ca754470d25ea63c, type: 3}
+    - target: {fileID: 4777057816310804901, guid: e6e818e891eb5414a843b515d302ce4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1578141150938986574, guid: b7d1e7c1309bce24ca754470d25ea63c, type: 3}
     - target: {fileID: 8372379538329450594, guid: e6e818e891eb5414a843b515d302ce4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.41387
@@ -572,6 +580,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2064854530}
     m_Modifications:
+    - target: {fileID: 1262744552292666424, guid: 0c828319ade3122439272edc475b3af0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: -4588174315640775265, guid: 7431c12ddff7cf7478d8d28af226474d, type: 3}
     - target: {fileID: 2058144393364488079, guid: 0c828319ade3122439272edc475b3af0, type: 3}
       propertyPath: m_Name
       value: Attack4
@@ -615,6 +627,14 @@ PrefabInstance:
     - target: {fileID: 5518401343035266455, guid: 0c828319ade3122439272edc475b3af0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705706447997982621, guid: 0c828319ade3122439272edc475b3af0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7261188965053044586, guid: 7431c12ddff7cf7478d8d28af226474d, type: 3}
+    - target: {fileID: 6705706447997982621, guid: 0c828319ade3122439272edc475b3af0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -672,7 +692,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.675}
+    oldSize: {x: 1.1, y: 1.7}
     newSize: {x: 3.34, y: 6.1819787}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1158,10 +1178,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2064854530}
     m_Modifications:
+    - target: {fileID: -4247225491107706739, guid: 1b025b8f02519234c9adf37bff7b763a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: -7427896997616300763, guid: 7df994af14bf6564d8d78db57daa321e, type: 3}
     - target: {fileID: 3805039365332663978, guid: 1b025b8f02519234c9adf37bff7b763a, type: 3}
       propertyPath: m_Name
       value: Attack7
       objectReference: {fileID: 0}
+    - target: {fileID: 6274236715933330822, guid: 1b025b8f02519234c9adf37bff7b763a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8394932686213039477, guid: 7df994af14bf6564d8d78db57daa321e, type: 3}
     - target: {fileID: 6276418719434290712, guid: 1b025b8f02519234c9adf37bff7b763a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.6753473
@@ -1274,6 +1302,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2064854530}
     m_Modifications:
+    - target: {fileID: 1690887284501179882, guid: e9adaee3282845a4ab92ec73e9f23625, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 3128256174369831389, guid: 3316746965e8b4e4884cb892126506fb, type: 3}
     - target: {fileID: 3932878089555516961, guid: e9adaee3282845a4ab92ec73e9f23625, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.3847368
@@ -1318,6 +1350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack3
       objectReference: {fileID: 0}
+    - target: {fileID: 9085323635743255743, guid: e9adaee3282845a4ab92ec73e9f23625, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2262518109936824217, guid: 3316746965e8b4e4884cb892126506fb, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1537,6 +1573,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2064854530}
     m_Modifications:
+    - target: {fileID: -2002726708913958861, guid: 8d22b42a4a8880b45b8f55bd87e0dce3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 7503576041977301627, guid: 441a049faf09db040b44051953c06c64, type: 3}
     - target: {fileID: 5324972846689801392, guid: 8d22b42a4a8880b45b8f55bd87e0dce3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6320405
@@ -1577,6 +1617,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5708193702933561961, guid: 8d22b42a4a8880b45b8f55bd87e0dce3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7866355389210790193, guid: 441a049faf09db040b44051953c06c64, type: 3}
     - target: {fileID: 6273230646518779208, guid: 8d22b42a4a8880b45b8f55bd87e0dce3, type: 3}
       propertyPath: m_Name
       value: Attack2
@@ -1637,7 +1681,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.675}
+    oldSize: {x: 1.125, y: 1.7}
     newSize: {x: 3.34, y: 6.1819787}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1684,6 +1728,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2064854530}
     m_Modifications:
+    - target: {fileID: -8749674371081784446, guid: 0bfcaa41290375b419020904b5b4a7ad, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: -77759917821551617, guid: 76d6d052507b7894d94df84c90f63c17, type: 3}
     - target: {fileID: 6396965535187703187, guid: 0bfcaa41290375b419020904b5b4a7ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.907692
@@ -1728,6 +1776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack8
       objectReference: {fileID: 0}
+    - target: {fileID: 9203779085347753530, guid: 0bfcaa41290375b419020904b5b4a7ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3706175148724902765, guid: 76d6d052507b7894d94df84c90f63c17, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1784,7 +1836,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.675}
+    oldSize: {x: 1.125, y: 1.7}
     newSize: {x: 3.34, y: 6.1819787}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1875,6 +1927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack5
       objectReference: {fileID: 0}
+    - target: {fileID: 1655173136431614252, guid: 92b1e9bd2e3800a47bcf6bdc9c9db0dd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2535246426572295691, guid: 63429a51c91a48b4da6a4273da7ff95d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1931,7 +1987,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.675}
+    oldSize: {x: 1.1, y: 1.7}
     newSize: {x: 3.34, y: 6.1819787}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1991,6 +2047,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8080509317189552111, guid: 42afb352eb8101848abdf090c38bc2fc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5550191609809093618, guid: c8e6ac33b9544344194503a4617b998a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2047,7 +2107,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.675}
+    oldSize: {x: 1.125, y: 1.7}
     newSize: {x: 3.34, y: 6.1819787}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2094,6 +2154,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2064854530}
     m_Modifications:
+    - target: {fileID: -4451922856277215075, guid: 17c806dd3931d8e43b2c3d7a9c3bb546, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: -3929506553280086829, guid: 63b6d36ade1b9ac40b0d8cc9b937356f, type: 3}
+    - target: {fileID: 1283195471806878944, guid: 17c806dd3931d8e43b2c3d7a9c3bb546, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4207495940485228456, guid: 63b6d36ade1b9ac40b0d8cc9b937356f, type: 3}
     - target: {fileID: 2415655289537195806, guid: 17c806dd3931d8e43b2c3d7a9c3bb546, type: 3}
       propertyPath: m_Name
       value: Attack10
@@ -2194,7 +2262,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.675}
+    oldSize: {x: 1.125, y: 1.7}
     newSize: {x: 3.34, y: 6.1819787}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2210,6 +2278,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2064854530}
     m_Modifications:
+    - target: {fileID: 719970371375539160, guid: f6f47a5d3a2e2cf45b0aff568e018fec, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6549666476187166987, guid: c4a1b43e9402fe74686aadbe1941a0a1, type: 3}
     - target: {fileID: 4603919543864312657, guid: f6f47a5d3a2e2cf45b0aff568e018fec, type: 3}
       propertyPath: m_Name
       value: Attack13
@@ -2401,6 +2473,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack12
       objectReference: {fileID: 0}
+    - target: {fileID: 8121819980763999064, guid: 1f5aba8a8df3e824896ab22e7463791f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5984192860131506398, guid: e259caeaaea3718489151b0f0c4733f9, type: 3}
+    - target: {fileID: 8912137233967089298, guid: 1f5aba8a8df3e824896ab22e7463791f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: -8293471059395178060, guid: e259caeaaea3718489151b0f0c4733f9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2457,7 +2537,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.675}
+    oldSize: {x: 1.1, y: 1.7}
     newSize: {x: 3.34, y: 6.1819787}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
