@@ -1,17 +1,28 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using Systems.Collections;
-using Systems.Collections.Generic;
 
 
+//If player clicks on settings button in pause menu, this script should be activated and allow player to change
+//Settings also checks for game to be paused still
+
+/*
+// Settings Audio Changer Bar Script
 public class SettingsMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    public AudioMixer AudioMixer;
+   
     public void SetVolume(float volume)
     {
-        public AudioMixer addmixer;
 
-    AudioListener.volume = volume;
-        Debug.Log("Volume set to: " + volume);
+        AudioMixer.SetFloat("Master Volume", volume);
     }
+    public void setquality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
+}
+*/

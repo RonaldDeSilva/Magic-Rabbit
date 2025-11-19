@@ -56,6 +56,22 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        
+
     }
 }
+
+/*
+    public void OpenSettingsMenu()
+    {
+       PauseMenuUI.SetActive(false);     // Hide pause menu
+       SettingsMenu.SetActive(true);   // Show settings menu
+    }
+
+    public void CloseSettingsMenu()
+    {
+        SettingsMenu.SetActive(false);  // Hide settings menu
+        PauseMenuUI.SetActive(true);      // Show pause menu again
+    }
+}
+ */
+
