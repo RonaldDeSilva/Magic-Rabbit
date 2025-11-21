@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
     public GameObject PauseMenuUI;
+    private GameObject SettingsMenu;
+
+    void Start()
+    {
+        SettingsMenu = GameObject.Find("Settings Menu");
+    }
 
     void Update()
     {
@@ -58,20 +64,20 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
 
     }
-}
 
-/*
     public void OpenSettingsMenu()
     {
-       PauseMenuUI.SetActive(false);     // Hide pause menu
-       SettingsMenu.SetActive(true);   // Show settings menu
+        SettingsMenu.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+        PauseMenuUI.SetActive(false);
     }
 
     public void CloseSettingsMenu()
     {
-        SettingsMenu.SetActive(false);  // Hide settings menu
-        PauseMenuUI.SetActive(true);      // Show pause menu again
+        SettingsMenu.SetActive(false);  
+        PauseMenuUI.SetActive(true);      
     }
 }
- */
+ 
 
