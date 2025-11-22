@@ -2,17 +2,16 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 
-//If player clicks on settings button in pause menu, this script should be activated and allow player to change
-//Settings also checks for game to be paused still
-
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer AudioMixer;
-    private GameObject PauseMenu;
+    public GameObject PauseMenu;
+    public GameObject SettingsMenuUI;
+    public static bool GameIsPaused = false;
 
     void Start()
     {
-        PauseMenu = GameObject.Find("PauseMenu");
+        SettingsMenuUI = GameObject.Find("SettingsMenuUI");
     }
 
     public void SetVolume(float volume)
@@ -30,9 +29,14 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
-    public void BackToSettings()
+    public void BackToGame()
     {
+        SettingsMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
         PauseMenu.SetActive(true);
-        gameObject.SetActive(false);
+
+
     }
+
 }

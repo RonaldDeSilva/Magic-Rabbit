@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool GameIsPaused = false;
+    public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
-    private GameObject SettingsMenu;
+    public GameObject SettingsMenu;
 
     void Start()
     {
-        SettingsMenu = GameObject.Find("Settings Menu");
+        PauseMenuUI = GameObject.Find("Pause Menu");
     }
 
     void Update()
@@ -19,11 +19,17 @@ public class PauseMenu : MonoBehaviour
         // Toggle pause using P key
         if (Input.GetKeyDown(KeyCode.P))
         {
+            Debug.Log("P key pressed, GameIsPaused = " + GameIsPaused);
+
             if (GameIsPaused)
+            {
                 Resume();
+            }
             else
+            {
                 Pause();
-        }
+            }
+        }  // <-- FIXED: closes the P-key block
 
         // Controller: open Card Menu with StartButton
         if (Input.GetButtonDown("StartButton"))
@@ -38,18 +44,21 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume()
-    {
-        PauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-    }
 
     public void Pause()
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        SettingsMenu.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        PauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        SettingsMenu.SetActive(false);
     }
 
     public void LoadCardMenu()
@@ -62,22 +71,24 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-
     }
 
     public void OpenSettingsMenu()
     {
         SettingsMenu.SetActive(true);
+        PauseMenuUI.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        PauseMenuUI.SetActive(false);
     }
 
     public void CloseSettingsMenu()
     {
-        SettingsMenu.SetActive(false);  
-        PauseMenuUI.SetActive(true);      
+        SettingsMenu.SetActive(false);
+        PauseMenuUI.SetActive(true);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
+
 }
- 
+
 
