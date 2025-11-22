@@ -8,11 +8,17 @@ public class SettingsMenu : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject SettingsMenuUI;
     public static bool GameIsPaused = false;
+    public bool OnMainMenu;
 
     void Start()
     {
         SettingsMenuUI = GameObject.Find("Settings Menu").transform.GetChild(0).gameObject;
-        PauseMenu = GameObject.Find("Pause Menu").transform.GetChild(0).gameObject;
+        if (OnMainMenu)
+        {
+            PauseMenu = GameObject.Find("Main Menu Selections").transform.GetChild(0).gameObject;
+        }
+        else
+            PauseMenu = GameObject.Find("Pause Menu").transform.GetChild(0).gameObject;
     }
 
     public void SetVolume(float volume)
