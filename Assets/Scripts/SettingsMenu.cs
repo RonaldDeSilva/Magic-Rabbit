@@ -15,7 +15,7 @@ public class SettingsMenu : MonoBehaviour
         SettingsMenuUI = GameObject.Find("Settings Menu").transform.GetChild(0).gameObject;
         if (OnMainMenu)
         {
-            PauseMenu = GameObject.Find("Main Menu Selections").transform.GetChild(0).gameObject;
+            PauseMenu = GameObject.Find("Main Menu Canvas").transform.GetChild(0).gameObject;
         }
         else
             PauseMenu = GameObject.Find("Pause Menu").transform.GetChild(0).gameObject;
@@ -40,6 +40,7 @@ public class SettingsMenu : MonoBehaviour
     {
         SettingsMenuUI.SetActive(false);
         PauseMenu.SetActive(true);
+
     }
 
 }
