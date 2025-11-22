@@ -8,10 +8,14 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
     public GameObject SettingsMenu;
+    
 
     void Start()
     {
-        PauseMenuUI = GameObject.Find("Pause Menu");
+        PauseMenuUI = GameObject.Find("Pause Menu").transform.GetChild(0).gameObject;
+        SettingsMenu = GameObject.Find("Settings Menu").transform.GetChild(0).gameObject;
+        PauseMenuUI.SetActive(false);
+        SettingsMenu.SetActive(false);
     }
 
     void Update()
@@ -44,13 +48,11 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-
     public void Pause()
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        SettingsMenu.SetActive(true);
     }
 
     public void Resume()
@@ -77,16 +79,12 @@ public class PauseMenu : MonoBehaviour
     {
         SettingsMenu.SetActive(true);
         PauseMenuUI.SetActive(false);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
     }
 
     public void CloseSettingsMenu()
     {
         SettingsMenu.SetActive(false);
         PauseMenuUI.SetActive(true);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
     }
 
 }
