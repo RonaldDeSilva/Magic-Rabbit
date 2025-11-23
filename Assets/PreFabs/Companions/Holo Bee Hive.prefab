@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5368405832238368821}
   - component: {fileID: 649758258876779985}
   m_Layer: 0
-  m_Name: Bee Hive
+  m_Name: Holo Bee Hive
   m_TagString: BeeHive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,8 +51,8 @@ MonoBehaviour:
   Bee: 0
   BeeHive: 1
   damage: 0
-  health: 30
-  speed: 5
+  health: 50
+  speed: 6
   BeeGameObject: {fileID: 4932726109211192443, guid: bc8489be8a88af644903c52a0ad9e926, type: 3}
   teleportRadius: 10
   randRange: 8
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: -7666881661201018127, guid: f3f25d300de8b884e9c495ccb10866d8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.16464934, g: 0.2389272, b: 0.9433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

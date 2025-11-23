@@ -185,11 +185,6 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene("Card Menu 2");
         }
 
-        if (Input.GetKeyDown("escape"))
-        {
-            Application.Quit();
-        }
-
         if (slowed)
         {
             rb.linearVelocity = rb.linearVelocity * 0.1f;
@@ -237,14 +232,6 @@ public class Movement : MonoBehaviour
                 collision.gameObject.GetComponent<Enemy>().CheckHealth();
                 collision.gameObject.GetComponent<Enemy>().Knockback(turnedRight, EnemyKnockback);
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("ShopKeeper"))
-        {
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerFollow>().ShopScreen.SetActive(true);
         }
     }
 
