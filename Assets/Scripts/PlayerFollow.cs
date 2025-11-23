@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerFollow : MonoBehaviour
 {
-
+    
     private GameObject Player;
     public bool type1;
 

@@ -11,11 +11,11 @@ public class MainMenuSelection : MonoBehaviour
     {
         SettingsMenu = GameObject.Find("Settings Menu").transform.GetChild(0).gameObject;
         SettingsMenu.SetActive(false);
-        MainMenu = GameObject.Find("Main Menu Selections").transform.GetChild(0).gameObject;
-        MainMenu.SetActive(false);
+        MainMenu = GameObject.Find("Main Menu Canvas").transform.GetChild(0).gameObject;
+       
     }
 
-    public void CardMenu()
+    public void LoadCardMenu()
     {
         SceneManager.LoadScene("Card Menu");
 
