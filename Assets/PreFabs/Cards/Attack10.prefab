@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardNum: 10
   Cooldown: 0.3
+  Hollow: 0
+  Cost: 5
 --- !u!212 &1283195471806878944
 SpriteRenderer:
   m_ObjectHideFlags: 0

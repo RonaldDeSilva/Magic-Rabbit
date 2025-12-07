@@ -49,6 +49,7 @@ MonoBehaviour:
   CardNum: 3
   Cooldown: 0.3
   Hollow: 1
+  Cost: 20
 --- !u!212 &6125432713914264958
 SpriteRenderer:
   m_ObjectHideFlags: 0

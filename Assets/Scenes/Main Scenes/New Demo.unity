@@ -8892,7 +8892,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 569659830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966487968}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: CardButtonDiscount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &569659830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10243,9 +10255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
-
-'
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -15323,7 +15333,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 919046003}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966487968}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: CardButton5
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &919046003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16683,7 +16705,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 984701589}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966487968}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: CardButton2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &984701589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18116,7 +18150,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1133790381}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966487968}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: CardButton4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1133790381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29336,7 +29382,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1915505967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966487968}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: CardButton3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1915505967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30466,7 +30524,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2029313168}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966487968}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: CardButton1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2029313168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31813,7 +31883,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2130511494}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966487968}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: CardButton6
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2130511494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31997,6 +32079,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4076028245839239437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3379857575566374029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6541334609197178848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91efd154234e7c47a135743610e36e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbitFeet: 0
+  gems: 100
+  RoomsPerFoot: 0
+  CurrentRooms: 0
 --- !u!212 &3677328232950646993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32195,6 +32293,23 @@ Transform:
   - {fileID: 7784646141634848568}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6541334609197178848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7892062520308023308}
+  - component: {fileID: 3379857575566374029}
+  m_Layer: 0
+  m_Name: MemoryCard
+  m_TagString: MemoryCard
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &6551832409296620227
 GameObject:
   m_ObjectHideFlags: 0
@@ -32317,6 +32432,21 @@ MonoBehaviour:
   - {fileID: -4724219129408214689, guid: 952b029be8eddd443bce8e5452b3d069, type: 3}
   - {fileID: 2338556707843557977, guid: 952b029be8eddd443bce8e5452b3d069, type: 3}
   - {fileID: -6579473794940405752, guid: 952b029be8eddd443bce8e5452b3d069, type: 3}
+--- !u!4 &7892062520308023308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6541334609197178848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5040407, y: 1.7108614, z: -0.022110045}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7982627956094707002
 Camera:
   m_ObjectHideFlags: 0
@@ -32458,3 +32588,4 @@ SceneRoots:
   - {fileID: 1449105507}
   - {fileID: 1664986030}
   - {fileID: 551333705}
+  - {fileID: 7892062520308023308}
