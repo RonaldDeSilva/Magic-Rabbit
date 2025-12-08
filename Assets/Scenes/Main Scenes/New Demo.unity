@@ -32079,22 +32079,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4076028245839239437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3379857575566374029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6541334609197178848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e91efd154234e7c47a135743610e36e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rabbitFeet: 0
-  gems: 100
-  RoomsPerFoot: 0
-  CurrentRooms: 0
 --- !u!212 &3677328232950646993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32293,23 +32277,6 @@ Transform:
   - {fileID: 7784646141634848568}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6541334609197178848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7892062520308023308}
-  - component: {fileID: 3379857575566374029}
-  m_Layer: 0
-  m_Name: MemoryCard
-  m_TagString: MemoryCard
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &6551832409296620227
 GameObject:
   m_ObjectHideFlags: 0
@@ -32432,21 +32399,6 @@ MonoBehaviour:
   - {fileID: -4724219129408214689, guid: 952b029be8eddd443bce8e5452b3d069, type: 3}
   - {fileID: 2338556707843557977, guid: 952b029be8eddd443bce8e5452b3d069, type: 3}
   - {fileID: -6579473794940405752, guid: 952b029be8eddd443bce8e5452b3d069, type: 3}
---- !u!4 &7892062520308023308
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6541334609197178848}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5040407, y: 1.7108614, z: -0.022110045}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7982627956094707002
 Camera:
   m_ObjectHideFlags: 0
@@ -32588,4 +32540,3 @@ SceneRoots:
   - {fileID: 1449105507}
   - {fileID: 1664986030}
   - {fileID: 551333705}
-  - {fileID: 7892062520308023308}
