@@ -2142,6 +2142,11 @@ MonoBehaviour:
   StartingCardAmount: 0
   Meme: {fileID: 0}
   Buttons: {fileID: 2035338060}
+  CardShuffleTimeArray: []
+  MaxHealthArray: []
+  BaseDamageArray: []
+  LuckArray: []
+  StartingCardAmountArray: []
 --- !u!114 &882952198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4661,7 +4666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91efd154234e7c47a135743610e36e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rabbitFeet: 10
+  rabbitFeet: 1000
   gems: 0
   RoomsPerFoot: 2
   CurrentRooms: 0

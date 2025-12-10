@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91efd154234e7c47a135743610e36e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rabbitFeet: 100
+  gems: 0
+  RoomsPerFoot: 0
+  CurrentRooms: 0

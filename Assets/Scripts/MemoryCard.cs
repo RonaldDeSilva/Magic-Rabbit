@@ -10,6 +10,7 @@ public class MemoryCard : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        //rabbitFeet = PlayerPrefs.GetInt("RabbitFeet");
     }
 
     private void Update()
@@ -19,6 +20,7 @@ public class MemoryCard : MonoBehaviour
             rabbitFeet += 1;
             //Animation to show new rabbit foot gained
             CurrentRooms = 0;
+            PlayerPrefs.SetInt("RabbitFeet", rabbitFeet);
         }
     }
 
