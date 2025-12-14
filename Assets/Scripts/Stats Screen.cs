@@ -134,7 +134,7 @@ public class StatsScreen : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i <= 9; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 if (StartCard > 0)
                 {
@@ -271,7 +271,7 @@ public class StatsScreen : MonoBehaviour
         StartingCardAmount += 1;
         PlayerPrefs.SetInt("StartingCardAmount", StartingCardAmount);
         var cardshuff = PlayerPrefs.GetInt("StartingCardAmount");
-        for (int i = 0; i <= 9; i++)
+        for (int i = 0; i <= 4; i++)
         {
             if (cardshuff > 0)
             {
