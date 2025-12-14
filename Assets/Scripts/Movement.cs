@@ -796,7 +796,7 @@ public class Movement : MonoBehaviour
         DeadManMessage.SetActive(true);
         stunned = true;
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Card Menu 2");
+        SceneManager.LoadScene("Stats Screen");
     }
 
     #endregion
