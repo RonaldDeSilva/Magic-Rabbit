@@ -71,6 +71,15 @@ public class Shop : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            ShopButtons.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
+        } 
+    }
+
     public void CardButton1()
     {
         var card = CardLocations[0].GetChild(0).gameObject;
