@@ -58,6 +58,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         curHealth = maxHealth;
         prevHealth = curHealth;
+        anim = GetComponent<Animator>();
         if (!isSlime)
         {
             startColor = GetComponent<SpriteRenderer>().color;
