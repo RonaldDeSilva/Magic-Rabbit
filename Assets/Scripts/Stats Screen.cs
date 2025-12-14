@@ -172,6 +172,19 @@ public class StatsScreen : MonoBehaviour
         CardShuffleTime += 1;
 
         PlayerPrefs.SetInt("CardShuffleTime", CardShuffleTime);
+        var cardshuff = PlayerPrefs.GetInt("CardShuffleTime");
+        for (int i = 0; i <= 9; i++)
+        {
+            if (cardshuff > 0)
+            {
+                CardShuffleTimeArray[i].SetActive(true);
+                cardshuff--;
+            }
+            else
+            {
+                CardShuffleTimeArray[i].SetActive(false);
+            }
+        }
 
         //If CardShuffleTime is greater than 10, set it to 10 and disable the buttons
         if (CardShuffleTime >= 10)
@@ -185,6 +198,19 @@ public class StatsScreen : MonoBehaviour
     {
         MaxHealth += 1;
         PlayerPrefs.SetInt("MaxHealth", MaxHealth);
+        var cardshuff = PlayerPrefs.GetInt("MaxHealth");
+        for (int i = 0; i <= 9; i++)
+        {
+            if (cardshuff > 0)
+            {
+                MaxHealthArray[i].SetActive(true);
+                cardshuff--;
+            }
+            else
+            {
+                MaxHealthArray[i].SetActive(false);
+            }
+        }
 
         if (MaxHealth >= 10)
         {
@@ -196,6 +222,19 @@ public class StatsScreen : MonoBehaviour
     {
         BaseDamage += 1;
         PlayerPrefs.SetInt("BaseDamage", BaseDamage);
+        var cardshuff = PlayerPrefs.GetInt("BaseDamage");
+        for (int i = 0; i <= 9; i++)
+        {
+            if (cardshuff > 0)
+            {
+                BaseDamageArray[i].SetActive(true);
+                cardshuff--;
+            }
+            else
+            {
+                BaseDamageArray[i].SetActive(false);
+            }
+        }
 
         if (BaseDamage >= 10)
         {
@@ -207,6 +246,19 @@ public class StatsScreen : MonoBehaviour
     {
         Luck += 1;
         PlayerPrefs.SetInt("Luck", Luck);
+        var cardshuff = PlayerPrefs.GetInt("Luck");
+        for (int i = 0; i <= 9; i++)
+        {
+            if (cardshuff > 0)
+            {
+                LuckArray[i].SetActive(true);
+                cardshuff--;
+            }
+            else
+            {
+                LuckArray[i].SetActive(false);
+            }
+        }
 
         if (Luck >= 10)
         {
@@ -218,6 +270,19 @@ public class StatsScreen : MonoBehaviour
     {
         StartingCardAmount += 1;
         PlayerPrefs.SetInt("StartingCardAmount", StartingCardAmount);
+        var cardshuff = PlayerPrefs.GetInt("StartingCardAmount");
+        for (int i = 0; i <= 9; i++)
+        {
+            if (cardshuff > 0)
+            {
+                StartingCardAmountArray[i].SetActive(true);
+                cardshuff--;
+            }
+            else
+            {
+                StartingCardAmountArray[i].SetActive(false);
+            }
+        }
 
         if (StartingCardAmount >= 5)
         {
