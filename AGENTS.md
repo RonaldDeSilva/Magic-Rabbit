@@ -2,7 +2,7 @@
 - Project name: Magic-Rabbit
 - Unity version: Unity 6000.0.35f1
 - Active game object:
-  - Name: Card Shuffle 2
-  - Tag: Untagged
-  - Layer: UI
+  - Name: Main Camera
+  - Tag: MainCamera
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

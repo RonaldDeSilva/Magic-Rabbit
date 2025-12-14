@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class StatsScreen : MonoBehaviour
@@ -17,6 +18,7 @@ public class StatsScreen : MonoBehaviour
     public GameObject[] BaseDamageArray;
     public GameObject[] LuckArray;
     public GameObject[] StartingCardAmountArray;
+    public int CardSelectionScreen;
 
     #region Start
 
@@ -290,4 +292,11 @@ public class StatsScreen : MonoBehaviour
             Buttons.SetActive(false);
         }
     }
+    public void CardScreen()
+    {
+        SceneManager.LoadScene("Card Menu 2");
+       
+    }
+
+
 }
