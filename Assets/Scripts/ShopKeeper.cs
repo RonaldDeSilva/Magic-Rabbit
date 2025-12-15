@@ -11,6 +11,7 @@ public class ShopKeeper : MonoBehaviour
         {
             Shop.SetActive(true);
             ShopButtons.SetActive(true);
+            collision.gameObject.GetComponent<Movement>().justHit = true;
         }
     }
 }

@@ -724,6 +724,7 @@ public class Movement : MonoBehaviour
             if (!invulnerable && !StoneForm && !justHit)
             {
                 justHit = true;
+                StartCoroutine("JustHitCoroutine");
                 if (Attacker.transform.position.x > transform.position.x)
                 {
                     rb.AddForceY(1 * knockback, ForceMode2D.Impulse);
@@ -763,6 +764,12 @@ public class Movement : MonoBehaviour
             }
             prevHealth = curHealth;
         }
+    }
+
+    IEnumerator JustHitCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        justHit = false;
     }
 
     IEnumerator ShufflingCooldown()

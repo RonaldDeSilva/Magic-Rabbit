@@ -75,6 +75,7 @@ public class Shop : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().justHit = false;
             ShopButtons.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
         } 
