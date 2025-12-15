@@ -115,7 +115,7 @@ public class Movement : MonoBehaviour
     {
         #region Input
 
-        if (!StoneForm && !dashing && !justHit && !frozen)
+        if (!StoneForm && !dashing && !frozen)
         {
             if (Input.GetAxis("Horizontal") != 0)
             {
@@ -214,12 +214,6 @@ public class Movement : MonoBehaviour
             if (StoneForm && collision.gameObject.CompareTag("GroundBreakable"))
             {
                 Destroy(collision.gameObject);
-            }
-
-            if (!collision.gameObject.CompareTag("Enemy") && justHit)
-            {
-                justHit = false;
-                StopCoroutine("DamageCooldown");
             }
         }
         
