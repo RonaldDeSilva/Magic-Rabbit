@@ -191,7 +191,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButton("StartButton"))
         {
-            SceneManager.LoadScene("Card Menu 2");
+            SceneManager.LoadScene("Stats Screen");
         }
 
         if (slowed)

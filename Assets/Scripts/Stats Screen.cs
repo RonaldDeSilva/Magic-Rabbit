@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class StatsScreen : MonoBehaviour
@@ -154,13 +155,12 @@ public class StatsScreen : MonoBehaviour
 
     void Update()
     {
-        if (Meme.rabbitFeet >= 2)
+        if (Meme.rabbitFeet <= 0)
         {
-            Buttons.SetActive(true);
-        }
-        else
-        {
-            Buttons.SetActive(false);
+            for (int i = Buttons.transform.childCount - 1; i >= 0; i--)
+            {
+                Buttons.transform.GetChild(i).GetComponent<Button>().enabled = false;
+            }
         }
         
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -188,13 +188,7 @@ public class StatsScreen : MonoBehaviour
             }
         }
 
-        //If CardShuffleTime is greater than 10, set it to 10 and disable the buttons
-        if (CardShuffleTime >= 10)
-        {
-            CardShuffleTime = 10;
-            Buttons.SetActive(false);
-        }
-
+        Meme.rabbitFeet -= 1;
     }
     public void MaxHealthButton()
     {
@@ -214,11 +208,7 @@ public class StatsScreen : MonoBehaviour
             }
         }
 
-        if (MaxHealth >= 10)
-        {
-            MaxHealth = 10;
-            Buttons.SetActive(false);
-        }
+        Meme.rabbitFeet -= 1;
     }
     public void BaseDamageButton()
     {
@@ -238,11 +228,7 @@ public class StatsScreen : MonoBehaviour
             }
         }
 
-        if (BaseDamage >= 10)
-        {
-            BaseDamage = 10;
-            Buttons.SetActive(false);
-        }
+        Meme.rabbitFeet -= 1;
     }
     public void LuckButton()
     {
@@ -262,11 +248,7 @@ public class StatsScreen : MonoBehaviour
             }
         }
 
-        if (Luck >= 10)
-        {
-            Luck = 10;
-            Buttons.SetActive(false);
-        }
+        Meme.rabbitFeet -= 1;
     }
     public void StartingCardAmountButton()
     {
@@ -286,12 +268,9 @@ public class StatsScreen : MonoBehaviour
             }
         }
 
-        if (StartingCardAmount >= 5)
-        {
-            StartingCardAmount = 5;
-            Buttons.SetActive(false);
-        }
+        Meme.rabbitFeet -= 1;
     }
+
     public void CardScreen()
     {
         SceneManager.LoadScene("Card Menu 2");
