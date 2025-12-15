@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     public GameObject Gem;
     public int gemDrops;
     private Animator anim;
+    private int Luck;
 
     public bool isNecromancer;
     public bool isZombie;
@@ -59,6 +60,7 @@ public class Enemy : MonoBehaviour
         curHealth = maxHealth;
         prevHealth = curHealth;
         anim = GetComponent<Animator>();
+        Luck = PlayerPrefs.GetInt("Luck");
         if (!isSlime)
         {
             startColor = GetComponent<SpriteRenderer>().color;
@@ -415,6 +417,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine("FlashRed");
         if (curHealth <= 0)
         {
+            gemDrops = gemDrops * (1 + Luck);
             var rand = Random.Range(1, gemDrops + 1);
             for (int i = 0; i < rand; i++)
             {

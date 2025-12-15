@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MemoryCard : MonoBehaviour
 {
@@ -15,12 +17,15 @@ public class MemoryCard : MonoBehaviour
 
     private void Update()
     {
-        if (CurrentRooms == RoomsPerFoot)
+        if (SceneManager.GetActiveScene().name == "New Demo")
         {
-            rabbitFeet += 1;
-            //Animation to show new rabbit foot gained
-            CurrentRooms = 0;
-            PlayerPrefs.SetInt("RabbitFeet", rabbitFeet);
+            if (CurrentRooms == RoomsPerFoot)
+            {
+                rabbitFeet += 5;
+                GameObject.Find("Canvas").transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = rabbitFeet.ToString();
+                CurrentRooms = 0;
+                PlayerPrefs.SetInt("RabbitFeet", rabbitFeet);
+            }
         }
     }
 
