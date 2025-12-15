@@ -32866,7 +32866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   jumpHeight: 6000
-  maxHealth: 200
+  maxHealth: 50
   curHealth: 0
   knockback: 70
   EnemyKnockback: 30
