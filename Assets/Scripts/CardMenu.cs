@@ -11,10 +11,12 @@ public class CardMenu : MonoBehaviour
     private int position = 0;
     private int numCards = 0;
     public Transform[] deckPositions;
+    private int numOfCardSlots;
 
     private void Start()
     {
         MemoryCard = GameObject.FindGameObjectWithTag("MemoryCard");
+        numOfCardSlots = 5 + PlayerPrefs.GetInt("StartingCardAmount");
         for (int i = MemoryCard.transform.childCount - 1; i >= 0; i--)
         {
             Destroy(MemoryCard.transform.GetChild(i).gameObject);
@@ -29,7 +31,7 @@ public class CardMenu : MonoBehaviour
             Selector.transform.position = SelectedCard.transform.position;
         }
 
-        if (delay < 0 && numCards < 14)
+        if (delay < 0 && numCards < numOfCardSlots)
         {
             if (Input.GetAxis("Horizontal") != 0)
             {
@@ -68,7 +70,7 @@ public class CardMenu : MonoBehaviour
             }
         }
 
-        if (numCards >= 4)
+        if (numCards >= 5)
         {
             if (Input.GetAxis("Fire1") > 0)
             {
