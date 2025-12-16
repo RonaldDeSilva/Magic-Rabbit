@@ -32553,9 +32553,9 @@ MonoBehaviour:
   jumpHeight: 6000
   maxHealth: 50
   curHealth: 0
+  CooldownTime: 0
   knockback: 70
   EnemyKnockback: 30
-  shuffleTime: 1.8
   rb: {fileID: 0}
   StartingColor: {r: 0, g: 0, b: 0, a: 0}
   Attacks:

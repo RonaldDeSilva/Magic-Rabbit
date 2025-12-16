@@ -92,6 +92,7 @@ public class Shop : MonoBehaviour
             button.gameObject.GetComponent<TextMeshProUGUI>().text = "Sold American";
             Mem.gems -= card.GetComponent<CardEffects>().Cost;
             Canvas.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = Mem.gems.ToString();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().shuffleTime += 0.25f;
         }
     }
 
@@ -106,6 +107,7 @@ public class Shop : MonoBehaviour
             button.gameObject.GetComponent<TextMeshProUGUI>().text = "Sold American";
             Mem.gems -= card.GetComponent<CardEffects>().Cost;
             Canvas.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = Mem.gems.ToString();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().shuffleTime += 0.25f;
         }
     }
 
@@ -120,6 +122,7 @@ public class Shop : MonoBehaviour
             button.gameObject.GetComponent<TextMeshProUGUI>().text = "Sold American";
             Mem.gems -= card.GetComponent<CardEffects>().Cost;
             Canvas.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = Mem.gems.ToString();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().shuffleTime += 0.25f;
         }
     }
 
@@ -134,6 +137,7 @@ public class Shop : MonoBehaviour
             button.gameObject.GetComponent<TextMeshProUGUI>().text = "Sold American";
             Mem.gems -= card.GetComponent<CardEffects>().Cost;
             Canvas.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = Mem.gems.ToString();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().shuffleTime += 0.25f;
         }
     }
 
@@ -148,6 +152,7 @@ public class Shop : MonoBehaviour
             button.gameObject.GetComponent<TextMeshProUGUI>().text = "Sold American";
             Mem.gems -= card.GetComponent<CardEffects>().Cost;
             Canvas.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = Mem.gems.ToString();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().shuffleTime += 0.25f;
         }
     }
 
@@ -162,6 +167,7 @@ public class Shop : MonoBehaviour
             button.gameObject.GetComponent<TextMeshProUGUI>().text = "Sold American";
             Mem.gems -= card.GetComponent<CardEffects>().Cost;
             Canvas.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = Mem.gems.ToString();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().shuffleTime += 0.25f;
         }
     }
 
@@ -176,6 +182,7 @@ public class Shop : MonoBehaviour
             button.gameObject.GetComponent<TextMeshProUGUI>().text = "Sold American";
             Mem.gems -= card.GetComponent<CardEffects>().Cost;
             Canvas.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = Mem.gems.ToString();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().shuffleTime += 0.25f;
         }
     }
 }

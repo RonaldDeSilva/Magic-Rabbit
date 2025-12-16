@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
     public float jumpHeight;
     public int maxHealth;
     public int curHealth;
-    private float CooldownTime = 1f;
+    private float CooldownTime = 1;
     public float knockback;
     public float EnemyKnockback;
     public float shuffleTime;
@@ -88,6 +88,7 @@ public class Movement : MonoBehaviour
     private int hurtAnimTimer;
     private GameObject Canvas;
     private int BaseDamage;
+    private int CardShuffleTime;
 
     #endregion
 
@@ -110,6 +111,10 @@ public class Movement : MonoBehaviour
         startSpeed = speed;
         startJumpHeight = jumpHeight;
         BaseDamage = PlayerPrefs.GetInt("BaseDamage");
+        CardShuffleTime = PlayerPrefs.GetInt("CardShuffleTime");
+
+        
+        
 
         if (PlayerPrefs.GetInt("MaxHealth") != 0)
         {
@@ -269,6 +274,7 @@ public class Movement : MonoBehaviour
                 var card = MemoryCard.transform.GetChild(i).gameObject;
                 card.transform.parent = Deck.transform;
                 card.transform.localPosition = Vector3.zero;
+                shuffleTime += 0.25f;
             }
         }
         while (Deck.transform.childCount != 0)
@@ -1181,26 +1187,22 @@ public class Movement : MonoBehaviour
     IEnumerator ShufflingCooldown()
     {
         shuffling = true;
-        StartCoroutine("DeckCooldownVisual");
-        yield return new WaitForSeconds(shuffleTime);
+        var shuff = shuffleTime / (1 + CardShuffleTime);
+        Debug.Log(shuffleTime);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "5";
+        yield return new WaitForSeconds(shuff / 5f);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "4";
+        yield return new WaitForSeconds(shuff / 5);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "3";
+        yield return new WaitForSeconds(shuff / 5);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "2";
+        yield return new WaitForSeconds(shuff / 5);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "1";
+        yield return new WaitForSeconds(shuff / 5);
+        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "0";
         DealCards();
         yield return new WaitForSeconds(0.2f);
         shuffling = false;
-    }
-
-    IEnumerator DeckCooldownVisual()
-    {
-        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "5";
-        yield return new WaitForSeconds(shuffleTime / 5f);
-        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "4";
-        yield return new WaitForSeconds(shuffleTime / 5);
-        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "3";
-        yield return new WaitForSeconds(shuffleTime / 5);
-        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "2";
-        yield return new WaitForSeconds(shuffleTime / 5);
-        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "1";
-        yield return new WaitForSeconds(shuffleTime / 5);
-        Canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "0";
     }
 
 
