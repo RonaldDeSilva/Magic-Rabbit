@@ -129,9 +129,10 @@ public class Enemy : MonoBehaviour
                     }
                 }
 
-                if (necroTimer == 216 || necroTimer == 17)
+                if (necroTimer == 150 || necroTimer == 20)
                 {
                     anim.SetBool("Summon", false);
+                    
                 }
 
                 if (necroTimer > 401)

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 88853401de7a8d549a9836c33d2eff77
+guid: 99c5d9e6222f36e4eb7585c9c2fc9248
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7698847335642984400
-    second: SUMMONER_WALKING_ANIMATION0042_0
+      213: 6201406244225702867
+    second: Jeni_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 450
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SUMMONER_WALKING_ANIMATION0042_0
+      name: Jeni_0
       rect:
         serializedVersion: 2
-        x: 623
-        y: 311
-        width: 666
-        height: 650
+        x: 19
+        y: 0
+        width: 121
+        height: 312
       alignment: 9
-      pivot: {x: 0.550386, y: 0.40294266}
+      pivot: {x: 0.49999887, y: 0.37447172}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03099037323382590800000000000000
-      internalID: -7698847335642984400
+      spriteID: 3db56f66f12df0650800000000000000
+      internalID: 6201406244225702867
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 49a05816683730f43b09619a75fa0f2f
+    spriteID: c6fb0401da43b9a4a8e35f82b5aa0340
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SUMMONER_WALKING_ANIMATION0042_0: -7698847335642984400
+      Jeni_0: 6201406244225702867
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
