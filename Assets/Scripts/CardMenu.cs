@@ -12,6 +12,8 @@ public class CardMenu : MonoBehaviour
     private int numCards = 0;
     public Transform[] deckPositions;
     private int numOfCardSlots;
+    public GameObject ToolTip;
+    public Sprite[] sprites;
 
     private void Start()
     {
@@ -25,6 +27,7 @@ public class CardMenu : MonoBehaviour
 
     void Update()
     {
+        
         if (SelectedCard != Deck.transform.GetChild(position).gameObject)
         {
             SelectedCard = Deck.transform.GetChild(position).gameObject;
@@ -60,7 +63,6 @@ public class CardMenu : MonoBehaviour
                     delay = 0.2f;
                 }
             }
-
             if (Input.GetAxis("Jump") != 0)
             {
                 var newCard = Instantiate(SelectedCard, MemoryCard.transform, true);
@@ -92,6 +94,8 @@ public class CardMenu : MonoBehaviour
         {
             position = (Deck.transform.childCount - 1) + position;
         }
+
+        ToolTip.GetComponent<SpriteRenderer>().sprite = sprites[position];
 
         if (Input.GetKeyDown("escape"))
         {
