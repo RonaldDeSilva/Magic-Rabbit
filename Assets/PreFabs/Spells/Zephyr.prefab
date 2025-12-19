@@ -137,9 +137,9 @@ GameObject:
   - component: {fileID: 550705697461915883}
   - component: {fileID: 8818708777993160775}
   - component: {fileID: 283037495283181774}
-  - component: {fileID: 320714002356775546}
   - component: {fileID: 6610566467161868459}
   - component: {fileID: 4507614055517960007}
+  - component: {fileID: -6642113495955040118}
   m_Layer: 2
   m_Name: Zephyr
   m_TagString: Ground
@@ -288,22 +288,6 @@ MonoBehaviour:
   initialYSpeed: 0
   maxYSpeed: 0
   rotation: 0
---- !u!111 &320714002356775546
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7005245863275089272}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 4262267181427542590, guid: 5e450233b052e2143bf54d7e3401a5fe, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!70 &6610566467161868459
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -438,6 +422,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-6642113495955040118
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005245863275089272}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 3060709389905667699, guid: 5e450233b052e2143bf54d7e3401a5fe, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8602664143730006769
 GameObject:
   m_ObjectHideFlags: 0

@@ -332,6 +332,10 @@ public class Attack : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        else if (CardTrick)
+        {
+            this.transform.position = Player.transform.position;
+        }
 
     }
     #endregion

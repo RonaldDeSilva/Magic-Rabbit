@@ -42,12 +42,14 @@ public class Enemy : MonoBehaviour
     public int gemDrops;
     private Animator anim;
     private int Luck;
+    public GameObject Spitter;
 
     public bool isNecromancer;
     public bool isZombie;
     public bool isIceBat;
     public bool isSlime;
     public bool isMimic;
+    public bool isSpitter;
     private float Acceleration = 0.01f;
 
 
@@ -94,7 +96,7 @@ public class Enemy : MonoBehaviour
                     Acceleration += Time.deltaTime;
                 }
 
-                
+
                 if (jumpTimer < 2)
                 {
                     jumpTimer += Time.deltaTime;
@@ -132,7 +134,7 @@ public class Enemy : MonoBehaviour
                 if (necroTimer == 150 || necroTimer == 20)
                 {
                     anim.SetBool("Summon", false);
-                    
+
                 }
 
                 if (necroTimer > 401)
@@ -202,7 +204,7 @@ public class Enemy : MonoBehaviour
             {
                 if (hunting)
                 {
-                    rb.linearVelocity = new Vector2 ((Player.transform.position.x - transform.position.x) * speed, rb.linearVelocityY);
+                    rb.linearVelocity = new Vector2((Player.transform.position.x - transform.position.x) * speed, rb.linearVelocityY);
                 }
                 else
                 {
@@ -217,6 +219,7 @@ public class Enemy : MonoBehaviour
                             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                             transform.GetChild(0).gameObject.SetActive(false);
                             hunting = true;
+                            anim.SetBool("Hunting", true);
                         }
                     }
 
@@ -226,10 +229,46 @@ public class Enemy : MonoBehaviour
                         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                         transform.GetChild(0).gameObject.SetActive(false);
                         hunting = true;
+                        anim.SetBool("Hunting", true);
                     }
 
                 }
             }
+            else if (isSpitter)
+            {
+                if
+                    (jumpTimer < 2)
+                {
+                    jumpTimer += Time.deltaTime;
+                    Acceleration = Mathf.Clamp(Acceleration, 0, 1);
+                    if (jumpTimer > 0.6f)
+                    {
+                        rb.linearVelocity = new Vector2((Player.transform.position.x - transform.position.x) * speed * Acceleration, (Player.transform.position.y - transform.position.y) * speed * Acceleration);
+                    }
+
+                    if (Acceleration != 1)
+                    {
+                        Acceleration += Time.deltaTime;
+                    }
+                }
+                else
+                {
+                    var jumpValue = Random.Range(0, 2);
+                    if (jumpValue == 1)
+                    {
+                        if (Player.transform.position.x < transform.position.x)
+                        {
+                            rb.AddForceX(-450);
+                        }
+                        else if (Player.transform.position.x > transform.position.x)
+                        {
+                            rb.AddForceX(450);
+                        }
+                        jumpTimer = 0;
+                    }
+                }
+            }
+
         }
         else if (CurrentTime >= 0f && bounce)
         {
@@ -270,6 +309,7 @@ public class Enemy : MonoBehaviour
             bounces = 0;
         }
         rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -speed * 3, speed * 3);
+
     }
 
     #endregion
@@ -335,7 +375,7 @@ public class Enemy : MonoBehaviour
             {
                 if (!Player.GetComponent<Movement>().invulnerable && !Player.GetComponent<Movement>().justHit && !Player.GetComponent<Movement>().StoneForm)
                 {
-                    
+
                     var rando = Random.Range(0, 4);
                     if (rando == 3)
                     {
@@ -379,6 +419,37 @@ public class Enemy : MonoBehaviour
                 {
                     Player.GetComponent<Movement>().curHealth -= attackDamage;
                     Player.GetComponent<Movement>().CheckHealth(this.gameObject);
+                }
+            }
+        }
+        else if (isIceBat)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (!Player.GetComponent<Movement>().invulnerable && !Player.GetComponent<Movement>().justHit && !Player.GetComponent<Movement>().StoneForm)
+                {
+
+                    var rando = Random.Range(0, 4);
+                    if (rando == 3)
+                    {
+                        if (!Player.GetComponent<Movement>().frozen)
+                        {
+                            Player.GetComponent<Movement>().frozen = true;
+                            Player.GetComponent<Movement>().FrozenTimer = 2f;
+                            Player.GetComponent<Movement>().curHealth -= attackDamage;
+                            Player.GetComponent<Movement>().CheckHealth(this.gameObject);
+                        }
+                        else
+                        {
+                            Player.GetComponent<Movement>().curHealth -= attackDamage;
+                            Player.GetComponent<Movement>().CheckHealth(this.gameObject);
+                        }
+                    }
+                    else
+                    {
+                        Player.GetComponent<Movement>().curHealth -= bumpDamage;
+                        Player.GetComponent<Movement>().CheckHealth(this.gameObject);
+                    }
                 }
             }
         }
