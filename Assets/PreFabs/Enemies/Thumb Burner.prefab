@@ -151,11 +151,13 @@ MonoBehaviour:
   huntingMode: {fileID: 0}
   Gem: {fileID: 4165453375949470119, guid: 59d27ab2aeb97044eb4185e5cb17011e, type: 3}
   gemDrops: 7
+  Spitter: {fileID: 0}
   isNecromancer: 1
   isZombie: 0
   isIceBat: 0
   isSlime: 0
   isMimic: 0
+  isSpitter: 0
 --- !u!70 &736726871424590478
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -190,8 +192,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.09324551, y: 0.003276348}
-  m_Size: {x: 0.85702324, y: 1.3973703}
+  m_Offset: {x: 0.019385338, y: -0.036553144}
+  m_Size: {x: 0.3601284, y: 0.7123027}
   m_Direction: 0
 --- !u!95 &7174394116500590828
 Animator:

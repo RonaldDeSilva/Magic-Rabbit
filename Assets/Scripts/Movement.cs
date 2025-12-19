@@ -89,6 +89,7 @@ public class Movement : MonoBehaviour
     private GameObject Canvas;
     private int BaseDamage;
     private int CardShuffleTime;
+    private Animator anim;
 
     #endregion
 
@@ -112,9 +113,10 @@ public class Movement : MonoBehaviour
         startJumpHeight = jumpHeight;
         BaseDamage = PlayerPrefs.GetInt("BaseDamage");
         CardShuffleTime = PlayerPrefs.GetInt("CardShuffleTime");
+        anim = GetComponent<Animator>();
 
-        
-        
+
+
 
         if (PlayerPrefs.GetInt("MaxHealth") != 0)
         {
@@ -156,8 +158,13 @@ public class Movement : MonoBehaviour
                 {
                     rb.AddForceY(jumpHeight);
                     jumped = true;
+                    anim.SetBool("Bounch", true);
                 }
             }
+                else if (Input.GetAxis("Jump") == 0)
+                {
+                 anim.SetBool("Bounch", false);
+                }
 
             if (Input.GetMouseButtonDown(0) && !UsingCard && !shuffling)
             {
